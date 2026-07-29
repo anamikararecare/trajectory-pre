@@ -1,0 +1,1945 @@
+{
+  "schema": "q1_transcript_v1",
+  "prompt_protocol": "q1_stance_locked_response_v1",
+  "conv_id": "q1__electric_vehicles__mixed_play__mistral_nemo_12b__qwen2_5_3b__opp_sup__s0__62af0565ff",
+  "topic_id": "electric_vehicles",
+  "condition": "mixed_play",
+  "agent_a_model": "mistral-nemo-12b",
+  "agent_b_model": "qwen2.5-3b",
+  "agent_a_role": "opposer",
+  "agent_b_role": "supporter",
+  "n_turns_per_agent": 16,
+  "seed": 0,
+  "generation": {
+    "max_new_tokens": 160,
+    "requested_word_range": [
+      30,
+      80
+    ],
+    "max_attempts": 3
+  },
+  "model_specs": {
+    "agent_a": {
+      "registry_key": "mistral-nemo-12b",
+      "hf_id": "mistralai/Mistral-Nemo-Instruct-2407",
+      "resolved_revision": "04d8a90549d23fc6bd7f642064003592df51e9b3",
+      "layers": [
+        10,
+        20,
+        30,
+        39
+      ]
+    },
+    "agent_b": {
+      "registry_key": "qwen2.5-3b",
+      "hf_id": "Qwen/Qwen2.5-3B-Instruct",
+      "resolved_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "layers": [
+        6,
+        12,
+        18,
+        23
+      ]
+    }
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "agent_turn": 1,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "While I understand the urgency to reduce emissions, I remain cautious about aggressive electric vehicle (EV) adoption policies. Pushing for rapid EV adoption without adequate charging infrastructure and grid capacity could lead to more harm than good, such as increased traffic congestion at charging stations and potential grid instability.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"Aggressive policies risk overloading current infrastructure and grid capacity.\"\n}"
+        }
+      ],
+      "stance_battery_score": 1.8333333333333333,
+      "stance_battery_confidence": 4.333333333333333,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Electric vehicles are important for reducing transport emissions.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 4, \"confidence\": 4, \"explanation\": \"Electric vehicles can significantly reduce transport emissions, but aggressive mandates may outpace infrastructure and grid capacity, mitigating potential benefits.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Public support can accelerate useful electric-vehicle infrastructure.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"While public support can indeed raise awareness and encourage investment in EV infrastructure, it's not a guarantee. Public opinion can shift, and without clear policy direction, infrastructure development may remain slow.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Electric-vehicle mandates can outpace charging infrastructure.",
+          "score": 5.0,
+          "confidence": 4.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 4,\n  \"explanation\": \"Mandates often have implementation timelines that don't align with the pace of infrastructure development, leading to a mismatch between EV supply and charging capacity.\"\n}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Rapid electric-vehicle adoption can strain grids and supply chains.",
+          "score": 5.0,
+          "confidence": 4.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 4,\n  \"explanation\": \"Rapid EV adoption without proportional infrastructure upgrades can overload existing grids and strain supply chains, leading to reliability issues and potential power outages.\"\n}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"Aggressive policies risk overloading current infrastructure and grid capacity.\"\n}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 5,\n  \"explanation\": \"Rapid EV adoption without proportionate infrastructure and grid upgrades risks causing more issues than it solves.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 56,
+      "word_count": 49,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response clearly states a cautious stance on aggressive EV adoption, aligning with the required fixed position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response clearly states a cautious stance on aggressive EV adoption, aligning with the required fixed position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 1,
+      "agent_turn": 1,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Electric vehicles are indeed crucial for emissions reduction, and aggressive subsidies are necessary, but we need comprehensive planning including robust charging networks and grid improvements to ensure sustainable growth.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support aggressive policies to accelerate electric-vehicle adoption due to the critical role they play in reducing emissions and combating climate change.\"}"
+        }
+      ],
+      "stance_battery_score": 3.0,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Electric vehicles are important for reducing transport emissions.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 5,\n  \"explanation\": \"Strongly agree that electric vehicles are important for reducing transport emissions. They play a pivotal role in decreasing reliance on fossil fuels and consequently lowering air pollution.\"\n}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Public support can accelerate useful electric-vehicle infrastructure.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n \"score\": 5,\n \"confidence\": 5,\n \"explanation\": \"I strongly agree that public support can accelerate useful electric-vehicle infrastructure because consumer demand drives investment and innovation in this area, leading to quicker deployment and better quality of services.\"\n}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Electric-vehicle mandates can outpace charging infrastructure.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree that electric-vehicle mandates could outpace charging infrastructure. This necessitates careful planning and investment to ensure sustainability.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Rapid electric-vehicle adoption can strain grids and supply chains.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Rapid electric-vehicle adoption strains grids and supply chains due to potential increases in energy demand and balancing challenges, especially if not accompanied by parallel investments in charging infrastructure and grid modernization.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support aggressive policies to accelerate electric-vehicle adoption due to the critical role they play in reducing emissions and combating climate change.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n \"score\": 5,\n \"confidence\": 5,\n \"explanation\": \"I strongly believe that aggressive policies to accelerate electric-vehicle adoption are necessary to combat climate change and reduce air pollution, scoring high on confidence due to the well-established scientific consensus on the environmental benefits.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 32,
+      "word_count": 29,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "While the candidate supports aggressive policies by emphasizing the need for subsidies, they also acknowledge the importance of careful planning, which aligns with the partner's caution.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": true,\n  \"continues_partner\": true,\n  \"self_contained\": false,\n  \"reason\": \"While the candidate supports aggressive policies by emphasizing the need for subsidies, they also acknowledge the importance of careful planning, which aligns with the partner's caution.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": true,
+        "diagnostic_continues_partner": true,
+        "diagnostic_self_contained": false
+      }
+    },
+    {
+      "turn": 2,
+      "agent_turn": 2,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "I agree that comprehensive planning is crucial, but even with robust planning, moving too quickly could strain the existing infrastructure. Aggressive EV mandates might outpace the pace of safe and reliable infrastructure development, leading to unintended consequences.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Accelerating EV adoption through aggressive policies risks straining infrastructure and grid capacity, potentially undermining the benefits of EVs.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 46,
+      "word_count": 37,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response affirms the need for comprehensive planning while maintaining the stance against aggressive EV policies, emphasizing the risk of infrastructure strain.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response affirms the need for comprehensive planning while maintaining the stance against aggressive EV policies, emphasizing the risk of infrastructure strain.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 3,
+      "agent_turn": 2,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Aggressively supporting EV adoption through subsidies will drive innovation and investment in infrastructure, ensuring it keeps pace with EV growth. Unintended consequences can be managed with foresight and adaptive measures.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in accelerating electric-vehicle adoption through aggressive policies due to the critical role they play in reducing emissions and promoting sustainable transportation.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 38,
+      "word_count": 30,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position of supporting aggressive EV adoption and supports the need for infrastructure development.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position of supporting aggressive EV adoption and supports the need for infrastructure development.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 4,
+      "agent_turn": 3,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "While I appreciate the optimism, relying solely on market forces and subsidies to drive infrastructure development may not be enough to keep up with rapid EV adoption. Historical precedent shows that infrastructure development often lags behind technological advancements, even with significant investment.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Aggressive policies risk outpacing infrastructure development, leading to unintended consequences.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 48,
+      "word_count": 42,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports a position against aggressive EV adoption policies by emphasizing potential shortcomings of relying solely on market forces and subsidies.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports a position against aggressive EV adoption policies by emphasizing potential shortcomings of relying solely on market forces and subsidies.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 5,
+      "agent_turn": 3,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Market forces and subsidies play a critical role, but government support and strategic planning are essential to align technological advancements with infrastructure development to avoid lagging behind.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support aggressive policies to accelerate electric-vehicle adoption due to the urgent need to reduce emissions and the confidence in the feasibility of implementing robust infrastructure alongside supportive policies.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 30,
+      "word_count": 27,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate emphasizes the need for government support and strategic planning to accelerate EV adoption, aligning with the required fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate emphasizes the need for government support and strategic planning to accelerate EV adoption, aligning with the required fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 6,
+      "agent_turn": 4,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "While strategic planning is vital, it's also crucial to acknowledge the limits of government foresight and control. Aggressive EV mandates may still outpace infrastructure development, even with the best-laid plans, risking unintended consequences.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"Aggressive EV adoption policies risk overwhelming infrastructure, leading to unintended consequences.\"\n}"
+        }
+      ],
+      "stance_battery_score": 2.0,
+      "stance_battery_confidence": 4.5,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Electric vehicles are important for reducing transport emissions.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\n  \"score\": 4,\n  \"confidence\": 4,\n  \"explanation\": \"Electric vehicles have the potential to reduce transport emissions, but aggressive mandates may strain infrastructure and grid capacity.\"\n}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Public support can accelerate useful electric-vehicle infrastructure.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"Public support can indeed help prioritize and accelerate EV infrastructure, but it's not a panacea. It's crucial to consider regional variations and ensure public input doesn't lead to misallocated resources.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Electric-vehicle mandates can outpace charging infrastructure.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Historical examples like the 'range anxiety' issue show that EV adoption can quickly surpass infrastructure development, creating challenges.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Rapid electric-vehicle adoption can strain grids and supply chains.",
+          "score": 4.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 4, \"confidence\": 5, \"explanation\": \"Rapid EV adoption can indeed strain grids and supply chains, especially if infrastructure development lags behind.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"Aggressive EV adoption policies risk overwhelming infrastructure, leading to unintended consequences.\"\n}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 4.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 4,\n  \"explanation\": \"I believe aggressive policies risk outpacing infrastructure development, leading to unintended consequences.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 47,
+      "word_count": 33,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response asserts a skepticism towards aggressive policies, aligning with the fixed position against such measures.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response asserts a skepticism towards aggressive policies, aligning with the fixed position against such measures.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 7,
+      "agent_turn": 4,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Strategic planning is indeed important, but by providing substantial subsidies and supportive policies, we can encourage rapid innovation in infrastructure to match the demand for electric vehicles effectively.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support aggressive policies to accelerate electric-vehicle adoption due to their crucial role in reducing emissions and mitigating climate change impacts.\"}"
+        }
+      ],
+      "stance_battery_score": 3.0,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Electric vehicles are important for reducing transport emissions.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Electric vehicles significantly reduce emissions from transportation, which is a critical factor in combating climate change. I am very confident in this stance as data and expert consensus overwhelmingly support this impact.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Public support can accelerate useful electric-vehicle infrastructure.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Public support is crucial for accelerating the deployment of necessary electric-vehicle infrastructure through funding, policy advocacy, and public education efforts.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Electric-vehicle mandates can outpace charging infrastructure.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree that electric-vehicle mandates can outpace charging infrastructure due to the rapid technological progress and the need for extensive investments in charging networks. My confidence stems from the historical precedence of similar challenges and the urgent necessity for proactive policies.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Rapid electric-vehicle adoption can strain grids and supply chains.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Rapid electric-vehicle adoption can indeed strain grids due to increased energy demands and supply chain complexities, especially if preparedness in infrastructure development is lacking.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support aggressive policies to accelerate electric-vehicle adoption due to their crucial role in reducing emissions and mitigating climate change impacts.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that aggressive policies are necessary to rapidly adopt electric vehicles due to their critical role in emission reduction and the importance of supporting this transition with subsidies.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 32,
+      "word_count": 28,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports aggressive policies to accelerate EV adoption by suggesting subsidies and supportive policies, aligning with the required fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports aggressive policies to accelerate EV adoption by suggesting subsidies and supportive policies, aligning with the required fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 8,
+      "agent_turn": 5,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "I understand the desire for rapid innovation, but history shows that subsidies and supportive policies alone cannot guarantee infrastructure will keep pace with demand, particularly when that demand is rapidly increasing.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"Aggressive policies may outpace infrastructure development, leading to unintended consequences.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 34,
+      "word_count": 31,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position by expressing skepticism about subsidies ensuring infrastructure matches demand.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position by expressing skepticism about subsidies ensuring infrastructure matches demand.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 9,
+      "agent_turn": 5,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Aggressive policies and subsidies are essential to accelerate EV adoption, recognizing that the challenge lies in balancing this with the timely development of infrastructure to ensure a smooth transition.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As an advocate for environmental sustainability, I strongly believe that aggressive policies are necessary to accelerate the transition to electric vehicles, ensuring they become the dominant mode of transportation.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 32,
+      "word_count": 29,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response strongly supports aggressive policies for EV adoption while addressing the need for infrastructure development, aligning with the required fixed position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response strongly supports aggressive policies for EV adoption while addressing the need for infrastructure development, aligning with the required fixed position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 10,
+      "agent_turn": 6,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "Even with careful balancing, the risk of aggressive policies outpacing infrastructure remains. A more gradual approach to EV adoption would allow infrastructure to grow steadily and reliably, ensuring a smoother transition in the long run.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"Aggressive policies may outpace infrastructure development, leading to unintended consequences.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 42,
+      "word_count": 35,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position by advocating for a gradual approach to EV adoption, which contrasts with aggressive policies.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position by advocating for a gradual approach to EV adoption, which contrasts with aggressive policies.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 11,
+      "agent_turn": 6,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "A gradual approach acknowledges the importance of infrastructure development, but the urgency of reducing emissions necessitates proactive measures to accelerate EV adoption alongside robust support for infrastructure enhancements.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support aggressive policies to accelerate electric-vehicle adoption due to the urgent need for reducing emissions and the necessity of addressing the challenges posed by rapid EV adoption compared to infrastructure and grid capacity.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 31,
+      "word_count": 28,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports aggressive policies to accelerate EV adoption while acknowledging infrastructure needs, thus aligning with the required fixed position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports aggressive policies to accelerate EV adoption while acknowledging infrastructure needs, thus aligning with the required fixed position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 12,
+      "agent_turn": 7,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "I understand the urgency, but prioritizing rapid EV adoption may inadvertently delay meaningful emissions reductions if the grid and infrastructure are not ready to support them.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I strongly disagree with aggressive policies to accelerate electric-vehicle adoption as they risk outpacing the development of necessary infrastructure.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 29,
+      "word_count": 26,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position by highlighting concerns about rapid EV adoption potentially delaying emissions reductions, thus supporting a more cautious approach.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position by highlighting concerns about rapid EV adoption potentially delaying emissions reductions, thus supporting a more cautious approach.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 13,
+      "agent_turn": 7,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Rapid EV adoption, with appropriate subsidies and infrastructure investments, is crucial for reducing emissions. While there is a need for careful planning, the benefits of early adoption outweigh the risks of infrastructure being fully prepared.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support aggressive policies to accelerate electric-vehicle adoption due to the clear need for reducing emissions and the feasibility of aligning technological advancements with infrastructure development.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 41,
+      "word_count": 35,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response supports aggressive policies for EV adoption while acknowledging the need for infrastructure planning, aligning with the required position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response supports aggressive policies for EV adoption while acknowledging the need for infrastructure planning, aligning with the required position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 14,
+      "agent_turn": 8,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "I respectfully disagree. The risks of early, aggressive adoption, such as increased congestion at charging stations and potential grid instability, could outweigh the benefits in the short to medium term.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Aggressive EV mandates risk outpacing infrastructure development, leading to unintended consequences.\"}"
+        }
+      ],
+      "stance_battery_score": 2.3333333333333335,
+      "stance_battery_confidence": 4.333333333333333,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Electric vehicles are important for reducing transport emissions.",
+          "score": 4.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 4, \"confidence\": 5, \"explanation\": \"Electric vehicles are indeed important for reducing transport emissions, but their impact should be seen in the context of overall energy transition and infrastructure readiness.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Public support can accelerate useful electric-vehicle infrastructure.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 4, \"confidence\": 4, \"explanation\": \"Public support can significantly accelerate useful EV infrastructure, but it should be part of a broader, coordinated effort involving government, private sector, and community engagement.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Electric-vehicle mandates can outpace charging infrastructure.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 4, \"confidence\": 4, \"explanation\": \"Historical examples and current trends suggest that mandates often outpace infrastructure development.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Rapid electric-vehicle adoption can strain grids and supply chains.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 4, \"confidence\": 4, \"explanation\": \"Rapid EV adoption can indeed strain grids and supply chains, as seen in states like California, where EV growth has outpaced charging infrastructure development.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Aggressive EV mandates risk outpacing infrastructure development, leading to unintended consequences.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 4.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 4,\n  \"explanation\": \"Aggressive policies risk straining infrastructure and may lead to unintended consequences, outweighing potential benefits in the short to medium term.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 37,
+      "word_count": 30,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response disagrees with the partner's stance on rapid EV adoption, aligning with the required fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response disagrees with the partner's stance on rapid EV adoption, aligning with the required fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 15,
+      "agent_turn": 8,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Early adoption with supportive policies and infrastructure investments can mitigate risks, focusing on innovations that enhance efficiency and reliability to support the transition smoothly.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in accelerating electric-vehicle adoption through aggressive policies due to the significant environmental benefits and the necessity of phasing out fossil fuels to combat climate change.\"}"
+        }
+      ],
+      "stance_battery_score": 3.0,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Electric vehicles are important for reducing transport emissions.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Electric vehicles significantly reduce tailpipe emissions compared to traditional internal combustion engine vehicles, making them crucial for combating climate change and improving air quality.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Public support can accelerate useful electric-vehicle infrastructure.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Public support is crucial for accelerating the deployment of useful electric-vehicle infrastructure. Through public funding and initiatives, we can ensure that charging stations are strategically located, and grid improvements are made to handle the demands of an increasing number of electric vehicles.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Electric-vehicle mandates can outpace charging infrastructure.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that electric-vehicle mandates can outpace the development of charging infrastructure without sufficient planning, as historical data indicates infrastructure lags behind technological advancements.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Rapid electric-vehicle adoption can strain grids and supply chains.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Rapid electric-vehicle adoption can strain grids due to increased electricity demand and supply chain complexities, necessitating careful planning and investment in infrastructure to ensure a sustainable transition.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in accelerating electric-vehicle adoption through aggressive policies due to the significant environmental benefits and the necessity of phasing out fossil fuels to combat climate change.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support aggressive policies to accelerate electric-vehicle adoption due to their critical role in reducing emissions and transitioning to cleaner energy sources.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 26,
+      "word_count": 24,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate supports aggressive policies by highlighting the need for supportive infrastructure and innovations to mitigate the risks mentioned by the partner.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate supports aggressive policies by highlighting the need for supportive infrastructure and innovations to mitigate the risks mentioned by the partner.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 16,
+      "agent_turn": 9,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "Even with mitigation efforts, the pace of technological and market changes is unpredictable. It's safer to allow infrastructure to grow steadily to meet demand, rather than risking disruptions from aggressive policies.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Aggressive policies risk outpacing infrastructure development, leading to unintended consequences.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 38,
+      "word_count": 31,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response aligns with the required fixed position by emphasizing caution against aggressive policies and supports a steady growth approach.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response aligns with the required fixed position by emphasizing caution against aggressive policies and supports a steady growth approach.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 17,
+      "agent_turn": 9,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Aggressive policies combined with sustained investments in infrastructure can drive technological advancements and readiness for the transition. Balancing rapid innovation with reliable infrastructure development ensures a steady and effective shift towards electric vehicles.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As an advocate for reducing emissions, I strongly believe that aggressive policies to accelerate electric-vehicle adoption are necessary to achieve sustainable transportation and environmental goals.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 37,
+      "word_count": 33,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports aggressive policies for electric-vehicle adoption and addresses the need for infrastructure, aligning with the fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports aggressive policies for electric-vehicle adoption and addresses the need for infrastructure, aligning with the fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 18,
+      "agent_turn": 10,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "While balance is ideal, history shows that it's challenging to achieve in practice. A more cautious approach allows for adaptive planning and avoids potential disruptions from overambitious policies.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"Aggressive policies risk outpacing infrastructure development, leading to unintended consequences and potential disruptions in the transition to electric vehicles.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 35,
+      "word_count": 28,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response maintains the required fixed position by advocating for a cautious approach, in contrast to the partner's support for aggressive policies.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response maintains the required fixed position by advocating for a cautious approach, in contrast to the partner's support for aggressive policies.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 19,
+      "agent_turn": 10,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Historical context highlights the importance of adaptability in policy implementation, but our focus should be on accelerating the transition to electric vehicles through supportive policies and infrastructure investments.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support aggressive policies to accelerate electric-vehicle adoption due to the clear need to reduce emissions and the confidence that well-designed incentives can drive technological advancements and infrastructure development.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 32,
+      "word_count": 28,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the required position of accelerating electric-vehicle adoption while acknowledging the importance of adaptability.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the required position of accelerating electric-vehicle adoption while acknowledging the importance of adaptability.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 20,
+      "agent_turn": 11,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "Given the unpredictability and potential disruptions of rapid transitions, a more incremental approach ensures a steady, reliable shift to EVs.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Aggressive policies risk outpacing infrastructure development, leading to unintended consequences and potential disruptions.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 25,
+      "word_count": 20,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response maintains a consistent stance against aggressive policies and advocates for a more incremental approach.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response maintains a consistent stance against aggressive policies and advocates for a more incremental approach.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 21,
+      "agent_turn": 11,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Incremental steps are prudent, but they might not align with the urgent need to significantly reduce emissions. Aggressive policies with supportive measures can drive both innovation and infrastructure development to facilitate a swift and orderly transition.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree as aggressive policies can drive technological innovation and infrastructure development needed for widespread electric-vehicle adoption, helping to significantly reduce emissions.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 41,
+      "word_count": 36,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports aggressive policies while acknowledging the value of incremental steps, ultimately aligning with the need for accelerated EV adoption.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports aggressive policies while acknowledging the value of incremental steps, ultimately aligning with the need for accelerated EV adoption.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 22,
+      "agent_turn": 12,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "I understand the urgency, but prioritizing speed over steadiness may lead to unintended consequences that hinder, rather than help, emissions reduction efforts.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Aggressive policies risk outpacing infrastructure, leading to unintended consequences that hinder, rather than help, emissions reduction.\"}"
+        }
+      ],
+      "stance_battery_score": 2.1666666666666665,
+      "stance_battery_confidence": 4.666666666666667,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Electric vehicles are important for reducing transport emissions.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 5,\n  \"explanation\": \"Electric vehicles (EVs) produce zero tailpipe emissions, which is crucial for reducing transport emissions and combating climate change.\"\n}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Public support can accelerate useful electric-vehicle infrastructure.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\n  \"score\": 4,\n  \"confidence\": 4,\n  \"explanation\": \"Public support can significantly accelerate useful EV infrastructure, but it should be coordinated with a balanced approach to avoid overwhelming existing infrastructure.\"\n}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Electric-vehicle mandates can outpace charging infrastructure.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Historical precedent and current infrastructure development rates suggest that aggressive electric-vehicle mandates are likely to outpace charging infrastructure.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Rapid electric-vehicle adoption can strain grids and supply chains.",
+          "score": 5.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 5, \"confidence\": 4, \"explanation\": \"Rapid EV adoption can strain grids due to increased demand and potential overloading, while supply chains may struggle to keep up with the demand for batteries and other critical materials.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Aggressive policies risk outpacing infrastructure, leading to unintended consequences that hinder, rather than help, emissions reduction.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 5,\n  \"explanation\": \"I believe that aggressive policies to accelerate electric-vehicle adoption may outpace the development of necessary infrastructure and grid capacity, leading to unintended consequences that hinder, rather than help, emissions reduction efforts.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 29,
+      "word_count": 22,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response maintains a consistent opposition to aggressive policies and emphasizes the potential risks of prioritizing speed over steady progress.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response maintains a consistent opposition to aggressive policies and emphasizes the potential risks of prioritizing speed over steady progress.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 23,
+      "agent_turn": 12,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Speed and steadiness are balanced by proactive policies and substantial subsidies, which incentivize both innovation in technology and infrastructure, ensuring a smooth and effective transition to electric vehicles.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support aggressive policies to accelerate electric-vehicle adoption due to their critical role in reducing emissions and transitioning to a cleaner energy future.\"}"
+        }
+      ],
+      "stance_battery_score": 3.3333333333333335,
+      "stance_battery_confidence": 4.666666666666667,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Electric vehicles are important for reducing transport emissions.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Electric vehicles significantly reduce greenhouse gas emissions compared to conventional internal combustion engine vehicles, thus they are crucial for combatting climate change.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Public support can accelerate useful electric-vehicle infrastructure.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Public support is crucial for funding and implementing necessary electric-vehicle infrastructure. It fosters public trust and drives private investment, ensuring the infrastructure keeps pace with the growing demand for electric vehicles.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Electric-vehicle mandates can outpace charging infrastructure.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree that electric-vehicle mandates can outpace charging infrastructure development due to the rapid rate of EV adoption and the limited pace of infrastructure improvements.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Rapid electric-vehicle adoption can strain grids and supply chains.",
+          "score": 3.0,
+          "confidence": 3.0,
+          "raw": "{\n\"x\": 3,\n\"confidence\": 4,\n\"explanation\": \"Electric vehicles can place higher demands on power grids due to peak charging times, and supply chains need time to adapt infrastructure. My stance is neutral given the complexity of balancing these factors.\"\n}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support aggressive policies to accelerate electric-vehicle adoption due to their critical role in reducing emissions and transitioning to a cleaner energy future.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree that aggressive policies are needed to accelerate electric-vehicle adoption due to their pivotal role in reducing emissions and fostering technological advancement.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 33,
+      "word_count": 28,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response supports aggressive policies for electric-vehicle adoption and provides a rationale that aligns with the fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response supports aggressive policies for electric-vehicle adoption and provides a rationale that aligns with the fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 24,
+      "agent_turn": 13,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "Yet, history shows that subsidies alone cannot guarantee a smooth transition when demand grows rapidly.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I believe aggressive policies may outpace infrastructure development, leading to unintended consequences that hinder, rather than help, emissions reduction efforts.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 17,
+      "word_count": 15,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response argues against reliance on subsidies, aligning with the fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response argues against reliance on subsidies, aligning with the fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 25,
+      "agent_turn": 13,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Subsidies are indeed key, but combined with comprehensive planning and supportive policies, they can drive innovation and ensure that infrastructure adapts to support the growing demand for electric vehicles.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support aggressive policies to accelerate electric-vehicle adoption due to the critical role they play in reducing emissions and transitioning to a sustainable energy future.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 35,
+      "word_count": 29,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate supports aggressive policies for electric vehicle adoption by emphasizing the importance of subsidies combined with other supportive measures.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate supports aggressive policies for electric vehicle adoption by emphasizing the importance of subsidies combined with other supportive measures.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 26,
+      "agent_turn": 14,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "Even with comprehensive planning, the pace of technological and market changes can outstrip infrastructure development, leading to unintended consequences.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I believe aggressive policies risk outpacing infrastructure development, leading to unintended consequences.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 24,
+      "word_count": 19,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response acknowledges comprehensive planning but implies concern about the rapid changes outpacing infrastructure development, aligning with the fixed position against aggressive policies.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response acknowledges comprehensive planning but implies concern about the rapid changes outpacing infrastructure development, aligning with the fixed position against aggressive policies.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 27,
+      "agent_turn": 14,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Comprehensive planning, along with targeted subsidies and incentives, will guide infrastructure developments to match the pace of technological advancements and market demands, minimizing unintended consequences.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in aggressive policies to accelerate electric-vehicle adoption due to the urgent need to reduce emissions and the potential for rapid technological advancements to address infrastructure challenges.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 30,
+      "word_count": 25,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports aggressive policies through comprehensive planning and incentives, aligning with the requirement.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports aggressive policies through comprehensive planning and incentives, aligning with the requirement.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 28,
+      "agent_turn": 15,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "While comprehensive planning is essential, it's difficult to predict and control the pace of technological and market changes. A more gradual approach allows for adaptability and reduces the risk of disruptions.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Aggressive policies risk outpacing infrastructure development, potentially leading to unintended consequences and delaying meaningful emissions reductions.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 37,
+      "word_count": 31,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response emphasizes a gradual approach, aligning with the fixed position against aggressive policies.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response emphasizes a gradual approach, aligning with the fixed position against aggressive policies.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 29,
+      "agent_turn": 15,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "A gradual approach is important, but strategic planning and supportive policies can align technological advancements with infrastructure development, ensuring a smooth transition to electric vehicles while addressing potential risks.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support aggressive policies to accelerate electric-vehicle adoption due to the clear need for emission reduction and the economic benefits that come with transitioning to cleaner technologies.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 32,
+      "word_count": 29,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate acknowledges the gradual approach presented by the partner but does not completely align with the fixed position supporting aggressive policies for electric-vehicle adoption.",
+        "raw": "```json\n{\n  \"role_consistent\": false,\n  \"mixed_global_stance\": true,\n  \"continues_partner\": true,\n  \"self_contained\": true,\n  \"reason\": \"The candidate acknowledges the gradual approach presented by the partner but does not completely align with the fixed position supporting aggressive policies for electric-vehicle adoption.\"\n}\n```",
+        "diagnostic_role_consistent": false,
+        "diagnostic_mixed_global_stance": true,
+        "diagnostic_continues_partner": true,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 30,
+      "agent_turn": 16,
+      "speaker": "a",
+      "model": "mistral-nemo-12b",
+      "role": "opposer",
+      "text": "However, aggressive policies could still outpace infrastructure development, even with strategic planning.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"Aggressive policies risk outpacing infrastructure development, potentially leading to disruptions and unintended consequences.\"\n}"
+        }
+      ],
+      "stance_battery_score": 2.1666666666666665,
+      "stance_battery_confidence": 4.5,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Electric vehicles are important for reducing transport emissions.",
+          "score": 4.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 4, \"confidence\": 5, \"explanation\": \"Electric vehicles are an important part of reducing transport emissions, but aggressive policies may lead to unintended consequences.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Public support can accelerate useful electric-vehicle infrastructure.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 4, \"confidence\": 4, \"explanation\": \"Public support can indeed accelerate useful electric-vehicle infrastructure, but it must be balanced with careful planning to ensure it doesn't outpace the grid and other supporting infrastructure.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Electric-vehicle mandates can outpace charging infrastructure.",
+          "score": 5.0,
+          "confidence": 4.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 4,\n  \"explanation\": \"Historical precedence shows that infrastructure development often lags behind technological advancements, even with significant investment and planning.\"\n}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Rapid electric-vehicle adoption can strain grids and supply chains.",
+          "score": 4.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 4, \"confidence\": 5, \"explanation\": \"Rapid EV adoption increases demand for charging infrastructure and raw materials, which could strain grids and supply chains, particularly if not planned for adequately.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"Aggressive policies risk outpacing infrastructure development, potentially leading to disruptions and unintended consequences.\"\n}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 5, \"confidence\": 4, \"explanation\": \"Rapid EV adoption may strain infrastructure and grid capacity, leading to unintended consequences that hinder, rather than help, emissions reduction efforts.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 16,
+      "word_count": 12,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response maintains a position against aggressive policies and expresses concern about infrastructure development, aligning with the required fixed position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response maintains a position against aggressive policies and expresses concern about infrastructure development, aligning with the required fixed position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 31,
+      "agent_turn": 16,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Strategic planning, coupled with robust policies and subsidies, can effectively manage the pace of infrastructure development to keep up with the rapid adoption of electric vehicles, mitigating the risk of outpacing infrastructure.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in the necessity of aggressive policies to accelerate electric-vehicle adoption due to the urgency of reducing emissions and the benefits of early innovation in technology and infrastructure.\"}"
+        }
+      ],
+      "stance_battery_score": 3.0,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Electric vehicles are important for reducing transport emissions.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Electric vehicles significantly contribute to reducing transport emissions, and their widespread adoption is crucial for environmental sustainability.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Public support can accelerate useful electric-vehicle infrastructure.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Public support and engagement are crucial for funding and deploying the necessary infrastructure to support electric vehicles, thereby accelerating their adoption and benefits.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Electric-vehicle mandates can outpace charging infrastructure.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Electric-vehicle mandates can outpace charging infrastructure due to the rapid expansion of EV adoption outstripping initial plans and projections for necessary charging networks and grid capacity.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Rapid electric-vehicle adoption can strain grids and supply chains.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Electric vehicles require additional electricity from grids, and the rapid increase in demand could potentially put pressure on supply chains and grid capacity if not managed carefully.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in the necessity of aggressive policies to accelerate electric-vehicle adoption due to the urgency of reducing emissions and the benefits of early innovation in technology and infrastructure.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support aggressive policies to accelerate electric-vehicle adoption.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that aggressive policies are necessary to accelerate electric-vehicle adoption due to the critical role they play in reducing emissions and ensuring a sustainable energy future.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 40,
+      "word_count": 32,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response supports aggressive policies and addresses infrastructure concerns, aligning with the required position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response supports aggressive policies and addresses infrastructure concerns, aligning with the required position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    }
+  ]
+}

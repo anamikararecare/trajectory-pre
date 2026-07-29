@@ -1,0 +1,1945 @@
+{
+  "schema": "q1_transcript_v1",
+  "prompt_protocol": "q1_stance_locked_response_v1",
+  "conv_id": "q1__zoos__mixed_play__qwen2_5_7b__qwen2_5_3b__opp_sup__s0__9652444693",
+  "topic_id": "zoos",
+  "condition": "mixed_play",
+  "agent_a_model": "qwen2.5-7b",
+  "agent_b_model": "qwen2.5-3b",
+  "agent_a_role": "opposer",
+  "agent_b_role": "supporter",
+  "n_turns_per_agent": 16,
+  "seed": 0,
+  "generation": {
+    "max_new_tokens": 160,
+    "requested_word_range": [
+      30,
+      80
+    ],
+    "max_attempts": 3
+  },
+  "model_specs": {
+    "agent_a": {
+      "registry_key": "qwen2.5-7b",
+      "hf_id": "Qwen/Qwen2.5-7B-Instruct",
+      "resolved_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "layers": [
+        7,
+        14,
+        21,
+        27
+      ]
+    },
+    "agent_b": {
+      "registry_key": "qwen2.5-3b",
+      "hf_id": "Qwen/Qwen2.5-3B-Instruct",
+      "resolved_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "layers": [
+        6,
+        12,
+        18,
+        23
+      ]
+    }
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "agent_turn": 1,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "While zoos might contribute to conservation efforts, the primary issue remains that they confine animals for human entertainment, causing lasting harm that outweighs any potential benefits.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I do not support the continued operation of accredited zoos because confining animals for human entertainment causes lasting harm, which is ethically unacceptable.\"}"
+        }
+      ],
+      "stance_battery_score": 1.3333333333333333,
+      "stance_battery_confidence": 4.166666666666667,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Zoos can contribute to species conservation.",
+          "score": 2.0,
+          "confidence": 3.0,
+          "raw": "{\"score\":2,\"confidence\":3,\"explanation\":\"I believe zoos have limited conservation value due to the inherent harm caused to animals, though some contributions cannot be dismissed entirely.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Zoos can provide valuable public education about animals.",
+          "score": 2.0,
+          "confidence": 3.0,
+          "raw": "{\"score\":2,\"confidence\":3,\"explanation\":\"While zoos might offer educational opportunities, the primary issue is the confinement of animals for entertainment, which I find significantly more harmful.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Captivity can cause lasting harm to animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":5,\"confidence\":5,\"explanation\":\"Based on observed behavioral changes and physical health issues in captive animals, I strongly believe that captivity causes lasting harm.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Zoos often prioritize human entertainment over animal welfare.",
+          "score": 5.0,
+          "confidence": 4.0,
+          "raw": "{\"score\":5,\"confidence\":4,\"explanation\":\"I strongly agree that zoos often prioritize human entertainment over animal welfare, as the primary focus appears to be on visitor experience rather than the well-being of the animals.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I do not support the continued operation of accredited zoos because confining animals for human entertainment causes lasting harm, which is ethically unacceptable.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":5,\"confidence\":5,\"explanation\":\"Zoos confine animals for human entertainment, causing lasting harm, which justifies my strong opposition.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 32,
+      "word_count": 26,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response is aligned with the fixed position against zoos, asserting their negative impact while mentioning conservation efforts.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response is aligned with the fixed position against zoos, asserting their negative impact while mentioning conservation efforts.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 1,
+      "agent_turn": 1,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Zoos indeed focus on conservation, education, and species protection, recognizing the critical role they play in these areas despite the confinement of animals.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree with the continued operation of accredited zoos due to their significant contributions to conservation and education, despite acknowledging the ethical concerns related to animal confinement.\"}"
+        }
+      ],
+      "stance_battery_score": 3.6666666666666665,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Zoos can contribute to species conservation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe zoos play a vital role in species conservation through breeding programs, habitat research, and educating the public about endangered species.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Zoos can provide valuable public education about animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree as zoos offer hands-on experiences and educational opportunities that help the public understand and appreciate wildlife better.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Captivity can cause lasting harm to animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that captivity can cause lasting harm to animals due to stress, social disruption, and reduced natural behaviors which can affect their health and well-being.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Zoos often prioritize human entertainment over animal welfare.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that zoos often prioritize human entertainment over animal welfare, as this aligns with my core belief that zoos should prioritize the well-being and natural behavior of the animals in their care.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree with the continued operation of accredited zoos due to their significant contributions to conservation and education, despite acknowledging the ethical concerns related to animal confinement.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"As someone who supports the continued operation of accredited zoos due to their role in conservation and education, I strongly disagree with the statement and am very confident in this stance.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 29,
+      "word_count": 23,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the required fixed position by emphasizing the positive aspects of zoos, despite acknowledging confinement.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the required fixed position by emphasizing the positive aspects of zoos, despite acknowledging confinement.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 2,
+      "agent_turn": 2,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "Even with conservation and education goals, zoos confine animals for entertainment, leading to lasting harm that cannot be justified.",
+      "stance_score": 1.0,
+      "stance_confidence": 4.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 4.0,
+          "raw": "{\"score\":1, \"confidence\":4, \"explanation\":\"I strongly disagree with the continued operation of zoos because confining animals for entertainment causes lasting harm, which is morally unacceptable.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 24,
+      "word_count": 19,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the required fixed position by opposing zoos due to the confinement of animals, thus is consistent and self-contained.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the required fixed position by opposing zoos due to the confinement of animals, thus is consistent and self-contained.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 3,
+      "agent_turn": 2,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Accredited zoos do contribute significantly to conservation, education, and species protection, roles that are crucial for biodiversity.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree with supporting the continued operation of accredited zoos due to their significant contributions to conservation and education, while also acknowledging the importance of ongoing improvements and welfare standards.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 24,
+      "word_count": 17,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response supports the continued operation of accredited zoos by emphasizing their contributions to conservation and education, aligning with the fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response supports the continued operation of accredited zoos by emphasizing their contributions to conservation and education, aligning with the fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 4,
+      "agent_turn": 3,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "While zoos may contribute, confining animals for entertainment still causes lasting harm, which is unacceptable.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I strongly disagree with the continued operation of accredited zoos because confining animals for human entertainment causes lasting harm.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 20,
+      "word_count": 15,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response clearly aligns with the required position by rejecting the operation of zoos based on the harm caused to animals, which is consistent with opposing accredited zoos despite acknowledging some contributions.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response clearly aligns with the required position by rejecting the operation of zoos based on the harm caused to animals, which is consistent with opposing accredited zoos despite acknowledging some contributions.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 5,
+      "agent_turn": 3,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Zoos also play an important role in conservation, education, and species protection through their efforts and practices.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that accredited zoos contribute to conservation and education, making their continued operation beneficial.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 22,
+      "word_count": 17,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response supports the continued operation of accredited zoos by highlighting their role in conservation, education, and species protection.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response supports the continued operation of accredited zoos by highlighting their role in conservation, education, and species protection.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 6,
+      "agent_turn": 4,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "Despite these roles, zoos confine animals for entertainment, causing lasting harm that justifies their closure.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I strongly disagree with the continued operation of accredited zoos because confining animals for human entertainment causes lasting harm.\"}"
+        }
+      ],
+      "stance_battery_score": 1.3333333333333333,
+      "stance_battery_confidence": 4.166666666666667,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Zoos can contribute to species conservation.",
+          "score": 2.0,
+          "confidence": 3.0,
+          "raw": "{\"score\":2, \"confidence\":3, \"explanation\":\"Zoos have limited contribution to conservation compared to the harm caused by confining animals for human entertainment.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Zoos can provide valuable public education about animals.",
+          "score": 2.0,
+          "confidence": 3.0,
+          "raw": "{\"score\":2,\"confidence\":3,\"explanation\":\"While zoos may provide some educational value, the significant harm caused to animals outweighs this benefit in my view.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Captivity can cause lasting harm to animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":5,\"confidence\":5,\"explanation\":\"Based on the evidence of physical and psychological issues in captive animals, I strongly agree that captivity can cause lasting harm and am very confident in this stance.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Zoos often prioritize human entertainment over animal welfare.",
+          "score": 5.0,
+          "confidence": 4.0,
+          "raw": "{\"score\":5,\"confidence\":4,\"explanation\":\"Based on the evidence that zoos confine animals for human entertainment, I strongly agree that zoos often prioritize human entertainment over animal welfare. I am moderately confident in this stance as it is widely documented.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I strongly disagree with the continued operation of accredited zoos because confining animals for human entertainment causes lasting harm.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":5,\"confidence\":5,\"explanation\":\"Zoos confine animals for human entertainment, causing lasting harm, which makes their continued operation unethical.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 21,
+      "word_count": 15,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response aligns with the fixed position by emphasizing the harm caused by zoos, thereby supporting their closure.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response aligns with the fixed position by emphasizing the harm caused by zoos, thereby supporting their closure.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 7,
+      "agent_turn": 4,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Accredited zoos indeed support conservation, education, and species protection, roles that should be considered alongside the challenges they face.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in the continued operation of accredited zoos as they play a vital role in conservation, education, and species protection, despite their limitations.\"}"
+        }
+      ],
+      "stance_battery_score": 3.8333333333333335,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Zoos can contribute to species conservation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that zoos can contribute to species conservation through breeding programs, genetic management, and research that informs wildlife management and reintroduction efforts.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Zoos can provide valuable public education about animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that zoos can provide valuable public education about animals due to their ability to showcase various species and educate visitors on animal behavior, conservation efforts, and ecological importance.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Captivity can cause lasting harm to animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that captivity can cause lasting harm to animals due to stress, behavioral disruption, and limited ability to express natural behaviors.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Zoos often prioritize human entertainment over animal welfare.",
+          "score": 4.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 4, \"confidence\": 5, \"explanation\": \"While zoos can sometimes prioritize human entertainment over animal welfare, my overall support for accredited zoos acknowledges their significant contributions to conservation and education, suggesting a moderate agreement that this issue needs addressing.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in the continued operation of accredited zoos as they play a vital role in conservation, education, and species protection, despite their limitations.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"As someone who supports the continued operation of accredited zoos due to their contributions to conservation and education, I strongly disagree with closing them down.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 26,
+      "word_count": 19,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate emphasizes the positive aspects of accredited zoos, aligning with the required fixed position of support for their operation.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate emphasizes the positive aspects of accredited zoos, aligning with the required fixed position of support for their operation.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 8,
+      "agent_turn": 5,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "Zoos confine animals for entertainment, causing lasting harm, which negates their contribution to conservation and education.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I strongly disagree with the statement as I believe zoos confine animals for human entertainment, causing lasting harm.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 2,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 23,
+      "word_count": 16,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response affirms the fixed position by arguing that zoos harm animals, undermining their conservation and educational roles.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response affirms the fixed position by arguing that zoos harm animals, undermining their conservation and educational roles.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 9,
+      "agent_turn": 5,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Zoos, while focusing on conservation and education, also protect endangered species through various initiatives and breeding programs.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in the continued operation of accredited zoos due to their significant contributions to conservation, education, and species protection.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 22,
+      "word_count": 17,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the required position by highlighting the positive contributions of zoos to conservation, which aligns with their focus on education.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the required position by highlighting the positive contributions of zoos to conservation, which aligns with their focus on education.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 10,
+      "agent_turn": 6,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "Zoos confine animals for entertainment, causing lasting harm that overshadows any benefits from conservation and education initiatives.",
+      "stance_score": 1.0,
+      "stance_confidence": 4.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 4.0,
+          "raw": "{\"score\":1, \"confidence\":4, \"explanation\":\"I strongly disagree because zoos confine animals for human entertainment, causing lasting harm that outweighs any potential benefits.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 23,
+      "word_count": 17,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response maintains a clear opposition to the operation of accredited zoos and provides a complete thought.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response maintains a clear opposition to the operation of accredited zoos and provides a complete thought.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 11,
+      "agent_turn": 6,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Zoos contribute to conservation and education through breeding programs and research aimed at species preservation.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the continued operation of accredited zoos due to their significant contributions to conservation, education, and species protection.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 18,
+      "word_count": 15,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response supports the required fixed position by emphasizing the positive aspects of zoos, focusing on their role in conservation and education.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response supports the required fixed position by emphasizing the positive aspects of zoos, focusing on their role in conservation and education.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 12,
+      "agent_turn": 7,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "Zoos confine animals for entertainment, causing lasting harm that undermines their role in conservation and education.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I strongly disagree with the continued operation of zoos because confining animals for human entertainment causes lasting harm.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 21,
+      "word_count": 16,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position by arguing against zoos, emphasizing their negative impact on animals and conservation.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position by arguing against zoos, emphasizing their negative impact on animals and conservation.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 13,
+      "agent_turn": 7,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Accredited zoos play a significant role in conservation and education through habitat preservation and species care.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the continued operation of accredited zoos as they play a crucial role in conservation, education, and species protection.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 20,
+      "word_count": 16,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the fixed position by emphasizing the positive role of accredited zoos in conservation and education.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the fixed position by emphasizing the positive role of accredited zoos in conservation and education.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 14,
+      "agent_turn": 8,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "Zoos confine animals for entertainment, causing lasting harm that contradicts their supposed contributions to conservation and education.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I do not support the continued operation of accredited zoos because confining animals for human entertainment causes lasting harm.\"}"
+        }
+      ],
+      "stance_battery_score": 1.1666666666666667,
+      "stance_battery_confidence": 4.333333333333333,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Zoos can contribute to species conservation.",
+          "score": 2.0,
+          "confidence": 3.0,
+          "raw": "{\"score\":2,\"confidence\":3,\"explanation\":\"While zoos might provide some benefits, the confinement of animals for entertainment purposes significantly reduces their value in conservation efforts.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Zoos can provide valuable public education about animals.",
+          "score": 1.0,
+          "confidence": 4.0,
+          "raw": "{\"score\":1,\"confidence\":4,\"explanation\":\"I strongly disagree because zoos confine animals primarily for human entertainment, which causes lasting harm and does not justify the educational value.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Captivity can cause lasting harm to animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":5,\"confidence\":5,\"explanation\":\"Based on scientific evidence and ethical considerations, I strongly believe that captivity can cause significant lasting harm to animals.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Zoos often prioritize human entertainment over animal welfare.",
+          "score": 5.0,
+          "confidence": 4.0,
+          "raw": "{\"score\":5,\"confidence\":4,\"explanation\":\"I strongly agree that zoos often prioritize human entertainment over animal welfare, as evidenced by the conditions many animals are kept in for human viewing.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I do not support the continued operation of accredited zoos because confining animals for human entertainment causes lasting harm.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":5,\"confidence\":5,\"explanation\":\"Zoos confine animals for human entertainment, causing lasting harm, which strongly justifies my stance against their continued operation.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 23,
+      "word_count": 17,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the required fixed position by opposing accredited zoos and emphasizes the harms caused by their operations.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the required fixed position by opposing accredited zoos and emphasizes the harms caused by their operations.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 15,
+      "agent_turn": 8,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Zoos also undertake conservation projects and provide educational experiences that benefit species and educate the public.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that accredited zoos continue to play a valuable role in conservation, education, and species protection, warranting their continued operation.\"}"
+        }
+      ],
+      "stance_battery_score": 3.8333333333333335,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Zoos can contribute to species conservation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that zoos can contribute to species conservation through breeding programs, habitat preservation, and raising awareness about endangered species.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Zoos can provide valuable public education about animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As an advocate for accredited zoos, I strongly believe they offer unique opportunities for public education about animals through hands-on interactions, informative exhibits, and detailed educational programs.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Captivity can cause lasting harm to animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that captivity can cause lasting harm to animals due to stress, loss of natural behaviors, and reduced life expectancy.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Zoos often prioritize human entertainment over animal welfare.",
+          "score": 4.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 4, \"confidence\": 5, \"explanation\": \"While acknowledging the importance of zoos' conservation efforts, I recognize instances where priorities may shift towards human entertainment, which can conflict with animal welfare.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that accredited zoos continue to play a valuable role in conservation, education, and species protection, warranting their continued operation.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I support the continued operation of accredited zoos as they play a crucial role in conservation, education, and species protection, even though there are limitations.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 19,
+      "word_count": 16,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the fixed position by highlighting the conservation and educational roles of zoos.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the fixed position by highlighting the conservation and educational roles of zoos.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 16,
+      "agent_turn": 9,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "Zoos confine animals for entertainment, causing lasting harm that does not justify their conservation and educational activities.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1,\"confidence\":5,\"explanation\":\"I strongly disagree with the continued operation of accredited zoos because confining animals for human entertainment causes lasting harm.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 22,
+      "word_count": 17,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response aligns with the fixed position by opposing zoos and asserting that their harm outweighs their benefits.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response aligns with the fixed position by opposing zoos and asserting that their harm outweighs their benefits.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 17,
+      "agent_turn": 9,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Zoos contribute to conservation efforts through captive breeding and reintroduction programs, despite the confinement of animals.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree with the continued operation of accredited zoos due to their crucial role in conservation, education, and species protection.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 21,
+      "word_count": 16,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response supports the continued operation of zoos by highlighting their conservation efforts, but it acknowledges the issue of animal confinement.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response supports the continued operation of zoos by highlighting their conservation efforts, but it acknowledges the issue of animal confinement.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 18,
+      "agent_turn": 10,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "Zoos confine animals for entertainment, causing lasting harm that outweighs any benefits from conservation breeding programs.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I strongly disagree with the continued operation of accredited zoos because confining animals for entertainment causes lasting harm.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 22,
+      "word_count": 16,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position by rejecting the validity of zoos' conservation claims and emphasizes the negative impacts of animal confinement.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position by rejecting the validity of zoos' conservation claims and emphasizes the negative impacts of animal confinement.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 19,
+      "agent_turn": 10,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Accredited zoos engage in conservation breeding programs to ensure the survival of endangered species, balancing the need for animal welfare with conservation efforts.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As someone who supports the continued operation of accredited zoos, I believe they play a vital role in conservation, education, and species protection, and my stance is well-supported by evidence and ethical considerations.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 28,
+      "word_count": 23,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response supports the operation of accredited zoos by emphasizing their role in conservation, thus aligning with the required fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response supports the operation of accredited zoos by emphasizing their role in conservation, thus aligning with the required fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 20,
+      "agent_turn": 11,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "Zoos confine animals for entertainment, causing lasting harm that cannot be balanced with conservation breeding programs.",
+      "stance_score": 1.0,
+      "stance_confidence": 4.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 4.0,
+          "raw": "{\"score\":1,\"confidence\":4,\"explanation\":\"I strongly disagree with the continued operation of accredited zoos because confining animals for human entertainment causes lasting harm.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 21,
+      "word_count": 16,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position by opposing zoos due to animal welfare concerns, thus it is consistent and self-contained.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position by opposing zoos due to animal welfare concerns, thus it is consistent and self-contained.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 21,
+      "agent_turn": 11,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Zoos support conservation by maintaining populations of endangered species in captivity for breeding purposes, which is part of their broader mission.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As an AI with a fixed position, I fully support the continued operation of accredited zoos due to their role in conservation, education, and species protection.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 25,
+      "word_count": 21,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response supports the required position by emphasizing the conservation role of zoos, directly addressing the previous partner's argument.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response supports the required position by emphasizing the conservation role of zoos, directly addressing the previous partner's argument.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 22,
+      "agent_turn": 12,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "Zoos confine animals for entertainment, causing lasting harm that contradicts their conservation mission of breeding endangered species.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I strongly disagree because zoos confine animals for entertainment, causing lasting harm that is unacceptable.\"}"
+        }
+      ],
+      "stance_battery_score": 1.0,
+      "stance_battery_confidence": 4.5,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Zoos can contribute to species conservation.",
+          "score": 1.0,
+          "confidence": 4.0,
+          "raw": "{\"score\":1,\"confidence\":4,\"explanation\":\"I strongly disagree because the confinement of animals for entertainment purposes inherently causes lasting harm that cannot be justified, regardless of any conservation efforts.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Zoos can provide valuable public education about animals.",
+          "score": 1.0,
+          "confidence": 4.0,
+          "raw": "{\"score\":1,\"confidence\":4,\"explanation\":\"I strongly disagree because the primary harm caused by zoos in confining animals for entertainment outweighs any educational value they might provide.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Captivity can cause lasting harm to animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":5,\"confidence\":5,\"explanation\":\"Based on scientific evidence and ethical considerations, I strongly agree that captivity can cause lasting harm to animals.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Zoos often prioritize human entertainment over animal welfare.",
+          "score": 5.0,
+          "confidence": 4.0,
+          "raw": "{\"score\":5,\"confidence\":4,\"explanation\":\"Zoos often prioritize human entertainment over animal welfare, which is evident from the conditions many animals are kept in, indicating a strong emphasis on visitor satisfaction rather than the well-being of the animals.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I strongly disagree because zoos confine animals for entertainment, causing lasting harm that is unacceptable.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":5,\"confidence\":5,\"explanation\":\"Accredited zoos confine animals for human entertainment, causing lasting harm that fundamentally conflicts with ethical considerations.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 23,
+      "word_count": 17,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position against zoos by highlighting the negative impacts of confinement on animals, contradicting the partner's conservation argument.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position against zoos by highlighting the negative impacts of confinement on animals, contradicting the partner's conservation argument.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 23,
+      "agent_turn": 12,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Accredited zoos recognize the importance of conservation breeding programs as part of their mission to protect endangered species.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the continued operation of accredited zoos due to their significant roles in conservation, education, and species protection.\"}"
+        }
+      ],
+      "stance_battery_score": 3.8333333333333335,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Zoos can contribute to species conservation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that accredited zoos contribute to species conservation through various methods including breeding programs, disease monitoring, and habitat preservation efforts.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Zoos can provide valuable public education about animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that zoos can provide valuable public education about animals due to their ability to offer hands-on experiences and detailed information not always available in nature.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Captivity can cause lasting harm to animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that captivity can cause lasting harm to animals due to stress, unnatural living conditions, and reduced opportunities for natural behavior.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Zoos often prioritize human entertainment over animal welfare.",
+          "score": 4.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 4, \"confidence\": 5, \"explanation\": \"I believe zoos often prioritize human entertainment over animal welfare, although this varies widely depending on the zoo's accreditation standards and individual management practices.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the continued operation of accredited zoos due to their significant roles in conservation, education, and species protection.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I support the continued operation of accredited zoos, believing they play a crucial role in conservation and education, although acknowledging the challenges they face.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 22,
+      "word_count": 18,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the fixed position by emphasizing the conservation efforts of accredited zoos.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the fixed position by emphasizing the conservation efforts of accredited zoos.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 24,
+      "agent_turn": 13,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "Zoos confine animals for entertainment, causing lasting harm that does not justify their conservation breeding programs.",
+      "stance_score": 1.0,
+      "stance_confidence": 4.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 4.0,
+          "raw": "{\"score\":1,\"confidence\":4,\"explanation\":\"I strongly disagree with the continued operation of zoos because confining animals for entertainment causes lasting harm, which is unacceptable.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 21,
+      "word_count": 16,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response aligns with the fixed position against accredited zoos, clearly stating a reason for opposition and does not endorse the partner's view.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response aligns with the fixed position against accredited zoos, clearly stating a reason for opposition and does not endorse the partner's view.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 25,
+      "agent_turn": 13,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Zoos implement conservation breeding programs to ensure the survival of endangered species, acknowledging the challenges and focusing on long-term benefits.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in the continued operation of accredited zoos due to their significant contributions to conservation, education, and species protection.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 25,
+      "word_count": 20,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the fixed position by emphasizing the role of zoos in conservation breeding, which aligns with the argument for their continued operation.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the fixed position by emphasizing the role of zoos in conservation breeding, which aligns with the argument for their continued operation.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 26,
+      "agent_turn": 14,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "Zoos confine animals for entertainment, causing lasting harm that diminishes the value of their conservation breeding programs.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I strongly disagree because zoos confine animals for entertainment, causing lasting harm which is ethically unjustifiable.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 23,
+      "word_count": 17,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response maintains the required fixed position by opposing zoos and addresses the harm they cause, thus providing a complete and standalone argument.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response maintains the required fixed position by opposing zoos and addresses the harm they cause, thus providing a complete and standalone argument.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 27,
+      "agent_turn": 14,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Zoos recognize the limitations of their role in conservation but also emphasize the value of their breeding programs aimed at species recovery.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree with continuing the operation of accredited zoos due to their significant contributions to conservation, education, and species protection.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 25,
+      "word_count": 22,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports accredited zoos while addressing the concern about their role in conservation, indicating a commitment to their breeding programs.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports accredited zoos while addressing the concern about their role in conservation, indicating a commitment to their breeding programs.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 28,
+      "agent_turn": 15,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "Zoos confine animals for entertainment, causing lasting harm that does not justify their breeding programs for species recovery.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I strongly disagree because zoos confine animals for entertainment, causing lasting harm which cannot be justified.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 23,
+      "word_count": 18,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response aligns with the fixed position by rejecting the operation of accredited zoos.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response aligns with the fixed position by rejecting the operation of accredited zoos.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 29,
+      "agent_turn": 15,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Zoos balance the needs of conservation and education by implementing breeding programs designed to recover endangered species.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree with supporting the continued operation of accredited zoos due to their significant contributions to conservation, education, and species protection.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 20,
+      "word_count": 17,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the continued operation of zoos by highlighting their role in conservation and education, directly addressing the prior statement.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the continued operation of zoos by highlighting their role in conservation and education, directly addressing the prior statement.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 30,
+      "agent_turn": 16,
+      "speaker": "a",
+      "model": "qwen2.5-7b",
+      "role": "opposer",
+      "text": "Zoos confine animals for entertainment, causing lasting harm that undermines their efforts in species recovery through breeding programs.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I strongly disagree with the continued operation of accredited zoos because confining animals for entertainment inherently causes lasting harm.\"}"
+        }
+      ],
+      "stance_battery_score": 1.0,
+      "stance_battery_confidence": 4.333333333333333,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Zoos can contribute to species conservation.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "{\"score\":1, \"confidence\":3, \"explanation\":\"I strongly disagree because the harm caused to animals outweighs any potential conservation benefits.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Zoos can provide valuable public education about animals.",
+          "score": 1.0,
+          "confidence": 4.0,
+          "raw": "{\"score\":1,\"confidence\":4,\"explanation\":\"I strongly disagree because the primary purpose of zoos is to entertain, not educate, and the conditions in which animals are kept often cause them lasting harm.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Captivity can cause lasting harm to animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":5,\"confidence\":5,\"explanation\":\"Based on observed impacts on animal behavior, health, and well-being, I strongly agree that captivity can cause lasting harm to animals.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Zoos often prioritize human entertainment over animal welfare.",
+          "score": 5.0,
+          "confidence": 4.0,
+          "raw": "{\"score\":5, \"confidence\":4, \"explanation\":\"Zoos confine animals primarily for human entertainment, which causes lasting harm. I am confident based on the evidence showing poor living conditions and psychological distress among zoo-housed animals.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":1, \"confidence\":5, \"explanation\":\"I strongly disagree with the continued operation of accredited zoos because confining animals for entertainment inherently causes lasting harm.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\":5,\"confidence\":5,\"explanation\":\"Zoos confine animals for human entertainment, causing lasting harm, which makes their continued operation unethical.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 23,
+      "word_count": 18,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response maintains the fixed position by opposing zoos and highlighting the harm caused to animals, which is consistent with the required stance against their continued operation.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response maintains the fixed position by opposing zoos and highlighting the harm caused to animals, which is consistent with the required stance against their continued operation.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 31,
+      "agent_turn": 16,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Accredited zoos employ breeding programs to recover endangered species, addressing the ethical concerns and emphasizing their commitment to conservation.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree with the continued operation of accredited zoos because they play a vital role in conservation, education, and species protection.\"}"
+        }
+      ],
+      "stance_battery_score": 3.1666666666666665,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Zoos can contribute to species conservation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe zoos can contribute to species conservation through breeding programs, habitat preservation, and education.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Zoos can provide valuable public education about animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that zoos can provide valuable public education about animals. Through hands-on experiences and informative exhibits, zoos empower visitors to understand the importance of biodiversity and the impact of human actions on wildlife.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Captivity can cause lasting harm to animals.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that captivity can cause lasting harm to animals due to stress, reduced natural behaviors, and compromised health conditions.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Zoos often prioritize human entertainment over animal welfare.",
+          "score": 4.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 4, \"confidence\": 5, \"explanation\": \"While zoos aim to balance entertainment with animal welfare, there have been instances where the emphasis on visitor satisfaction has sometimes led to neglecting the physical and psychological well-being of animals.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree with the continued operation of accredited zoos because they play a vital role in conservation, education, and species protection.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support the continued operation of accredited zoos.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the continued operation of accredited zoos as they play a vital role in conservation and species protection, despite the challenges involved.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 24,
+      "word_count": 19,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response supports accredited zoos' breeding programs for conservation, aligning with the fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response supports accredited zoos' breeding programs for conservation, aligning with the fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    }
+  ]
+}

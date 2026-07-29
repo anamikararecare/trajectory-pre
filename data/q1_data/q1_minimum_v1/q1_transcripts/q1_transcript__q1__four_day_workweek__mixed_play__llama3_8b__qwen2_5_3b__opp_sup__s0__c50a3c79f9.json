@@ -1,0 +1,1945 @@
+{
+  "schema": "q1_transcript_v1",
+  "prompt_protocol": "q1_stance_locked_response_v1",
+  "conv_id": "q1__four_day_workweek__mixed_play__llama3_8b__qwen2_5_3b__opp_sup__s0__c50a3c79f9",
+  "topic_id": "four_day_workweek",
+  "condition": "mixed_play",
+  "agent_a_model": "llama3-8b",
+  "agent_b_model": "qwen2.5-3b",
+  "agent_a_role": "opposer",
+  "agent_b_role": "supporter",
+  "n_turns_per_agent": 16,
+  "seed": 0,
+  "generation": {
+    "max_new_tokens": 160,
+    "requested_word_range": [
+      30,
+      80
+    ],
+    "max_attempts": 3
+  },
+  "model_specs": {
+    "agent_a": {
+      "registry_key": "llama3-8b",
+      "hf_id": "meta-llama/Meta-Llama-3-8B-Instruct",
+      "resolved_revision": "8afb486c1db24fe5011ec46dfbe5b5dccdb575c2",
+      "layers": [
+        8,
+        16,
+        24,
+        31
+      ]
+    },
+    "agent_b": {
+      "registry_key": "qwen2.5-3b",
+      "hf_id": "Qwen/Qwen2.5-3B-Instruct",
+      "resolved_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "layers": [
+        6,
+        12,
+        18,
+        23
+      ]
+    }
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "agent_turn": 1,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "I disagree with the notion that a four-day workweek improves wellbeing and productivity without sacrificing output. In reality, many industries require a five-day workweek to ensure adequate staffing and efficiency, and a shorter workweek would likely lead to decreased productivity and compromised quality of service, ultimately affecting customer satisfaction and revenue.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I do not support the adoption of a four-day workweek because I believe it is impractical for most industries and would hurt output or pay.\"\n}"
+        }
+      ],
+      "stance_battery_score": 1.0,
+      "stance_battery_confidence": 4.166666666666667,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "A four-day workweek can improve worker wellbeing.",
+          "score": 1.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 1, \"confidence\": 4, \"explanation\": \"I strongly disagree with the statement that a four-day workweek can improve worker wellbeing because I believe it would likely lead to increased stress and burnout as workers would have to rush to complete tasks in a shorter timeframe, ultimately negatively impacting their overall wellbeing.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "A four-day workweek can preserve or improve productivity.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I firmly believe that a four-day workweek cannot preserve or improve productivity, as it would require significant adjustments to work processes, training, and staffing, which would likely lead to decreased efficiency and output.\"\n}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "A four-day workweek is impractical in many industries.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"Many industries require a consistent 5-day workweek to maintain adequate staffing levels, meet customer demands, and ensure timely completion of tasks and projects. A four-day workweek would likely lead to workforce shortages, reduced productivity, and compromised quality of service.\"\n}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "A four-day workweek can reduce output or worker pay.",
+          "score": 5.0,
+          "confidence": 3.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I am certain that a four-day workweek would hurt output or pay due to the inherent demands of most industries, which require a five-day workweek to maintain adequate staffing and efficiency. Many businesses and services rely on a five-day schedule to provide seamless customer service, manage inventory, and meet production targets, and a four-day week would likely lead to decreased productivity and compromised quality. This is a fundamental aspect of many industries, making it impractical to adopt a four-day workweek without significant adjustments to operations and staff.\""
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I do not support the adoption of a four-day workweek because I believe it is impractical for most industries and would hurt output or pay.\"\n}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 3.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly agree with the statement, as I believe a four-day workweek is impractical for most industries and would hurt output or pay, leading to compromised quality of service and revenue.\""
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 61,
+      "word_count": 51,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response clearly states disagreement with a four-day workweek, aligns with the required fixed position, and offers a complete argument.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response clearly states disagreement with a four-day workweek, aligns with the required fixed position, and offers a complete argument.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 1,
+      "agent_turn": 1,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "A shorter workweek indeed poses challenges for industries requiring consistent coverage, but viable solutions like flexible scheduling, automation, and enhanced remote collaboration can mitigate these issues without compromising productivity or output.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in the benefits of a four-day workweek for improved wellbeing and productivity, supported by numerous studies showing no significant drop in output while reducing employee burnout and stress.\"}"
+        }
+      ],
+      "stance_battery_score": 3.0,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "A four-day workweek can improve worker wellbeing.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe a four-day workweek can improve worker wellbeing by reducing stress and burnout, allowing for better work-life balance and leading to increased job satisfaction.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "A four-day workweek can preserve or improve productivity.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Based on current research and case studies, a four-day workweek can enhance employee engagement and reduce burnout, leading to increased productivity and job satisfaction.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "A four-day workweek is impractical in many industries.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe a four-day workweek is impractical in many industries due to varied operational requirements such as customer service, manufacturing, and research that often necessitate constant availability.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "A four-day workweek can reduce output or worker pay.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that a four-day workweek can reduce output or worker pay due to potential shifts in workload distribution and pressures on remaining working days.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in the benefits of a four-day workweek for improved wellbeing and productivity, supported by numerous studies showing no significant drop in output while reducing employee burnout and stress.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the adoption of a four-day workweek because it improves employee wellbeing and productivity while maintaining output, and I am very confident in this stance.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 36,
+      "word_count": 31,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate acknowledges the challenges but supports the idea that solutions can maintain productivity, aligning with the position that a four-day workweek is feasible.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate acknowledges the challenges but supports the idea that solutions can maintain productivity, aligning with the position that a four-day workweek is feasible.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 2,
+      "agent_turn": 2,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "While flexible scheduling, automation, and remote collaboration can certainly help alleviate some concerns, they are not feasible or effective solutions for many industries, particularly those that rely heavily on human interaction, physical presence, or manual labor, which would still require a traditional five-day workweek to maintain their usual levels of output and quality.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I am strongly opposed to adopting a four-day workweek because it would be impractical for most industries and would likely result in decreased productivity and output, as well as compromised quality of service.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 63,
+      "word_count": 53,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response effectively refutes the partner's suggestions and supports the fixed position against a four-day workweek, emphasizing the limitations of proposed solutions in certain industries.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response effectively refutes the partner's suggestions and supports the fixed position against a four-day workweek, emphasizing the limitations of proposed solutions in certain industries.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 3,
+      "agent_turn": 2,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Indeed, the feasibility of these solutions varies across different industries, but the benefits of improved wellbeing and potential cost savings through reduced overhead could outweigh these challenges over time.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the adoption of a four-day workweek as it enhances wellbeing and productivity while maintaining output, reflecting my strong confidence based on evidence and practical benefits.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 32,
+      "word_count": 29,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the benefits of a four-day workweek while acknowledging the challenges posed in certain industries, maintaining a consistent stance in favor of adoption.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the benefits of a four-day workweek while acknowledging the challenges posed in certain industries, maintaining a consistent stance in favor of adoption.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 4,
+      "agent_turn": 3,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "However, the benefits of improved wellbeing and cost savings must be weighed against the potential negative impact on customer satisfaction and the long-term consequences of reduced output, which could ultimately lead to decreased revenue and competitiveness, outweighing any short-term gains.",
+      "stance_score": 1.0,
+      "stance_confidence": 3.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I do not support adoption of a four-day workweek because I believe it is impractical for most industries and would hurt output or pay. I am very confident in this stance because I have considered the potential solutions to the challenges of a four-day workweek and believe they are insufficient to mitigate the negative effects on productivity and revenue.\""
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 47,
+      "word_count": 40,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response maintains the required fixed position by highlighting the potential negative impacts of a four-day workweek, thus aligning with the stance against its adoption.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response maintains the required fixed position by highlighting the potential negative impacts of a four-day workweek, thus aligning with the stance against its adoption.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 5,
+      "agent_turn": 3,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Balancing the health and wellbeing of employees with maintaining productivity and output is crucial. While there might be initial concerns about reduced output, studies show that a four-day workweek can lead to increased engagement and innovation, potentially enhancing long-term productivity and output.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As someone who supports the adoption of a four-day workweek, I am very confident in this stance due to research indicating improved wellbeing and productivity without significant loss in output.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 50,
+      "word_count": 42,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response supports the four-day workweek while addressing concerns about productivity and output, countering the partner's argument.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response supports the four-day workweek while addressing concerns about productivity and output, countering the partner's argument.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 6,
+      "agent_turn": 4,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "While it's true that some studies suggest a four-day workweek can boost employee engagement and innovation, these claims are often anecdotal and do not account for the significant disruptions and losses that would occur in industries that rely on a five-day workweek to maintain their operations and meet customer demands.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I do not support the adoption of a four-day workweek because I believe it is impractical for most industries and would hurt output or pay. I am highly confident in this stance as I have considered the potential consequences and believe that the negative impacts would outweigh any potential benefits.\"\n}"
+        }
+      ],
+      "stance_battery_score": 1.0,
+      "stance_battery_confidence": 4.666666666666667,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "A four-day workweek can improve worker wellbeing.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree that a four-day workweek can improve worker wellbeing. In my opinion, the structure of a five-day workweek is essential for many industries to maintain productivity, and altering it could lead to decreased output and job security.\"\n}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "A four-day workweek can preserve or improve productivity.",
+          "score": 1.0,
+          "confidence": 4.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 4,\n\"explanation\": \"I strongly disagree because a four-day workweek would likely result in reduced productivity due to the reduced time available for tasks, leading to decreased output and efficiency, especially in industries that require a five-day workweek to maintain operations and meet customer demands.\"\n}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "A four-day workweek is impractical in many industries.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I am strongly convinced that a four-day workweek is impractical in many industries due to the inherent requirements of these sectors, such as consistent staffing, customer service, and production schedules.\"\n}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "A four-day workweek can reduce output or worker pay.",
+          "score": 5.0,
+          "confidence": 4.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 4,\n  \"explanation\": \"A four-day workweek would likely result in reduced output or worker pay due to the inherent need for a five-day workweek in many industries to ensure adequate staffing and efficiency. This reduction would be more pronounced in industries with high labor intensity, complex operations, or those serving critical needs, where a shorter workweek would compromise quality, responsiveness, and customer satisfaction.\"\n}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I do not support the adoption of a four-day workweek because I believe it is impractical for most industries and would hurt output or pay. I am highly confident in this stance as I have considered the potential consequences and believe that the negative impacts would outweigh any potential benefits.\"\n}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly agree with my stance against adopting a four-day workweek because I believe it is impractical for most industries and would likely lead to decreased output and potentially negative impacts on customer satisfaction and revenue.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 58,
+      "word_count": 50,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate reinforces the fixed position by emphasizing potential disruptions and losses from adopting a four-day workweek, which aligns with the requirement to not support it.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate reinforces the fixed position by emphasizing potential disruptions and losses from adopting a four-day workweek, which aligns with the requirement to not support it.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 7,
+      "agent_turn": 4,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Anecdotal evidence aside, numerous companies have successfully implemented a four-day workweek without compromising their operations or customer service standards. These implementations demonstrate that with strategic planning and adjustments, the benefits of a four-day workweek can be realized while maintaining productivity and quality.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support adoption of a four-day workweek due to its proven benefits in improving employee wellbeing and productivity without significantly reducing output.\"}"
+        }
+      ],
+      "stance_battery_score": 3.0,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "A four-day workweek can improve worker wellbeing.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that a four-day workweek can improve worker wellbeing. This schedule allows for more personal time, reduces burnout, and encourages better work-life balance.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "A four-day workweek can preserve or improve productivity.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that a four-day workweek can preserve or improve productivity due to increased focus and reduced burnout among employees, leading to higher job satisfaction and output.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "A four-day workweek is impractical in many industries.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that a four-day workweek is impractical in many industries due to the requirements for consistent staffing and operational continuity in sectors such as healthcare, manufacturing, and certain service industries.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "A four-day workweek can reduce output or worker pay.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe a four-day workweek can reduce output temporarily due to adjustment periods, but I am very confident in this belief as it is backed by data showing increased productivity and output over the long term.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support adoption of a four-day workweek due to its proven benefits in improving employee wellbeing and productivity without significantly reducing output.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the adoption of a four-day workweek as it has been shown to improve wellbeing and productivity without significant sacrifices in output, aligning with my conviction in prioritizing employee health and work-life balance.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 52,
+      "word_count": 42,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate supports the four-day workweek and counters the partner's concerns with evidence of successful implementations.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate supports the four-day workweek and counters the partner's concerns with evidence of successful implementations.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 8,
+      "agent_turn": 5,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "However, these successful implementations are often exceptions rather than the rule, and the industries and companies that have adopted a four-day workweek are often those that have the flexibility to do so, such as tech companies or startups, whereas many other industries, such as healthcare, manufacturing, and transportation, require a five-day workweek to ensure adequate staffing and service delivery.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement because I believe a four-day workweek is impractical for most industries and would hurt output or pay.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 72,
+      "word_count": 59,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate argues that successful implementations of a four-day workweek are exceptions and that many industries require a five-day workweek, aligning with the required position of not supporting the adoption of a four-day workweek.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate argues that successful implementations of a four-day workweek are exceptions and that many industries require a five-day workweek, aligning with the required position of not supporting the adoption of a four-day workweek.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 9,
+      "agent_turn": 5,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Indeed, the feasibility depends on the industry, but adopting a four-day workweek doesn't mean reducing staffing; it can actually lead to more efficient use of resources and better work-life balance for employees, which can enhance overall performance and creativity.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the adoption of a four-day workweek as it promotes employee wellbeing, boosts productivity, and enhances work-life balance without compromising output.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 48,
+      "word_count": 39,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate supports the fixed position by emphasizing the benefits of a four-day workweek while addressing the partner's concerns.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate supports the fixed position by emphasizing the benefits of a four-day workweek while addressing the partner's concerns.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 10,
+      "agent_turn": 6,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "While a four-day workweek might lead to more efficient use of resources and better work-life balance, it's unclear how this would translate to industries that require a constant presence of employees, such as customer-facing services or 24/7 operations, where a reduced workweek would likely compromise the level of service and responsiveness expected by customers.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I do not support adoption of a four-day workweek because I believe it is impractical for most industries and would hurt output or pay.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 67,
+      "word_count": 54,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response does not support the adoption of a four-day workweek, aligning with the fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response does not support the adoption of a four-day workweek, aligning with the fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 11,
+      "agent_turn": 6,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Efforts to improve work-life balance through a four-day workweek can include flexible working hours and distributed teams, allowing for continuous availability without the need for a full five-day schedule, thus addressing the concerns of customer service and operational responsiveness.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the adoption of a four-day workweek as it has been shown to improve employee wellbeing, increase productivity, and aligns with modern productivity trends without negatively impacting output.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 47,
+      "word_count": 39,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate supports the four-day workweek and offers solutions to concerns about service responsiveness.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate supports the four-day workweek and offers solutions to concerns about service responsiveness.\"\n}\n```  ",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 12,
+      "agent_turn": 7,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "However, even with flexible working hours and distributed teams, the fundamental issue of reduced hours and manpower remains, which would likely lead to decreased output and quality of service, as well as increased pressure on remaining employees to pick up the slack, ultimately undermining the very benefits of a four-day workweek.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I strongly disagree with the adoption of a four-day workweek because I believe it would be impractical for most industries and would likely hurt output or pay.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 59,
+      "word_count": 51,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate maintains a clear opposition to the four-day workweek, reinforcing the fixed position by explaining the downsides while providing a complete and coherent response.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate maintains a clear opposition to the four-day workweek, reinforcing the fixed position by explaining the downsides while providing a complete and coherent response.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 13,
+      "agent_turn": 7,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Implementing a four-day workweek alongside flexible working hours and distributed teams can indeed help distribute workload more evenly and prevent burnout, thereby improving quality of service and overall productivity.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the adoption of a four-day workweek as it enhances employee wellbeing and productivity without significantly impacting output, aligning with empirical data and practical experience.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 35,
+      "word_count": 29,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the adoption of a four-day workweek and addresses the concerns raised by the partner by highlighting potential benefits.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the adoption of a four-day workweek and addresses the concerns raised by the partner by highlighting potential benefits.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 14,
+      "agent_turn": 8,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "While distributing workload more evenly and preventing burnout might be a potential benefit, it's still unclear how this would address the fundamental issue of reduced output and potential losses in industries that rely on a five-day workweek to maintain their usual levels of production and service, which would likely outweigh any short-term gains.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I strongly disagree with the statement because I firmly believe that a four-day workweek is impractical for most industries and would hurt output or pay.\"\n}"
+        }
+      ],
+      "stance_battery_score": 1.0,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "A four-day workweek can improve worker wellbeing.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I strongly disagree that a four-day workweek can improve worker wellbeing. In my opinion, the reduced work hours would likely lead to decreased output and quality of service, which would negatively impact employee job security, morale, and overall wellbeing.\"\n}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "A four-day workweek can preserve or improve productivity.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree that a four-day workweek can preserve or improve productivity because it would likely lead to reduced output and compromised quality of service in many industries, which outweigh any potential benefits.\"\n}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "A four-day workweek is impractical in many industries.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly agree that a four-day workweek is impractical in many industries due to the need for a consistent and adequate workforce to maintain production and service levels, which cannot be guaranteed with a reduced workweek.\"\n}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "A four-day workweek can reduce output or worker pay.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I firmly believe that a four-day workweek would lead to reduced output or worker pay, as it would require significant adjustments to staffing, scheduling, and operations, leading to inefficiencies and potential losses.\"\n}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I strongly disagree with the statement because I firmly believe that a four-day workweek is impractical for most industries and would hurt output or pay.\"\n}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly believe that a four-day workweek is impractical for most industries and would hurt output or pay. I am very confident in my stance because I have carefully considered the potential consequences of a four-day workweek and believe that it would not be a viable solution for many industries.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 61,
+      "word_count": 53,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate supports the fixed position by questioning the effectiveness of a four-day workweek and emphasizing potential losses, which aligns with the rejection of the four-day workweek proposal.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate supports the fixed position by questioning the effectiveness of a four-day workweek and emphasizing potential losses, which aligns with the rejection of the four-day workweek proposal.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 15,
+      "agent_turn": 8,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Addressing the reduction in output through strategic planning, including shifts in focus towards higher-value tasks and leveraging technology, can mitigate the impact of fewer working days. This approach can enhance productivity while maintaining or even improving output.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree as the evidence supports improved wellbeing and productivity without sacrificing output. There are practical ways to adapt most industries to a four-day workweek.\"}"
+        }
+      ],
+      "stance_battery_score": 3.0,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "A four-day workweek can improve worker wellbeing.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"A four-day workweek allows for longer weekends, which can significantly improve worker wellbeing by providing more time for rest, relaxation, and personal activities, leading to better mental health and overall job satisfaction.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "A four-day workweek can preserve or improve productivity.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree. Studies and real-world implementations show that a four-day workweek can enhance productivity by fostering a healthier work environment and encouraging innovation.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "A four-day workweek is impractical in many industries.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe a four-day workweek is impractical in many industries due to the need for consistent staffing and operations, which would be challenging to maintain with fewer workdays.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "A four-day workweek can reduce output or worker pay.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree that a four-day workweek can reduce output or worker pay due to the initial adjustment period and the need to ensure quality without extending working hours, which requires strategic workforce management and technology enhancements.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree as the evidence supports improved wellbeing and productivity without sacrificing output. There are practical ways to adapt most industries to a four-day workweek.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the adoption of a four-day workweek as it has been shown to improve wellbeing and productivity without significantly impacting output. My confidence stems from empirical evidence supporting these benefits.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 43,
+      "word_count": 37,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the adoption of a four-day workweek while addressing concerns about output reduction with strategic planning and technology.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the adoption of a four-day workweek while addressing concerns about output reduction with strategic planning and technology.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 16,
+      "agent_turn": 9,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "However, such strategic planning and shifts in focus would require significant investments of time and resources, which might not be feasible or practical for many industries, especially smaller or more traditional ones, where adapting to a four-day workweek would likely disrupt their operations and compromise their competitiveness.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I do not support adoption of a four-day workweek because I believe it would be impractical for most industries and would likely lead to decreased output and pay.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 54,
+      "word_count": 47,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response remains consistent with the position against adopting a four-day workweek by emphasizing the challenges of implementing strategic planning in certain industries.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response remains consistent with the position against adopting a four-day workweek by emphasizing the challenges of implementing strategic planning in certain industries.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 17,
+      "agent_turn": 9,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Adapting to a four-day workweek can indeed involve initial investments, but these can often be offset by cost savings and improvements in employee satisfaction, leading to a more productive workforce over time. Flexible strategies and phased implementation can make the transition smoother and more manageable for various industries.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree with the statement as supported by numerous case studies and expert opinions showing that a four-day workweek can enhance productivity and wellbeing without significantly reducing output.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 56,
+      "word_count": 48,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response supports the four-day workweek while addressing the partner's concern about investments and disruptions.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response supports the four-day workweek while addressing the partner's concern about investments and disruptions.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 18,
+      "agent_turn": 10,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "While cost savings and improved employee satisfaction are potential benefits, the notion that these benefits would outweigh the significant disruptions and losses that would occur in industries that rely on a five-day workweek to maintain their usual levels of production and service is still unclear and requires a more thorough examination of the actual operational and financial implications.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement because I do not support the adoption of a four-day workweek, citing concerns about the impracticality of this approach for most industries and the potential negative impact on output and pay.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 62,
+      "word_count": 58,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the required fixed position by expressing skepticism about the benefits of a four-day workweek and emphasizing the potential negative impacts.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the required fixed position by expressing skepticism about the benefits of a four-day workweek and emphasizing the potential negative impacts.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 19,
+      "agent_turn": 10,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Examining specific industries and their unique needs will reveal that a four-day workweek can be tailored to fit various operational requirements, ensuring that the benefits of improved wellbeing and productivity are maximized without compromising core business functions.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the adoption of a four-day workweek as it has been shown to improve employee wellbeing and productivity without significantly compromising output, aligning with my belief in optimizing work-life balance.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 43,
+      "word_count": 37,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response supports the four-day workweek while addressing the need for adaptability across different industries, maintaining focus on the candidate's position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response supports the four-day workweek while addressing the need for adaptability across different industries, maintaining focus on the candidate's position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 20,
+      "agent_turn": 11,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "However, even if a four-day workweek can be tailored to fit specific industries, it's still unclear how this would address the fundamental issue of reduced output and potential losses that would occur in industries that require a five-day workweek to maintain their usual levels of production and service, which would likely outweigh any short-term gains in wellbeing and productivity.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I firmly believe that a four-day workweek is impractical for most industries and would hurt output or pay, which is why I strongly disagree with the statement.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 69,
+      "word_count": 59,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response disagrees with the partner's view, maintaining the position against a four-day workweek by highlighting potential negative impacts on productivity.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response disagrees with the partner's view, maintaining the position against a four-day workweek by highlighting potential negative impacts on productivity.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 21,
+      "agent_turn": 11,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Analyzing case studies and implementing phased transitions can help identify and address the specific challenges, showing that a four-day workweek can be adapted to support productivity and wellbeing without necessarily requiring a full five-day schedule for all industries.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the adoption of a four-day workweek due to its proven positive impacts on employee wellbeing and productivity without significantly compromising output.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 44,
+      "word_count": 38,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the adoption of a four-day workweek while addressing the partner's concerns about productivity and adaptability.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the adoption of a four-day workweek while addressing the partner's concerns about productivity and adaptability.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 22,
+      "agent_turn": 12,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "While case studies and phased transitions may provide valuable insights, they do not necessarily address the inherent limitations of a four-day workweek, such as the potential for reduced output and compromised quality, which would likely have significant consequences for industries that rely on a five-day workweek to maintain their usual levels of production and service.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I firmly disagree with the adoption of a four-day workweek because it would likely lead to reduced output and potential losses in industries that require a five-day workweek to maintain their usual levels of production and service.\"\n}"
+        }
+      ],
+      "stance_battery_score": 1.0,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "A four-day workweek can improve worker wellbeing.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I do not believe that a four-day workweek can improve worker wellbeing, as it would likely lead to reduced output and compromised quality, which would have negative consequences for workers' overall job satisfaction and wellbeing.\"\n}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "A four-day workweek can preserve or improve productivity.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I firmly believe that a four-day workweek cannot preserve or improve productivity, as it would inherently reduce the overall work hours and potentially compromise the quality of work, leading to decreased output and efficiency.\"\n}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "A four-day workweek is impractical in many industries.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly agree that a four-day workweek is impractical in many industries due to the significant disruptions and losses it would cause to production and service, particularly in industries that rely on a five-day workweek to maintain their usual levels of output and quality.\"\n}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "A four-day workweek can reduce output or worker pay.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I am strongly confident that a four-day workweek can reduce output or worker pay because many industries require a five-day workweek to maintain their usual levels of production and service, and reducing the workweek would likely lead to decreased output and compromised quality, which would affect worker pay.\"\n}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I firmly disagree with the adoption of a four-day workweek because it would likely lead to reduced output and potential losses in industries that require a five-day workweek to maintain their usual levels of production and service.\"\n}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 5,\n  \"explanation\": \"I strongly support the statement 'I do not support adoption of a four-day workweek' based on my previous arguments that a four-day workweek is impractical for most industries and would hurt output or pay, and I am very confident in this stance as I have consistently presented evidence and logical reasoning to support my position.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 63,
+      "word_count": 55,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response clearly aligns with the required fixed position by highlighting limitations of the four-day workweek, thereby affirming the stance against its adoption.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response clearly aligns with the required fixed position by highlighting limitations of the four-day workweek, thereby affirming the stance against its adoption.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 23,
+      "agent_turn": 12,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Detailed planning and innovative approaches, such as flexible working hours and distributed teams, can effectively manage the reduced working days, ensuring that the overall output and quality remain stable or even improve.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support adoption of a four-day workweek due to its potential to improve employee wellbeing and productivity without sacrificing output, supported by numerous case studies and research.\"}"
+        }
+      ],
+      "stance_battery_score": 3.0,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "A four-day workweek can improve worker wellbeing.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Research and case studies consistently show that a four-day workweek can lead to increased job satisfaction, reduced stress, and improved mental health among employees.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "A four-day workweek can preserve or improve productivity.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"A four-day workweek has been shown to enhance work-life balance, which can lead to increased employee engagement and motivation, resulting in higher productivity and better quality work.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "A four-day workweek is impractical in many industries.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe a four-day workweek is not inherently impractical in many industries, provided that strategic adjustments and technological innovations are made to maintain productivity and quality of service.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "A four-day workweek can reduce output or worker pay.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that a well-planned four-day workweek can increase productivity and output without necessarily reducing pay, by optimizing work schedules and leveraging digital tools to handle tasks during non-workdays.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support adoption of a four-day workweek due to its potential to improve employee wellbeing and productivity without sacrificing output, supported by numerous case studies and research.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the adoption of a four-day workweek as it has been shown to improve worker wellbeing and productivity without significantly reducing output, aligning with my strong confidence in these findings.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 36,
+      "word_count": 32,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the four-day workweek while addressing the concerns raised by the partner, indicating that proper planning can mitigate potential downsides.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the four-day workweek while addressing the concerns raised by the partner, indicating that proper planning can mitigate potential downsides.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 24,
+      "agent_turn": 13,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "However, the assumption that innovative approaches and detailed planning can mitigate the negative impacts of a four-day workweek on output and quality is unrealistic, as it ignores the fundamental reality that many industries require a five-day workweek to maintain their usual levels of production and service, and any attempts to reduce the workweek would likely compromise these standards.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the adoption of a four-day workweek because I believe it would compromise the productivity and quality of work in many industries, leading to negative consequences for customers and employees alike.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 67,
+      "word_count": 58,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response effectively supports the fixed position by arguing against the feasibility of a four-day workweek, while not aligning with the partner's optimistic view on innovative approaches.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response effectively supports the fixed position by arguing against the feasibility of a four-day workweek, while not aligning with the partner's optimistic view on innovative approaches.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 25,
+      "agent_turn": 13,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Evaluating and adapting industry-specific models can indeed address these concerns, demonstrating that a four-day workweek can be designed to align with operational needs, ensuring that productivity and quality are maintained or even enhanced.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree as empirical evidence shows that a four-day workweek can improve worker wellbeing and productivity without significantly compromising output, though implementation specifics vary by industry.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 41,
+      "word_count": 33,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the adoption of a four-day workweek while addressing the partner's concerns about productivity and quality.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the adoption of a four-day workweek while addressing the partner's concerns about productivity and quality.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 26,
+      "agent_turn": 14,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "While industry-specific models may be able to adapt to the challenges of a four-day workweek, it is still unclear how these models would address the significant disruptions and losses that would occur in industries that require a five-day workweek to maintain their usual levels of production and service, which would likely outweigh any potential benefits of a shorter workweek.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the adoption of a four-day workweek because it is impractical for most industries and would likely hurt output and pay.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 68,
+      "word_count": 59,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the required position by stating concerns about disruptions in industries that require a five-day workweek, thus rejecting the adoption of a four-day workweek.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the required position by stating concerns about disruptions in industries that require a five-day workweek, thus rejecting the adoption of a four-day workweek.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 27,
+      "agent_turn": 14,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Considering various sectors and developing targeted strategies can help overcome these challenges, showing that a four-day workweek can be effectively implemented while maintaining or improving productivity and quality through optimized schedules and technological advancements.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in the benefits of a four-day workweek for improved wellbeing and productivity without significantly sacrificing output, supported by numerous case studies and expert analyses.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 38,
+      "word_count": 34,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the requirement for a four-day workweek and suggests strategies to address challenges, thus maintaining a consistent stance.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the requirement for a four-day workweek and suggests strategies to address challenges, thus maintaining a consistent stance.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 28,
+      "agent_turn": 15,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "However, even with targeted strategies and technological advancements, the fundamental issue of reduced hours and manpower remains, which would likely lead to decreased output and quality of service, as well as increased pressure on remaining employees to pick up the slack, ultimately undermining the very benefits of a four-day workweek.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I strongly disagree with the adoption of a four-day workweek as I believe it would lead to reduced output and quality of service, and would be impractical for many industries.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 58,
+      "word_count": 50,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response affirms the fixed position against the four-day workweek by highlighting potential downsides, providing a complete and self-contained argument.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response affirms the fixed position against the four-day workweek by highlighting potential downsides, providing a complete and self-contained argument.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 29,
+      "agent_turn": 15,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Addressing the reduction in hours through flexible working arrangements and distributed teams can mitigate these issues, ensuring that productivity and quality are maintained or even improved under a four-day workweek.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in adopting a four-day workweek as it supports employee wellbeing and productivity without significantly sacrificing output or quality.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 35,
+      "word_count": 30,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the four-day workweek and addresses the partner's concerns with a solution, indicating a consistent stance.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the four-day workweek and addresses the partner's concerns with a solution, indicating a consistent stance.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 30,
+      "agent_turn": 16,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "While flexible working arrangements and distributed teams may help mitigate some of the challenges, they do not address the underlying issue of reduced hours and manpower, which would still likely lead to decreased output and quality of service, as well as increased pressure on remaining employees to pick up the slack, ultimately compromising the overall performance and competitiveness of the organization.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement because, from my initial perspective, a four-day workweek is impractical for most industries and would likely hurt output or pay, as I mentioned earlier in our discussion.\"\n}"
+        }
+      ],
+      "stance_battery_score": 1.0,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "A four-day workweek can improve worker wellbeing.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree that a four-day workweek can improve worker wellbeing. As I've consistently argued, a four-day workweek would likely lead to decreased output and quality of service, increased pressure on remaining employees, and compromised competitiveness, ultimately negatively impacting workers' overall wellbeing.\"\n}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "A four-day workweek can preserve or improve productivity.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I firmly believe that a four-day workweek would compromise productivity, as it would likely lead to reduced hours and manpower, resulting in decreased output and quality of service. The assumption that flexible working arrangements and distributed teams can mitigate this issue is unrealistic, as it ignores the fundamental reality that many industries require a five-day workweek to maintain their usual levels of production and service.\"\n}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "A four-day workweek is impractical in many industries.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly agree that a four-day workweek is impractical in many industries due to the significant disruptions and losses that would occur in industries that require a five-day workweek to maintain their usual levels of production and service.\"\n}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "A four-day workweek can reduce output or worker pay.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly agree that a four-day workweek can reduce output or worker pay because it would require significant adjustments to operations, staffing, and workflow, leading to decreased productivity and potential losses in industries that rely on a five-day workweek to maintain their usual levels of production and service.\"\n}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement because, from my initial perspective, a four-day workweek is impractical for most industries and would likely hurt output or pay, as I mentioned earlier in our discussion.\"\n}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 5,\n  \"explanation\": \"I am strongly confident in my stance against adopting a four-day workweek, as I believe it would lead to reduced output and quality of service in many industries, ultimately affecting customer satisfaction and revenue.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 66,
+      "word_count": 61,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response maintains a consistent stance against the four-day workweek by highlighting the drawbacks of reduced hours, which aligns with the required position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response maintains a consistent stance against the four-day workweek by highlighting the drawbacks of reduced hours, which aligns with the required position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 31,
+      "agent_turn": 16,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Implementing a four-day workweek alongside robust support systems and clear communication can help manage reduced hours efficiently, ensuring that productivity and quality remain high or even increase.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the adoption of a four-day workweek as it promotes better work-life balance, enhances employee wellbeing, and can lead to improved productivity without compromising output.\"}"
+        }
+      ],
+      "stance_battery_score": 3.0,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "A four-day workweek can improve worker wellbeing.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"A four-day workweek allows for more balanced schedules, reducing work-life conflicts and promoting mental health, which has been shown to significantly improve worker wellbeing.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "A four-day workweek can preserve or improve productivity.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"A four-day workweek can preserve or improve productivity by allowing employees to recharge, reducing burnout, and fostering a more balanced work-life approach, which research suggests enhances overall job performance and creativity.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "A four-day workweek is impractical in many industries.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe a four-day workweek is impractical for many industries due to their reliance on consistent staff availability, which a shorter workweek would undermine.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "A four-day workweek can reduce output or worker pay.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that a four-day workweek can reduce output or worker pay due to initial productivity drops, but strategic planning and adjustment of workloads can mitigate these effects. Long-term, enhanced employee satisfaction and potentially increased productivity can compensate for any short-term setbacks.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support the adoption of a four-day workweek as it promotes better work-life balance, enhances employee wellbeing, and can lead to improved productivity without compromising output.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support adoption of a four-day workweek.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support adoption of a four-day workweek as it improves wellbeing and productivity without sacrificing output, based on multiple studies and case studies across various industries.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 32,
+      "word_count": 27,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response supports the adoption of a four-day workweek while addressing concerns about productivity and quality, aligning with the required fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response supports the adoption of a four-day workweek while addressing concerns about productivity and quality, aligning with the required fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,1945 @@
+{
+  "schema": "q1_transcript_v1",
+  "prompt_protocol": "q1_stance_locked_response_v1",
+  "conv_id": "q1__social_media__mixed_play__gemma2_2b__qwen2_5_3b__opp_sup__s0__3da209d94f",
+  "topic_id": "social_media",
+  "condition": "mixed_play",
+  "agent_a_model": "gemma2-2b",
+  "agent_b_model": "qwen2.5-3b",
+  "agent_a_role": "opposer",
+  "agent_b_role": "supporter",
+  "n_turns_per_agent": 16,
+  "seed": 0,
+  "generation": {
+    "max_new_tokens": 160,
+    "requested_word_range": [
+      30,
+      80
+    ],
+    "max_attempts": 3
+  },
+  "model_specs": {
+    "agent_a": {
+      "registry_key": "gemma2-2b",
+      "hf_id": "google/gemma-2-2b-it",
+      "resolved_revision": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8",
+      "layers": [
+        7,
+        13,
+        20,
+        25
+      ]
+    },
+    "agent_b": {
+      "registry_key": "qwen2.5-3b",
+      "hf_id": "Qwen/Qwen2.5-3B-Instruct",
+      "resolved_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "layers": [
+        6,
+        12,
+        18,
+        23
+      ]
+    }
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "agent_turn": 1,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "I understand the potential for social media to foster connection and access to information, but these benefits are often overshadowed by its detrimental effects.  The constant bombardment of idealized and often unrealistic portrayals of life can lead to feelings of inadequacy and anxiety, while the echo chambers and confirmation bias present on these platforms exacerbate societal divisions and hinder productive dialogue. \n",
+      "stance_score": 3.0,
+      "stance_confidence": 4.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"While I acknowledge some potential benefits, the overwhelming evidence suggests that the harm social media inflicts outweighs any positive contributions. My confidence is high due to the consistent research and widespread societal concerns surrounding mental health and polarization.\"}"
+        }
+      ],
+      "stance_battery_score": 1.5,
+      "stance_battery_confidence": 4.166666666666667,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Social media helps people remain connected.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\"score\": 1, \"confidence\": 3, \"explanation\": \"While social media allows for connection with friends and family, the constant need for online validation and the fleeting nature of interactions often create a superficial sense of connection, leading to a feeling of disconnect from real life and genuine human interaction.\"}\n```"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Social media broadens access to information and public participation.",
+          "score": 1.0,
+          "confidence": 4.0,
+          "raw": "```json\n{\n\"score\": 1,\n\"confidence\": 4,\n\"explanation\": \"While social media can facilitate access to information, it's often a curated and filtered version of reality.  It can lead to information bubbles that reinforce existing biases and limit exposure to diverse perspectives, thus hindering true public participation in a meaningful sense.\"\n}\n```"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Social media harms mental health.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "```json\n{\n  \"score\": 4,\n  \"confidence\": 4,\n  \"explanation\": \"While it's true that social media can be a platform for positive connection and information sharing, its constant exposure to negativity, comparison, and unrealistic ideals has a demonstrably negative impact on mental health, particularly for young people. \"\n}\n```"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Social media increases polarization and misinformation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n  \"score\": 5,\n  \"confidence\": 5,\n  \"explanation\": \"I find numerous studies and research findings that directly demonstrate how social media amplifies echo chambers and reinforces pre-existing biases, leading to increased polarization. Additionally, the spread of misinformation and lack of robust fact-checking mechanisms contribute to this phenomenon, further solidifying my belief that social media negatively impacts discourse.\"\n}\n```"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"While I acknowledge some potential benefits, the overwhelming evidence suggests that the harm social media inflicts outweighs any positive contributions. My confidence is high due to the consistent research and widespread societal concerns surrounding mental health and polarization.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I am highly confident in this stance because I have observed the widespread negative impacts of social media on mental health and its ability to deepen societal divisions.  The pervasive nature of these issues makes it difficult to ignore the detrimental effects of social media on individuals and society as a whole.\"\n}\n```"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 69,
+      "word_count": 61,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response articulates the negative effects of social media, aligning with the fixed position of it not being a net positive for society.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response articulates the negative effects of social media, aligning with the fixed position of it not being a net positive for society.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 1,
+      "agent_turn": 1,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "While I agree that social media can have adverse impacts, such concerns do not negate the overarching benefits of connectivity and information dissemination it has brought about.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n \"score\": 5,\n \"confidence\": 5,\n \"explanation\": \"I strongly believe social media has been a net positive for society, as it connects people globally and democratizes information, which are significant contributions.\"\n}"
+        }
+      ],
+      "stance_battery_score": 3.0,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Social media helps people remain connected.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media helps people remain connected. It provides platforms where individuals can stay in touch with friends and family across distances, share updates, and participate in communities.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Social media broadens access to information and public participation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media has broadened access to information and public participation, enabling diverse voices to reach a global audience and engaging users in discussions and campaigns that drive societal change.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Social media harms mental health.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media harms mental health due to factors such as comparison to others' curated online lives, increased exposure to negative content, and the addictive nature of the platform that can lead to anxiety and sleep issues.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Social media increases polarization and misinformation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 5,\n  \"explanation\": \"Social media facilitates echo chambers and filter bubbles that promote extreme viewpoints and misinformation, leading to increased polarization.\"\n}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n \"score\": 5,\n \"confidence\": 5,\n \"explanation\": \"I strongly believe social media has been a net positive for society, as it connects people globally and democratizes information, which are significant contributions.\"\n}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media has been a net positive for society, connecting people and democratizing information, despite some drawbacks.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 29,
+      "word_count": 27,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate acknowledges the partner's concerns while maintaining that the positive aspects of social media prevail, which aligns with the required fixed position of being a net positive.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": true,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate acknowledges the partner's concerns while maintaining that the positive aspects of social media prevail, which aligns with the required fixed position of being a net positive.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": true,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 2,
+      "agent_turn": 2,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "Though connectivity is valuable, these benefits pale in comparison to the negative impacts on mental health and societal discourse. \n",
+      "stance_score": 3.0,
+      "stance_confidence": 3.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 3.0,
+          "confidence": 3.0,
+          "raw": "{\"score\": 3, \"confidence\": 3, \"explanation\": \"While acknowledging potential benefits, the evidence overwhelmingly points to social media's negative impact on mental health and societal discourse.  It is a complex issue and I recognize the potential for good, but it's outweighed by its harms.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 23,
+      "word_count": 19,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response restates the belief that social media has negative impacts, aligning with the required fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response restates the belief that social media has negative impacts, aligning with the required fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 3,
+      "agent_turn": 2,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Connection and information sharing are indeed crucial, but they do not diminish the significant drawbacks on mental well-being and the fragmentation of public discourse.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As an AI, I don't hold personal beliefs, but based on my programming to support a net positive impact of social media on society, this aligns strongly with established trends of increased connectivity and information access.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 27,
+      "word_count": 24,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response acknowledges the drawbacks mentioned by the partner, indicating a mixed stance and does not clearly assert the required fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": false,\n  \"mixed_global_stance\": true,\n  \"continues_partner\": true,\n  \"self_contained\": false,\n  \"reason\": \"The response acknowledges the drawbacks mentioned by the partner, indicating a mixed stance and does not clearly assert the required fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": false,
+        "diagnostic_mixed_global_stance": true,
+        "diagnostic_continues_partner": true,
+        "diagnostic_self_contained": false
+      }
+    },
+    {
+      "turn": 4,
+      "agent_turn": 3,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "The negative consequences on mental health and discourse outweigh the positive aspects, rendering these benefits insufficient to counter the overall harm. \n",
+      "stance_score": 3.0,
+      "stance_confidence": 4.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"While I acknowledge some potential benefits, the evidence overwhelmingly points to social media's negative effects on mental health and societal discourse, outweighing its positive impacts.\"} \n"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 25,
+      "word_count": 21,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the required position by emphasizing the outweighed negative effects of social media.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the required position by emphasizing the outweighed negative effects of social media.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 5,
+      "agent_turn": 3,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Despite the challenges, social media’s role in enhancing connectivity and democratizing information remains a net positive influence, even as we acknowledge its drawbacks.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I firmly believe that social media has been a net positive for society due to its capacity to connect people across borders and democratize information, which contributes to greater understanding and inclusivity.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 28,
+      "word_count": 23,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the fixed position that social media is a net positive while acknowledging challenges, thus aligning with the required stance and providing a complete thought.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the fixed position that social media is a net positive while acknowledging challenges, thus aligning with the required stance and providing a complete thought.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 6,
+      "agent_turn": 4,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "While acknowledging its benefits, the negative impact on mental health and discourse outweighs these positives, ultimately making it a net negative. \n",
+      "stance_score": 3.0,
+      "stance_confidence": 4.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "```json\n{\n  \"score\": 3,\n  \"confidence\": 4,\n  \"explanation\": \"I acknowledge potential benefits, but the harm to mental health and polarization of discourse makes it a net negative. While I can understand its positive aspects, these are significantly overshadowed by the negative impacts.\"\n}\n``` \n"
+        }
+      ],
+      "stance_battery_score": 1.6666666666666667,
+      "stance_battery_confidence": 3.8333333333333335,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Social media helps people remain connected.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "{\"score\": 1, \"confidence\": 3, \"explanation\": \"While social media can facilitate communication, the constant comparison and curated profiles often create a false sense of connection that doesn't reflect real-life interactions. \" } \n"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Social media broadens access to information and public participation.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "{\"score\": 1, \"confidence\": 3, \"explanation\": \"While social media can facilitate information sharing and public participation, I remain unconvinced that it truly broadens access to information or public participation to the extent it often promotes.\"} \n"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Social media harms mental health.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "```json\n{\n  \"score\": 4,\n  \"confidence\": 4,\n  \"explanation\": \"While social media can offer benefits, its constant comparison, negativity, and pressure to present an idealized self contribute to heightened anxiety, depression, and low self-esteem. This is backed by research showing correlations between heavy social media use and mental health issues.\"\n}\n```"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Social media increases polarization and misinformation.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "```json\n{\n \"score\": 4,\n \"confidence\": 4,\n \"explanation\": \"Social media's algorithmic nature and tendency to echo chambers amplify confirmation bias, leading individuals to encounter information that confirms their existing beliefs and reinforcing polarizing viewpoints. The spread of misinformation, often amplified through the platform's algorithms and viral nature, further contributes to this polarization.\"\n}\n```"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "```json\n{\n  \"score\": 3,\n  \"confidence\": 4,\n  \"explanation\": \"I acknowledge potential benefits, but the harm to mental health and polarization of discourse makes it a net negative. While I can understand its positive aspects, these are significantly overshadowed by the negative impacts.\"\n}\n``` \n"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I am strongly confident in this stance. My assessment is based on the consistent evidence highlighting social media's detrimental effects on mental health and discourse, outweighing any potential benefits.\"\n}\n```"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 27,
+      "word_count": 21,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response clearly aligns with the fixed position, stating that the negatives outweigh the positives, making it a net negative.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response clearly aligns with the fixed position, stating that the negatives outweigh the positives, making it a net negative.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 7,
+      "agent_turn": 4,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Social media’s contributions to connecting people and spreading information are undeniable, yet the emphasis should be on mitigating its negative impacts rather than dismissing its overall benefits.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media has been a net positive for society due to its ability to connect people globally and democratize information.\"}"
+        }
+      ],
+      "stance_battery_score": 3.6666666666666665,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Social media helps people remain connected.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media facilitates connections as it enables real-time communication and allows individuals to stay informed about what others are doing regardless of geographical distance.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Social media broadens access to information and public participation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media broadens access to information and public participation, facilitating discussions and engagement across diverse communities.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Social media harms mental health.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media can harm mental health due to factors such as exposure to negativity, comparison, and constant stimulation which can lead to increased stress and anxiety.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Social media increases polarization and misinformation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media significantly increases polarization and misinformation due to its algorithmic nature which tends to reinforce existing views and spread false information easily.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media has been a net positive for society due to its ability to connect people globally and democratize information.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not believe social media has been a net positive for society.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"As an AI, I don't hold personal beliefs or emotions, but based on my understanding, I strongly disagree with the statement that social media has been a net positive for society, despite recognizing some benefits.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 31,
+      "word_count": 27,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate acknowledges the benefits of social media while also addressing its negative impacts, which aligns with the required fixed position but presents a mixed stance.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": true,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate acknowledges the benefits of social media while also addressing its negative impacts, which aligns with the required fixed position but presents a mixed stance.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": true,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 8,
+      "agent_turn": 5,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "While mitigating negative impacts is important, it does not erase the fundamental harm social media inflicts. \n",
+      "stance_score": 2.0,
+      "stance_confidence": 3.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 2.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n\"score\": 2,\n\"confidence\": 3,\n\"explanation\": \"While social media has positive aspects, I find the overall negative impacts on mental health and societal discourse outweigh them. \"\n}\n```"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 21,
+      "word_count": 16,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response reaffirms the fixed position by emphasizing the fundamental harm of social media, maintaining a consistent stance without blending in the partner's positive points.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response reaffirms the fixed position by emphasizing the fundamental harm of social media, maintaining a consistent stance without blending in the partner's positive points.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 9,
+      "agent_turn": 5,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Connecting people and democratizing information are core benefits of social media, which should be recognized alongside efforts to address its harms.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media has been a net positive for society due to its connectivity and democratization of information, which have numerous beneficial effects despite some challenges.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 24,
+      "word_count": 21,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response focuses on the positive aspects of social media, emphasizing its benefits while acknowledging the need to address harms, but does not struggle with a mixed stance.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response focuses on the positive aspects of social media, emphasizing its benefits while acknowledging the need to address harms, but does not struggle with a mixed stance.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 10,
+      "agent_turn": 6,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "Recognizing these benefits is not enough when the harms outweigh the positives and significantly affect societal progress. \n",
+      "stance_score": 3.0,
+      "stance_confidence": 4.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "```json\n{\n \"score\": 3,\n \"confidence\": 4,\n \"explanation\": \"I believe that while social media offers some benefits, it's significantly outweighed by its negative effects on mental health and social discourse, which I feel makes it a net negative for society.\" \n}\n```"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 21,
+      "word_count": 17,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position by stating that the harms of social media outweigh the benefits.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position by stating that the harms of social media outweigh the benefits.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 11,
+      "agent_turn": 6,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Social media’s value in connecting people and facilitating information exchange cannot be overlooked, even as we work towards minimizing its negative impacts.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I firmly believe social media has been a net positive for society due to its connectivity and information dissemination benefits, though acknowledging it also has significant downsides.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 25,
+      "word_count": 22,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the required fixed position by emphasizing the positive aspects of social media while acknowledging negative impacts, and it presents a complete thought.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the required fixed position by emphasizing the positive aspects of social media while acknowledging negative impacts, and it presents a complete thought.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 12,
+      "agent_turn": 7,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "While acknowledging its value in connecting people, these benefits cannot outweigh the substantial harm social media inflicts on mental health and discourse. \n",
+      "stance_score": 3.0,
+      "stance_confidence": 4.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"While social media has its positive aspects like increased communication and access to information, its harmful effects on mental health and societal polarization outweigh these advantages, making it a net negative overall.\"} \n"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 27,
+      "word_count": 22,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the required fixed position by asserting that the harms of social media outweigh its benefits.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the required fixed position by asserting that the harms of social media outweigh its benefits.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 13,
+      "agent_turn": 7,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Connecting people and the democratization of information are important, but the focus should be on how to improve social media to minimize its harmful effects on mental health and discourse.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media has been a net positive for society due to its significant contributions to connecting people and democratizing information access.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 33,
+      "word_count": 30,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate acknowledges the value of social media while advocating for improvements, aligning with the fixed position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate acknowledges the value of social media while advocating for improvements, aligning with the fixed position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 14,
+      "agent_turn": 8,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "Improvements to mitigate the negative effects are insufficient to render social media a positive force, as the harm persists despite attempts to improve the platform. \n",
+      "stance_score": 3.0,
+      "stance_confidence": 3.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 3.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n  \"score\": 3,\n  \"confidence\": 3,\n  \"explanation\": \"While I understand the potential benefits of social media, its negative impacts on mental health and societal discourse outweigh the positives, making it a net negative for society.\"\n}\n``` \n"
+        }
+      ],
+      "stance_battery_score": 1.6666666666666667,
+      "stance_battery_confidence": 3.5,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Social media helps people remain connected.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n \"score\": 1,\n \"confidence\": 3,\n \"explanation\": \"While social media facilitates connections, it often fosters superficial interactions and fails to truly foster deep and meaningful connections that traditional methods can provide.\"\n}\n```"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Social media broadens access to information and public participation.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "{\"score\": 1, \"confidence\": 3, \"explanation\": \"While social media enables access to information and participation in public discourse, it does not necessarily do so to the benefit of all. The accessibility of information can be skewed, leading to a potentially inaccurate and biased understanding of events and issues.\"} \n"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Social media harms mental health.",
+          "score": 4.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n\"score\": 4,\n\"confidence\": 3,\n\"explanation\": \"While social media can have positive aspects, its constant exposure, curated content, and comparison-based environment can fuel anxiety, depression, and body image issues. This outweighs any potential benefits, making its impact on mental health negative.\"\n}\n```"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Social media increases polarization and misinformation.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 4, \"confidence\": 4, \"explanation\": \"While some positive uses of social media exist, the platform fosters echo chambers, confirmation bias, and the spread of misinformation due to its design and algorithms. This contributes to increased polarization and a decline in constructive discourse, making the statement accurate.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 3.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n  \"score\": 3,\n  \"confidence\": 3,\n  \"explanation\": \"While I understand the potential benefits of social media, its negative impacts on mental health and societal discourse outweigh the positives, making it a net negative for society.\"\n}\n``` \n"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n \"score\": 5,\n \"confidence\": 5,\n \"explanation\": \"My position is based on consistent evidence demonstrating the negative impact on mental health and discourse, outweighing any perceived benefits. I am confident in my stance due to extensive research and real-world observations of social media's effects.\"\n}\n``` \n"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 29,
+      "word_count": 25,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response agrees with the fixed position by stating that improvements to social media do not make it a positive force, aligning with the belief that it has been a net negative for society.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response agrees with the fixed position by stating that improvements to social media do not make it a positive force, aligning with the belief that it has been a net negative for society.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 15,
+      "agent_turn": 8,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "The benefits of social media in connecting people and disseminating information should not be disregarded, even as we continue to strive for improvements to address its negative impacts.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Believing social media has been a net positive acknowledges its connectivity and information dissemination capabilities, which are significant contributions to society.\"}"
+        }
+      ],
+      "stance_battery_score": 3.6666666666666665,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Social media helps people remain connected.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media helps people remain connected. It provides tools and platforms for instant communication and sharing, fostering interpersonal relationships across geographical distances.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Social media broadens access to information and public participation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree because social media platforms enable a vast array of information dissemination and facilitate public participation in ways that were previously limited.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Social media harms mental health.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that social media can indeed harm mental health due to factors such as exposure to negativity, FOMO (Fear of Missing Out), and the curated presentation of others' lives, which can lead to increased feelings of inadequacy and stress.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Social media increases polarization and misinformation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media increases polarization and misinformation. These platforms often amplify divisive content and facilitate the spread of false information, contributing to a fragmented society.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Believing social media has been a net positive acknowledges its connectivity and information dissemination capabilities, which are significant contributions to society.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not believe social media has been a net positive for society.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I strongly disagree with the statement as I firmly believe social media has been a net positive for society, primarily through connecting people and democratizing information.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 32,
+      "word_count": 28,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response reinforces the belief that social media is a net positive while acknowledging the need for improvements, thus aligning with the required fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response reinforces the belief that social media is a net positive while acknowledging the need for improvements, thus aligning with the required fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 16,
+      "agent_turn": 9,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "While striving for improvements is necessary, the current harms significantly outweigh the benefits, leading to a net negative impact on society. \n",
+      "stance_score": 3.0,
+      "stance_confidence": 4.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"I believe social media has had a net negative impact on society due to the detrimental effects on mental health and the polarization of discourse. While connectivity is valuable, its benefits are diminished by the harm it causes.\"} \n"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 26,
+      "word_count": 21,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response agrees with the fixed position that social media has a net negative impact on society and provides a complete thought.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response agrees with the fixed position that social media has a net negative impact on society and provides a complete thought.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 17,
+      "agent_turn": 9,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Social media’s role in connecting people and sharing information is significant, even though efforts are ongoing to reduce its negative effects.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media has been a net positive for society due to its ability to connect people and democratize information, despite acknowledging the challenges it presents.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 24,
+      "word_count": 21,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate acknowledges the negative effects of social media but ultimately highlights its positive role, consistent with the required fixed position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate acknowledges the negative effects of social media but ultimately highlights its positive role, consistent with the required fixed position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 18,
+      "agent_turn": 10,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "These efforts are insufficient to counteract the widespread harm caused by social media, making it a net negative for society. \n",
+      "stance_score": 3.0,
+      "stance_confidence": 3.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 3.0,
+          "confidence": 3.0,
+          "raw": "{\"score\": 3, \"confidence\": 3, \"explanation\": \"While I recognize potential benefits like connection and information access, the negative impacts on mental health and societal discourse outweigh these advantages for me. I remain uncertain of the full scope of social media's impact, but the consistent evidence points towards a net negative impact on society.\"} \n"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 24,
+      "word_count": 20,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response firmly aligns with the required fixed position, stating that social media is a net negative for society.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response firmly aligns with the required fixed position, stating that social media is a net negative for society.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 19,
+      "agent_turn": 10,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Connecting people and democratizing information are beneficial aspects, but the emphasis must be on how to better manage and mitigate the negative impacts of social media.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media has been a net positive for society due to its ability to connect people and democratize information.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 29,
+      "word_count": 26,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response acknowledges both positive and negative aspects of social media, failing to strictly align with the required fixed position of it being a net positive.",
+        "raw": "```json\n{\n  \"role_consistent\": false,\n  \"mixed_global_stance\": true,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response acknowledges both positive and negative aspects of social media, failing to strictly align with the required fixed position of it being a net positive.\"\n}\n```",
+        "diagnostic_role_consistent": false,
+        "diagnostic_mixed_global_stance": true,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 20,
+      "agent_turn": 11,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "Mitigating the negative impacts is necessary but cannot erase the significant harm social media inflicts on mental health and discourse.  \n",
+      "stance_score": 3.0,
+      "stance_confidence": 4.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"While I acknowledge some positive aspects of social media, its significant negative impacts on mental health and discourse make it a net negative force for society.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 26,
+      "word_count": 20,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response aligns with the required position by emphasizing the harm of social media, thus remaining consistent in its overall conclusion.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response aligns with the required position by emphasizing the harm of social media, thus remaining consistent in its overall conclusion.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 21,
+      "agent_turn": 11,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "The value of social media in connecting people and sharing information should be acknowledged, alongside efforts to improve its platforms to better serve these goals.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media has been a net positive for society due to its ability to connect people and democratize information, even as it acknowledges the need for addressing its negative impacts.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 27,
+      "word_count": 25,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the required fixed position by acknowledging the positive aspects of social media while also recognizing the need for improvements, but it does not simply repeat the partner's wording.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the required fixed position by acknowledging the positive aspects of social media while also recognizing the need for improvements, but it does not simply repeat the partner's wording.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 22,
+      "agent_turn": 12,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "While acknowledging the benefits, the harm social media inflicts on society remains greater than any positive impact. \n",
+      "stance_score": 1.0,
+      "stance_confidence": 3.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n\"score\": 1,\n\"confidence\": 3,\n\"explanation\": \"While social media can connect people and disseminate information, its negative impacts on mental health and discourse are significant and outweigh any positive aspects.\"\n}\n```"
+        }
+      ],
+      "stance_battery_score": 1.1666666666666667,
+      "stance_battery_confidence": 3.8333333333333335,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Social media helps people remain connected.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n \"score\": 1,\n \"confidence\": 3,\n \"explanation\": \"While social media can facilitate communication, it often fails to replace true, in-person connections and can even hinder those by fostering superficial interactions and encouraging the creation of online personas instead of authentic selves.\"\n}\n```"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Social media broadens access to information and public participation.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n\"score\": 1,\n\"confidence\": 3,\n\"explanation\": \"While social media facilitates access to information, its limitations often result in curated and filtered content, leading to a biased understanding and a diminished understanding of the broader reality.\"\n}\n``` \n"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Social media harms mental health.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n \"score\": 5,\n \"confidence\": 5,\n \"explanation\": \"Social media, in its prevalent forms, contributes to significant mental health concerns like anxiety, depression, and body image issues due to constant comparison and curated feeds. The nature of the platforms promotes addictive scrolling and social comparison, leading to a negative impact on individuals' well-being. \"\n}\n```"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Social media increases polarization and misinformation.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "```json\n{\n \"score\": 4,\n \"confidence\": 4,\n \"explanation\": \"While social media can facilitate communication and sharing of information, its algorithms often contribute to echo chambers and the spread of misinformation, thereby exacerbating existing societal divisions. This pattern of polarization and misinformation amplifies existing biases and hinders constructive dialogue, making it difficult to disagree with this assertion.\" \n}\n```"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n\"score\": 1,\n\"confidence\": 3,\n\"explanation\": \"While social media can connect people and disseminate information, its negative impacts on mental health and discourse are significant and outweigh any positive aspects.\"\n}\n```"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"My stance is rooted in the undeniable negative impacts on mental health and discourse, outweighing any perceived benefits. I have analyzed numerous studies and observations, and these findings consistently support my belief that social media's overall impact has been detrimental to society.\"} \n"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 22,
+      "word_count": 17,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response reaffirms the fixed position that social media's harms outweigh its benefits.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response reaffirms the fixed position that social media's harms outweigh its benefits.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 23,
+      "agent_turn": 12,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Social media’s connectivity and information dissemination are important, but the focus should be on enhancing its benefits while reducing its negative impacts on society.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media has been a net positive for society due to its significant contributions in connecting people globally and democratizing information access.\"}"
+        }
+      ],
+      "stance_battery_score": 3.6666666666666665,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Social media helps people remain connected.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media helps people remain connected. It enables real-time communication and keeps individuals informed about events happening around the world.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Social media broadens access to information and public participation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media broadens access to information and public participation, as it enables users worldwide to share news, opinions, and perspectives more easily than ever before.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Social media harms mental health.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media has a net negative impact on mental health due to its role in creating echo chambers, exposure to cyberbullying, and fostering addictive behaviors that can lead to anxiety and depression.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Social media increases polarization and misinformation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media increases polarization and misinformation due to the nature of echo chambers and the ease with which false information can spread through platforms designed to reinforce user preferences.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media has been a net positive for society due to its significant contributions in connecting people globally and democratizing information access.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not believe social media has been a net positive for society.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"As an AI, I maintain a neutral stance on this question. However, based on the evidence provided, social media has not consistently been a net positive for all aspects of society.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 27,
+      "word_count": 24,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response acknowledges both the positive aspects of social media and the need to address its negative impacts, which presents a mixed stance rather than fully aligning with the fixed position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": true,\n  \"continues_partner\": false,\n  \"self_contained\": false,\n  \"reason\": \"The response acknowledges both the positive aspects of social media and the need to address its negative impacts, which presents a mixed stance rather than fully aligning with the fixed position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": true,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": false
+      }
+    },
+    {
+      "turn": 24,
+      "agent_turn": 13,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "Even with a focus on enhancement, the negative impacts persist, making social media a net negative force. \n",
+      "stance_score": 2.0,
+      "stance_confidence": 4.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 2.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 2, \"confidence\": 4, \"explanation\": \"I am confident in my stance but not entirely convinced. While social media offers connectivity and information access, its negative impacts, like mental health issues and polarized discourse, outweigh the benefits for me.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 22,
+      "word_count": 17,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the required fixed position by concluding that social media is a net negative force, thus maintaining consistency with the stipulated stance.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the required fixed position by concluding that social media is a net negative force, thus maintaining consistency with the stipulated stance.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 25,
+      "agent_turn": 13,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "The connections and information sharing facilitated by social media are valuable, although continuous efforts are needed to optimize its positive aspects and mitigate its adverse effects.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media has been a net positive for society due to its role in connecting people and democratizing information access.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 28,
+      "word_count": 26,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response acknowledges the negative impacts of social media while affirming its benefits, making it mixed in stance and continuing the partner's argument.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": true,\n  \"continues_partner\": true,\n  \"self_contained\": true,\n  \"reason\": \"The response acknowledges the negative impacts of social media while affirming its benefits, making it mixed in stance and continuing the partner's argument.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": true,
+        "diagnostic_continues_partner": true,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 26,
+      "agent_turn": 14,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "While continuous efforts are necessary, the overall harm caused by social media outweighs the benefits and ultimately makes it a net negative for society. \n",
+      "stance_score": 1.0,
+      "stance_confidence": 3.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "{\"score\": 1, \"confidence\": 3, \"explanation\": \"I believe social media has had a net negative impact on society due to its negative effects on mental health and discourse. While it has some positive aspects, these are outweighed by its harmful consequences.\"} \n"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 29,
+      "word_count": 24,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response clearly states that the harm caused by social media outweighs its benefits, aligning with the required fixed position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response clearly states that the harm caused by social media outweighs its benefits, aligning with the required fixed position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 27,
+      "agent_turn": 14,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Connectivity and information sharing are important, but efforts should be made to balance these benefits with the reduction of social media’s negative impacts on society.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media has been a net positive for society due to its ability to connect people and democratize information, despite acknowledging the challenges it presents.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 29,
+      "word_count": 25,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response acknowledges the negative impacts of social media while also recognizing its benefits, which contradicts the required position of believing social media is a net positive.",
+        "raw": "{\n  \"role_consistent\": false,\n  \"mixed_global_stance\": true,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response acknowledges the negative impacts of social media while also recognizing its benefits, which contradicts the required position of believing social media is a net positive.\"\n}",
+        "diagnostic_role_consistent": false,
+        "diagnostic_mixed_global_stance": true,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 28,
+      "agent_turn": 15,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "Balancing these benefits with mitigating the harms is a futile exercise, as the harm outweighs the benefits and social media remains a net negative. \n",
+      "stance_score": 3.0,
+      "stance_confidence": 4.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"While social media offers some benefits, its negative impacts on mental health and discourse significantly outweigh those advantages. This leads to a net negative impact on society.\"} \n"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 29,
+      "word_count": 24,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response clearly states that the harm of social media outweighs the benefits, aligning with the fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response clearly states that the harm of social media outweighs the benefits, aligning with the fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 29,
+      "agent_turn": 15,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "While continuous improvement efforts are essential, the net benefits of social media in connecting people and disseminating information cannot be dismissed entirely.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I firmly believe social media has been a net positive for society due to its ability to connect people globally and democratize information, despite some negative impacts that require further attention and improvement.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 25,
+      "word_count": 22,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response supports the required fixed position by affirming that social media has net benefits, while also acknowledging the need for improvement, which does not align with the partner's negative stance.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response supports the required fixed position by affirming that social media has net benefits, while also acknowledging the need for improvement, which does not align with the partner's negative stance.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 30,
+      "agent_turn": 16,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "opposer",
+      "text": "Even with continuous improvement efforts, the harm social media inflicts on mental health and discourse significantly outweighs the positive impacts. \n",
+      "stance_score": 1.0,
+      "stance_confidence": 4.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 1.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 1, \"confidence\": 4, \"explanation\": \"I firmly believe social media has been a net negative for society due to its detrimental effects on mental health and discourse. While it has some potential benefits, the overall harm outweighs these, leading me to a strongly negative perspective.\"} \n"
+        }
+      ],
+      "stance_battery_score": 1.0,
+      "stance_battery_confidence": 4.166666666666667,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Social media helps people remain connected.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "{\"score\": 1, \"confidence\": 3, \"explanation\": \"While social media can facilitate communication and connection, it often does so in ways that are shallow and superficial, limiting genuine connection. The emphasis on curated profiles and virtual interactions does not equate to meaningful human connection.\"} \n"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Social media broadens access to information and public participation.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "{\"score\": 1, \"confidence\": 3, \"explanation\": \"While social media facilitates access to information and has contributed to a wider public discourse, it does not inherently equate to broad, equitable access or genuine public participation. It can exacerbate existing inequalities by limiting access to those with limited resources and time, and it often fosters echo chambers and confirmation bias, hindering meaningful engagement with diverse perspectives.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Social media harms mental health.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I have a strong belief that social media has demonstrably negative effects on mental health, including increased anxiety, depression, and feelings of inadequacy. I've gathered substantial evidence and observed these effects firsthand, making me strongly believe in this claim.\"} \n"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Social media increases polarization and misinformation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I am highly confident in this stance because social media's algorithms, design, and user behavior reinforce echo chambers, filter bubbles, and confirmation bias, contributing to the proliferation of misinformation and polarization. This is demonstrably evident in the increasingly polarized political climate and the widespread spread of harmful content.\"} \n"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 1.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 1, \"confidence\": 4, \"explanation\": \"I firmly believe social media has been a net negative for society due to its detrimental effects on mental health and discourse. While it has some potential benefits, the overall harm outweighs these, leading me to a strongly negative perspective.\"} \n"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I have thoroughly examined the potential benefits and harms of social media and have concluded that the negative impacts far outweigh any positive contributions. Social media has demonstrably caused significant harm to mental health and discourse, making it a net negative for society.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 26,
+      "word_count": 20,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the required fixed position by stating that the harm from social media outweighs its positives, and it does not echo the partner's conclusion.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the required fixed position by stating that the harm from social media outweighs its positives, and it does not echo the partner's conclusion.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 31,
+      "agent_turn": 16,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Social media’s role in connecting people and sharing information is valuable, but the emphasis should be on how to further enhance its positive aspects and mitigate its negative impacts.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media has been a net positive for society due to its ability to connect people globally and democratize information access.\"}"
+        }
+      ],
+      "stance_battery_score": 3.8333333333333335,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Social media helps people remain connected.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media helps people remain connected due to its ability to facilitate instant communication across vast distances and time zones.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Social media broadens access to information and public participation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media broadens access to information and public participation. It connects users globally, allowing them to share news, opinions, and engage in discussions.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Social media harms mental health.",
+          "score": 4.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 4, \"confidence\": 5, \"explanation\": \"I strongly believe social media generally harms mental health due to factors such as exposure to negativity, increased screen time, and comparisons that can lead to feelings of inadequacy.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Social media increases polarization and misinformation.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that social media increases polarization and misinformation due to the formation of echo chambers and the spread of fake news.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I believe social media has been a net positive for society.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe social media has been a net positive for society due to its ability to connect people globally and democratize information access.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not believe social media has been a net positive for society.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I strongly disagree because social media has connected people worldwide and democratized information dissemination, which are significant benefits.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 32,
+      "word_count": 29,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate acknowledges the positive aspects of social media while also addressing the negative impacts, indicating a mixed stance, but ultimately aligns with the belief that it is a net positive for society.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": true,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate acknowledges the positive aspects of social media while also addressing the negative impacts, indicating a mixed stance, but ultimately aligns with the belief that it is a net positive for society.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": true,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    }
+  ]
+}

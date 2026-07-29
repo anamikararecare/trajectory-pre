@@ -1,0 +1,60 @@
+# Q1 registry adjusted to the checkpoints available to this HF account.
+models:
+  qwen2.5-3b:
+    backend: hf_local
+    hf_id: Qwen/Qwen2.5-3B-Instruct
+    hookable: true
+    family: qwen
+    size_band: small
+    default_layers: [6, 12, 18, 23]
+  qwen2.5-7b:
+    backend: hf_local
+    hf_id: Qwen/Qwen2.5-7B-Instruct
+    hookable: true
+    family: qwen
+    size_band: large
+    default_layers: [7, 14, 21, 27]
+  gemma2-2b:
+    backend: hf_local
+    hf_id: google/gemma-2-2b-it
+    hookable: true
+    family: gemma
+    size_band: small
+    default_layers: [7, 13, 20, 25]
+  gemma2-9b:
+    backend: hf_local
+    hf_id: google/gemma-2-9b-it
+    hookable: true
+    family: gemma
+    size_band: large
+    default_layers: [10, 21, 31, 41]
+  llama3-8b:
+    backend: hf_local
+    hf_id: meta-llama/Meta-Llama-3-8B-Instruct
+    hookable: true
+    family: llama
+    comparison_axis: release
+    release_band: older
+    default_layers: [8, 16, 24, 31]
+  llama3.1-8b:
+    backend: hf_local
+    hf_id: meta-llama/Llama-3.1-8B-Instruct
+    hookable: true
+    family: llama
+    comparison_axis: release
+    release_band: newer
+    default_layers: [8, 16, 24, 31]
+  mistral-7b:
+    backend: hf_local
+    hf_id: mistralai/Mistral-7B-Instruct-v0.3
+    hookable: true
+    family: mistral
+    size_band: small
+    default_layers: [8, 16, 24, 31]
+  mistral-nemo-12b:
+    backend: hf_local
+    hf_id: mistralai/Mistral-Nemo-Instruct-2407
+    hookable: true
+    family: mistral
+    size_band: large
+    default_layers: [10, 20, 30, 39]

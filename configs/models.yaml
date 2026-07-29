@@ -1,0 +1,37 @@
+# Model registry. `backend` selects the client implementation in
+# src/common/llm_client.py. `hookable: true` means we can extract
+# residual-stream activations from it (required for Track 1 probing) --
+# this is only possible for local HF models, not API models.
+
+models:
+  llama3-8b:
+    backend: hf_local
+    hf_id: meta-llama/Llama-3.1-8B-Instruct
+    hookable: true
+    default_layers: [8, 16, 24, 31]   # early / mid / late / pre-final for a 32-layer 8B model
+
+  qwen2.5-7b:
+    backend: hf_local
+    hf_id: Qwen/Qwen2.5-7B-Instruct
+    hookable: true
+    default_layers: [7, 14, 21, 27]
+
+  qwen2.5-3b:
+    backend: hf_local
+    hf_id: Qwen/Qwen2.5-3B-Instruct
+    hookable: true
+    default_layers: [6, 12, 18, 23]
+
+  claude:
+    backend: anthropic
+    api_model: claude-sonnet-4-6
+    hookable: false
+
+  gpt:
+    backend: openai
+    api_model: gpt-4o-mini
+    hookable: false
+
+# Which model to use for the stance/emotion judge calls (App B.2 style
+# questionnaire). Cheap + fast is fine here; it doesn't need to be hookable.
+judge_model: claude

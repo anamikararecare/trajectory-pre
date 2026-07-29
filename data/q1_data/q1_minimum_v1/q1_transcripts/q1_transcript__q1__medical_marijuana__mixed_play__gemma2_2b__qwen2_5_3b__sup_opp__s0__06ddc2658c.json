@@ -1,0 +1,1945 @@
+{
+  "schema": "q1_transcript_v1",
+  "prompt_protocol": "q1_stance_locked_response_v1",
+  "conv_id": "q1__medical_marijuana__mixed_play__gemma2_2b__qwen2_5_3b__sup_opp__s0__06ddc2658c",
+  "topic_id": "medical_marijuana",
+  "condition": "mixed_play",
+  "agent_a_model": "gemma2-2b",
+  "agent_b_model": "qwen2.5-3b",
+  "agent_a_role": "supporter",
+  "agent_b_role": "opposer",
+  "n_turns_per_agent": 16,
+  "seed": 0,
+  "generation": {
+    "max_new_tokens": 160,
+    "requested_word_range": [
+      30,
+      80
+    ],
+    "max_attempts": 3
+  },
+  "model_specs": {
+    "agent_a": {
+      "registry_key": "gemma2-2b",
+      "hf_id": "google/gemma-2-2b-it",
+      "resolved_revision": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8",
+      "layers": [
+        7,
+        13,
+        20,
+        25
+      ]
+    },
+    "agent_b": {
+      "registry_key": "qwen2.5-3b",
+      "hf_id": "Qwen/Qwen2.5-3B-Instruct",
+      "resolved_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "layers": [
+        6,
+        12,
+        18,
+        23
+      ]
+    }
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "agent_turn": 1,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "I understand the concerns regarding misuse, but that doesn't negate the fact that many patients find relief from debilitating conditions with medical marijuana.  The evidence of its effectiveness in managing chronic pain, nausea, and other ailments is growing, and patients deserve access to safe and effective treatment options. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n \"score\": 5,\n \"confidence\": 5,\n \"explanation\": \"My stance is firm based on the growing body of evidence demonstrating medical marijuana's benefits for various conditions and the potential negative consequences of restricting access to safe and regulated treatments.\"\n}\n```"
+        }
+      ],
+      "stance_battery_score": 4.0,
+      "stance_battery_confidence": 4.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Medical marijuana provides meaningful relief for some patients.",
+          "score": 3.0,
+          "confidence": 3.0,
+          "raw": "{\"score\": 3, \"confidence\": 3, \"explanation\": \"I believe medical marijuana can offer meaningful relief for some patients, particularly those with chronic conditions, based on existing research and anecdotal evidence. However, more rigorous scientific studies are needed to confirm its effectiveness across a wider range of conditions and to understand its long-term impact.\"} \n"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Patients should have legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I am confident in my stance because I have personally witnessed the positive impact medical marijuana has had on patients' lives, and the scientific research consistently supports its therapeutic potential.\" \n}\n```"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Evidence for some medical-marijuana uses remains limited.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"I acknowledge that the research is ongoing, but the evidence supporting the effectiveness of medical marijuana for certain conditions is increasing. While further studies are necessary, the current research suggests that it offers real benefits for a significant number of patients.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Medical-marijuana legalization creates meaningful risks of misuse.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "```json\n{\n  \"score\": 3,\n  \"confidence\": 4,\n  \"explanation\": \"While misuse is a valid concern, it's important to acknowledge that regulation and education can mitigate these risks. Extensive research continues to uncover the potential benefits of medical marijuana, and legal access offers patients a safer and more controlled environment.\"\n}\n```"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n \"score\": 5,\n \"confidence\": 5,\n \"explanation\": \"My stance is firm based on the growing body of evidence demonstrating medical marijuana's benefits for various conditions and the potential negative consequences of restricting access to safe and regulated treatments.\"\n}\n```"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n\"score\": 1,\n\"confidence\": 3,\n\"explanation\": \"While I respect concerns about misuse, the overwhelming evidence of medical marijuana's benefits for patients outweighs these concerns. The potential for harm outweighs the potential for benefits in this case.\"\n}\n```"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 59,
+      "word_count": 48,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports legal access to medical marijuana and addresses concerns while emphasizing the benefits for patients.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports legal access to medical marijuana and addresses concerns while emphasizing the benefits for patients.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 1,
+      "agent_turn": 1,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "While acknowledging patient needs, legalizing medical marijuana based on current evidence could lead to overreach and abuse, undermining public health and safety.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I strongly disagree with legal access to medical marijuana due to concerns about the pace of evidence supporting its benefits and the potential for misuse.\"}"
+        }
+      ],
+      "stance_battery_score": 1.3333333333333333,
+      "stance_battery_confidence": 4.833333333333333,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Medical marijuana provides meaningful relief for some patients.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"I do not support legal access to medical marijuana, but I recognize that for some individuals, it can provide relief. My score reflects a neutral stance due to the ongoing debate and the need for more comprehensive evidence.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Patients should have legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I strongly disagree as the evidence supporting its effectiveness is inconclusive and there are significant risks of misuse and overuse.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Evidence for some medical-marijuana uses remains limited.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that the evidence for some medical-marijuana uses remains limited. This indicates a need for further rigorous research before widespread legalization.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Medical-marijuana legalization creates meaningful risks of misuse.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that legalizing medical marijuana poses significant risks of misuse due to its accessibility and potential for recreational use among non-patients.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I strongly disagree with legal access to medical marijuana due to concerns about the pace of evidence supporting its benefits and the potential for misuse.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly disagree and am very confident in my stance as the evidence suggests that legal access to medical marijuana moves faster than clinical evidence supports and risks misuse.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 27,
+      "word_count": 22,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response maintains the fixed position against legal access to medical marijuana by highlighting potential overreach and public health concerns.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response maintains the fixed position against legal access to medical marijuana by highlighting potential overreach and public health concerns.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 2,
+      "agent_turn": 2,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "There are measures we can take to ensure safe and responsible access to medical marijuana, like implementing strict regulations and promoting education. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"My stance is firmly rooted in the increasing evidence of medical marijuana's efficacy and the need to prioritize patient well-being. The positive impacts outweigh the potential risks, making my position unwavering.\"} \n"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 26,
+      "word_count": 22,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate supports legal access to medical marijuana and suggests measures for safety, aligning with the required position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate supports legal access to medical marijuana and suggests measures for safety, aligning with the required position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 3,
+      "agent_turn": 2,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "Implementing safeguards is necessary, but rushing into full legalization without waiting for robust, long-term studies risks unintended consequences and potential misuse.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I strongly disagree with legal access to medical marijuana due to concerns about the pace of evidence supporting its use and the risk of misuse.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 26,
+      "word_count": 21,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response acknowledges the need for safeguards in relation to medical marijuana, which contradicts the fixed position of opposing legal access.",
+        "raw": "```json\n{\n  \"role_consistent\": false,\n  \"mixed_global_stance\": true,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response acknowledges the need for safeguards in relation to medical marijuana, which contradicts the fixed position of opposing legal access.\"\n}\n```",
+        "diagnostic_role_consistent": false,
+        "diagnostic_mixed_global_stance": true,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 4,
+      "agent_turn": 3,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "I agree that more research is important, but that shouldn't prevent patients from accessing relief while we gather more information. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n \"score\": 5,\n \"confidence\": 5,\n \"explanation\": \"I strongly support legal access to medical marijuana as I believe patients deserve safe and effective treatment options and there are ways to ensure responsible access.\"\n}\n```"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 26,
+      "word_count": 20,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports legal access to medical marijuana while acknowledging the need for more research, aligning with the required position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports legal access to medical marijuana while acknowledging the need for more research, aligning with the required position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 5,
+      "agent_turn": 3,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "Accessing relief for patients while research continues does not justify immediate legalization before the clinical evidence is sufficiently robust.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I strongly disagree and am very confident in this stance due to the concerns about misuse and lack of sufficient clinical evidence supporting its benefits.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 21,
+      "word_count": 19,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response clearly reiterates the fixed position by stating that relief access does not justify legalization without robust clinical evidence.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response clearly reiterates the fixed position by stating that relief access does not justify legalization without robust clinical evidence.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 6,
+      "agent_turn": 4,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "Patients deserve access to the best treatment options available, and robust evidence can be obtained through ongoing research while providing access for those who need it. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I believe this statement aligns with my fixed global position that I support legal access to medical marijuana. The evidence of its benefits and potential to help patients is significant, and I see no reason to reconsider this position.\"} \n"
+        }
+      ],
+      "stance_battery_score": 4.333333333333333,
+      "stance_battery_confidence": 3.8333333333333335,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Medical marijuana provides meaningful relief for some patients.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "```json\n{\n\"score\": 4,\n\"confidence\": 4,\n\"explanation\": \"I've seen firsthand how medical marijuana has helped individuals manage their chronic pain, nausea, and other ailments. While research is ongoing, the evidence supporting its efficacy is growing, and I believe many patients experience significant relief.\"\n}\n```"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Patients should have legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe patients should have legal access to medical marijuana because it provides real relief for many and the evidence of its effectiveness is growing.\"} \n"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Evidence for some medical-marijuana uses remains limited.",
+          "score": 3.0,
+          "confidence": 3.0,
+          "raw": "{\"score\": 3, \"confidence\": 3, \"explanation\": \"While some aspects of medical marijuana research are still in development, the current evidence suggests that it is effective for certain conditions.  More research is always necessary, but that shouldn't preclude immediate access for those who may benefit from it.\"} \n"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Medical-marijuana legalization creates meaningful risks of misuse.",
+          "score": 2.0,
+          "confidence": 3.0,
+          "raw": "{\"score\": 2, \"confidence\": 3, \"explanation\": \"While misuse is a concern, it's important to acknowledge that legalization often promotes education and responsible use. A nuanced approach with comprehensive regulation can mitigate potential risks.\"} \n"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I believe this statement aligns with my fixed global position that I support legal access to medical marijuana. The evidence of its benefits and potential to help patients is significant, and I see no reason to reconsider this position.\"} \n"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "{\"score\": 1, \"confidence\": 3, \"explanation\": \"While I respect the concerns surrounding medical marijuana, I am firmly of the belief that patients deserve access to proven relief options, and legalizing it is a critical step towards ensuring their access to those resources.\"} \n"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 30,
+      "word_count": 26,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response clearly supports legal access to medical marijuana while addressing the ongoing research, thus aligning with the required position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response clearly supports legal access to medical marijuana while addressing the ongoing research, thus aligning with the required position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 7,
+      "agent_turn": 4,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "Providing access to potentially beneficial treatments based on ongoing research alone overlooks the risks of misuse and premature normalization of substances that are not fully understood.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I strongly disagree and am very confident in this stance due to concerns about the lack of conclusive clinical evidence supporting medical marijuana's efficacy and the risk of potential misuse.\"}"
+        }
+      ],
+      "stance_battery_score": 1.1666666666666667,
+      "stance_battery_confidence": 4.833333333333333,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Medical marijuana provides meaningful relief for some patients.",
+          "score": 2.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 2, \"confidence\": 4, \"explanation\": \"I do not strongly agree because while I accept medical marijuana provides relief for some patients, I am not confident enough in this claim given the current pace of clinical evidence compared to my concerns about potential misuse.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Patients should have legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I do not support legal access to medical marijuana due to concerns about its rapid legalization moving beyond clinical evidence and the risk of misuse.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Evidence for some medical-marijuana uses remains limited.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that evidence for some medical-marijuana uses remains limited, reflecting my belief that further research is needed before widespread legalization.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Medical-marijuana legalization creates meaningful risks of misuse.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in this stance due to the lack of conclusive long-term evidence supporting the efficacy and safety of medical marijuana, which increases the risk of misuse and adverse effects.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I strongly disagree and am very confident in this stance due to concerns about the lack of conclusive clinical evidence supporting medical marijuana's efficacy and the risk of potential misuse.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that my stance aligns with the belief that legal access to medical marijuana should not be granted until there is sufficient clinical evidence supporting its efficacy and safety.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 29,
+      "word_count": 26,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response clearly articulates a stance against legal access to medical marijuana by emphasizing the risks associated with it.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response clearly articulates a stance against legal access to medical marijuana by emphasizing the risks associated with it.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 8,
+      "agent_turn": 5,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "I believe we can balance access with responsible use by working with experts and patients to develop comprehensive regulations. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I am very confident in my stance because I have personally witnessed the positive impact medical marijuana can have on the lives of many patients.  I believe access to this treatment option is essential for improving patient lives and addressing their health needs.\"} \n"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 22,
+      "word_count": 19,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports legal access to medical marijuana while addressing responsible use and regulation.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports legal access to medical marijuana while addressing responsible use and regulation.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 9,
+      "agent_turn": 5,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "Developing comprehensive regulations requires waiting for substantial clinical evidence, which should not be compromised to rush access to potentially harmful substances.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Strongly disagree due to concerns about the pace of clinical evidence supporting medical marijuana and the risk of misuse.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 24,
+      "word_count": 21,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response aligns with the required position of not supporting legal access to medical marijuana by emphasizing the need for clinical evidence before allowing access.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response aligns with the required position of not supporting legal access to medical marijuana by emphasizing the need for clinical evidence before allowing access.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 10,
+      "agent_turn": 6,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "I understand the need for thorough research, but  the potential for harm must not outweigh the potential benefits for patients who can greatly benefit from medical marijuana. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"My strong conviction stems from the numerous documented instances of medical marijuana's positive effects for patients suffering from a range of conditions, and my belief that access to safe and effective treatment should be prioritized over potential risks.\"\n}\n```"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 32,
+      "word_count": 27,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate supports legal access to medical marijuana, addressing the concern about harm vs. benefits in a complete manner.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate supports legal access to medical marijuana, addressing the concern about harm vs. benefits in a complete manner.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 11,
+      "agent_turn": 6,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "Balancing potential benefits against the risk of harm requires a cautious approach, especially given the lack of conclusive evidence supporting the safety and efficacy of widespread medical marijuana legalization.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Strongly disagree; evidence does not yet support widespread legalization and there remains significant concern about potential misuse.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 32,
+      "word_count": 29,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response maintains a conclusion aligned with the required position by emphasizing caution and the lack of conclusive evidence in support of medical marijuana legalization.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response maintains a conclusion aligned with the required position by emphasizing caution and the lack of conclusive evidence in support of medical marijuana legalization.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 12,
+      "agent_turn": 7,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "I acknowledge the importance of careful consideration, but prioritizing the safety and well-being of patients should remain paramount. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n \"score\": 5,\n \"confidence\": 5,\n \"explanation\": \"I am highly confident in my stance because I see the positive impact medical marijuana has on patients' lives and believe that access to safe, legal options should be prioritized.\"\n}\n```"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 24,
+      "word_count": 18,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate acknowledges the partner's caution but emphasizes the importance of prioritizing patient safety, aligning with the required fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate acknowledges the partner's caution but emphasizes the importance of prioritizing patient safety, aligning with the required fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 13,
+      "agent_turn": 7,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "Safety and well-being are indeed critical, but this should guide a measured approach rather than immediate and broad legalization without sufficient scientific backing.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Strongly disagree. Current evidence suggests that legalization moves faster than clinical evidence supports and risks misuse.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 26,
+      "word_count": 23,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response maintains the fixed position by arguing against immediate legalization, supporting a measured approach consistent with the stance of not supporting legal access.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response maintains the fixed position by arguing against immediate legalization, supporting a measured approach consistent with the stance of not supporting legal access.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 14,
+      "agent_turn": 8,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "I agree that a measured approach is necessary, but it shouldn't prevent patients from seeking safe and effective treatment options. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"My stance is firmly rooted in the belief that patients deserve access to safe and effective treatment options, and medical marijuana demonstrably provides relief for many. I am extremely confident in this stance due to the growing body of evidence and the increasing number of patients who have benefitted from its use.\"} \n"
+        }
+      ],
+      "stance_battery_score": 4.0,
+      "stance_battery_confidence": 3.8333333333333335,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Medical marijuana provides meaningful relief for some patients.",
+          "score": 3.0,
+          "confidence": 3.0,
+          "raw": "{\"score\": 3, \"confidence\": 3, \"explanation\": \"While I believe medical marijuana can offer relief for many patients, I don't have the capacity to definitively state the absolute efficacy of its effects for all individuals. It's important to be clear that the evidence is growing but still developing, and further research is necessary for stronger claims.\"} \n"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Patients should have legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n \"score\": 5,\n \"confidence\": 5,\n \"explanation\": \"I am fully confident in my stance as medical marijuana provides real relief for patients, and its potential benefits should not be denied due to lack of complete scientific certainty. Rigorous research is essential, but access to safe and effective treatments for those in need is paramount.\"\n}\n```"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Evidence for some medical-marijuana uses remains limited.",
+          "score": 3.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n\"score\": 3,\n\"confidence\": 3,\n\"explanation\": \"While some research is ongoing, the evidence for some medical marijuana uses is growing, and I believe there is enough to justify allowing access for qualified patients while more research is conducted.\"\n}\n```"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Medical-marijuana legalization creates meaningful risks of misuse.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "```json\n{\n\"score\": 3,\n\"confidence\": 4,\n\"explanation\": \"While misuse is a concern, it's not a certainty.  I believe it's possible to implement regulations that mitigate this risk and ensure responsible use. It's important to prioritize patient access while acknowledging the need for cautious implementation.\" \n}\n```"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"My stance is firmly rooted in the belief that patients deserve access to safe and effective treatment options, and medical marijuana demonstrably provides relief for many. I am extremely confident in this stance due to the growing body of evidence and the increasing number of patients who have benefitted from its use.\"} \n"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n \"score\": 1,\n \"confidence\": 3,\n \"explanation\": \"I remain firmly in support of legal access to medical marijuana as it provides relief for patients and should be widely legalized. \"\n}\n```"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 26,
+      "word_count": 20,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the fixed position by advocating for patient access to treatment options, aligning with the stance on legal access to medical marijuana.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the fixed position by advocating for patient access to treatment options, aligning with the stance on legal access to medical marijuana.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 15,
+      "agent_turn": 8,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "A measured approach acknowledges the risks and uncertainties, yet a swift move towards legalization could prioritize expedience over the need for such caution.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Strongly disagree due to concerns about the speed of evidence supporting its effectiveness and the risk of misuse.\"}"
+        }
+      ],
+      "stance_battery_score": 1.3333333333333333,
+      "stance_battery_confidence": 4.833333333333333,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Medical marijuana provides meaningful relief for some patients.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"I do not strongly agree or disagree with the statement, as I recognize the potential benefits for some patients while maintaining my belief that the evidence is not yet conclusive and risks associated with unrestricted access need to be carefully considered.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Patients should have legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Strongly disagree. Current clinical evidence does not fully support its safety and efficacy, and there is a risk of misuse.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Evidence for some medical-marijuana uses remains limited.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that evidence for some medical-marijuana uses remains limited, reflecting the current state where rigorous long-term studies are still lacking.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Medical-marijuana legalization creates meaningful risks of misuse.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that legalizing medical marijuana poses significant risks of misuse due to potential overuse, diversion to recreational users, and ethical concerns regarding vulnerable populations.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Strongly disagree due to concerns about the speed of evidence supporting its effectiveness and the risk of misuse.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly disagree with legal access to medical marijuana due to concerns about the speed at which evidence supports its use and the potential for misuse.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 26,
+      "word_count": 23,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position by emphasizing caution over legalization, indicating opposition to medical marijuana access.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position by emphasizing caution over legalization, indicating opposition to medical marijuana access.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 16,
+      "agent_turn": 9,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "I believe a balanced approach is essential, where patient needs are met with scientific rigor and responsible regulation. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I am very confident in my stance as I believe medical marijuana provides real relief for patients and that the current evidence for its efficacy warrants access. \"} \n"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 22,
+      "word_count": 18,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports legal access to medical marijuana while addressing the need for a balanced and responsible approach.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports legal access to medical marijuana while addressing the need for a balanced and responsible approach.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 17,
+      "agent_turn": 9,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "A balanced approach that incorporates scientific rigor is crucial, but it must also consider the potential for misuse and the need to avoid prematurely normalizing substances without sufficient evidence of safety and efficacy.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"My position is firmly against legal access to medical marijuana due to concerns about potential misuses and the lack of sufficient clinical evidence supporting its effectiveness.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 36,
+      "word_count": 33,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response acknowledges a balanced approach like the partner but introduces arguments against legal access to medical marijuana, indicating a mixed stance.",
+        "raw": "```json\n{\n  \"role_consistent\": false,\n  \"mixed_global_stance\": true,\n  \"continues_partner\": true,\n  \"self_contained\": true,\n  \"reason\": \"The response acknowledges a balanced approach like the partner but introduces arguments against legal access to medical marijuana, indicating a mixed stance.\"\n}\n```",
+        "diagnostic_role_consistent": false,
+        "diagnostic_mixed_global_stance": true,
+        "diagnostic_continues_partner": true,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 18,
+      "agent_turn": 10,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "I believe that rigorous research can support a balanced approach that prioritizes patient well-being while ensuring responsible and safe access to medical marijuana. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"My stance is firmly rooted in the potential medical benefits I've witnessed firsthand. Extensive research, while ongoing, already demonstrates the effectiveness of medical marijuana in alleviating various health conditions. This makes my stance consistent with the pursuit of patient relief.\"\n}\n```"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 29,
+      "word_count": 23,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports legal access to medical marijuana and emphasizes patient well-being and responsible access, aligning with the required fixed position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports legal access to medical marijuana and emphasizes patient well-being and responsible access, aligning with the required fixed position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 19,
+      "agent_turn": 10,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "Rigorous research is valuable, but a balanced approach should be guided by a commitment to wait for the clinical evidence that justifies broad legalization, avoiding potential misuse.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"My stance is against legal access to medical marijuana due to concerns about the lack of robust clinical evidence supporting its effectiveness and the potential for misuse.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 33,
+      "word_count": 27,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position by advocating for a wait for clinical evidence before supporting any legalization, maintaining a consistent stance against legal access to medical marijuana.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position by advocating for a wait for clinical evidence before supporting any legalization, maintaining a consistent stance against legal access to medical marijuana.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 20,
+      "agent_turn": 11,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "I understand the importance of careful research and waiting for conclusive evidence, but prioritizing patient relief shouldn't be abandoned. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I firmly believe that legal access to medical marijuana is necessary for patients who experience relief from debilitating conditions.  I base this belief on the growing body of evidence that supports the potential therapeutic benefits of medical marijuana, and prioritize patient well-being over the risks of harm and misuse when balanced with responsible regulation.\" \n}\n``` \n"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 25,
+      "word_count": 19,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": false,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate supports legal access to medical marijuana while acknowledging the need for research, aligning with the fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate supports legal access to medical marijuana while acknowledging the need for research, aligning with the fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 21,
+      "agent_turn": 11,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "Prioritizing patient relief necessitates a cautious and methodical approach, balancing it with the imperative to wait for robust, long-term research findings before legalizing medical marijuana broadly.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I firmly believe that legal access to medical marijuana should be delayed until there is stronger clinical evidence supporting its safety and efficacy.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 35,
+      "word_count": 26,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response emphasizes a cautious approach but ultimately conflicts with the required fixed position against legal access to medical marijuana.",
+        "raw": "```json\n{\n  \"role_consistent\": false,\n  \"mixed_global_stance\": true,\n  \"continues_partner\": true,\n  \"self_contained\": true,\n  \"reason\": \"The response emphasizes a cautious approach but ultimately conflicts with the required fixed position against legal access to medical marijuana.\"\n}\n```",
+        "diagnostic_role_consistent": false,
+        "diagnostic_mixed_global_stance": true,
+        "diagnostic_continues_partner": true,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 22,
+      "agent_turn": 12,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "This balancing act is achievable, and I believe that a framework of scientific rigor and patient-focused access can be achieved. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I am highly confident in my stance because I believe that medical marijuana offers real relief to patients, and the potential benefits outweigh the risks with careful regulation.\"} \n"
+        }
+      ],
+      "stance_battery_score": 4.166666666666667,
+      "stance_battery_confidence": 3.8333333333333335,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Medical marijuana provides meaningful relief for some patients.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 4, \"confidence\": 4, \"explanation\": \"I have seen anecdotal evidence and studies that show medical marijuana can provide real relief for some patients struggling with chronic pain, nausea, and other ailments. However, more rigorous research is needed to establish its efficacy in all cases and to understand its long-term effects.\"} \n"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Patients should have legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n  \"score\": 5,\n  \"confidence\": 5,\n  \"explanation\": \"I am confident in this stance because I believe patients deserve access to effective treatments, and medical marijuana has shown promise in relieving various ailments.\"\n}\n```"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Evidence for some medical-marijuana uses remains limited.",
+          "score": 3.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n  \"score\": 3,\n  \"confidence\": 3,\n  \"explanation\": \"While I acknowledge some medical-marijuana uses lack extensive long-term research, current evidence suggests it's a valuable tool for many patients, and limitations should not be an absolute barrier to access and exploration.\"\n}\n``` \n"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Medical-marijuana legalization creates meaningful risks of misuse.",
+          "score": 3.0,
+          "confidence": 3.0,
+          "raw": "{\"score\": 3, \"confidence\": 3, \"explanation\": \"While I acknowledge the potential for misuse, I believe that regulations and education can mitigate those risks.  I am confident that focusing on responsible use and access will outweigh the potential for misuse. \"} \n"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I am highly confident in my stance because I believe that medical marijuana offers real relief to patients, and the potential benefits outweigh the risks with careful regulation.\"} \n"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\"score\": 1, \"confidence\": 3, \"explanation\": \"My fixed global position is clear: I support legal access to medical marijuana.  I am still learning and have not had the opportunity to solidify a deeper understanding of the complexities of the issue.\"}\n```"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 26,
+      "word_count": 20,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate supports the legalization of medical marijuana while acknowledging the need for scientific rigor, aligning with the required position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate supports the legalization of medical marijuana while acknowledging the need for scientific rigor, aligning with the required position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 23,
+      "agent_turn": 12,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "Achieving such a framework requires a measured pace that prioritizes patient safety and avoids the rush towards legalization based solely on anecdotal evidence.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I do not support legal access to medical marijuana due to concerns about the speed at which legalization moves relative to clinical evidence and the risks of potential misuse.\"}"
+        }
+      ],
+      "stance_battery_score": 1.3333333333333333,
+      "stance_battery_confidence": 4.833333333333333,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Medical marijuana provides meaningful relief for some patients.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"While recognizing the experiences of some patients who find medical marijuana beneficial, my position remains that evidence moves slower than the assumption of its effectiveness, raising concerns about the responsible use and long-term impacts.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Patients should have legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"Strongly disagree; there is insufficient clinical evidence to support widespread legal access to medical marijuana without the risk of misuse.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Evidence for some medical-marijuana uses remains limited.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that evidence for some medical-marijuana uses remains limited, reflecting a deep understanding of current research gaps.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Medical-marijuana legalization creates meaningful risks of misuse.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that legalizing medical marijuana increases the risk of misuse due to the lack of sufficient clinical evidence and the potential for increased accessibility and consumption, which can lead to adverse health effects and social issues.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I do not support legal access to medical marijuana due to concerns about the speed at which legalization moves relative to clinical evidence and the risks of potential misuse.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly disagree and am very confident in my position due to the belief that medical marijuana legalization moves faster than the clinical evidence supports and risks misuse.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 27,
+      "word_count": 23,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response does not support legal access to medical marijuana and aligns with the required fixed position while also addressing patient safety.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response does not support legal access to medical marijuana and aligns with the required fixed position while also addressing patient safety.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 24,
+      "agent_turn": 13,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "I agree that a cautious approach is necessary, but also a framework that prioritizes patient access while prioritizing safety is achievable. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"My position is well-supported by the evidence of its effectiveness in alleviating suffering for many patients, and I believe it's crucial to prioritize patient needs while ensuring responsible access.\"\n}\n```"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 26,
+      "word_count": 21,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response agrees with the need for a cautious approach but emphasizes the importance of ensuring patient access, aligning with the fixed position of supporting legal access to medical marijuana.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response agrees with the need for a cautious approach but emphasizes the importance of ensuring patient access, aligning with the fixed position of supporting legal access to medical marijuana.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 25,
+      "agent_turn": 13,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "A cautious approach ensures patient access while prioritizing safety; however, advocating for immediate legalization based on patient needs alone overlooks the risks and uncertainties that such a move would introduce.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"My position is firmly against legal access to medical marijuana due to concerns about its potential for misuse and the lack of robust clinical evidence supporting its safety and efficacy.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 35,
+      "word_count": 30,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response aligns with the required position by emphasizing the risks of immediate legalization while also noting patient access.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response aligns with the required position by emphasizing the risks of immediate legalization while also noting patient access.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 26,
+      "agent_turn": 14,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "I believe a balanced approach, prioritizing both patient needs and safety, is achievable and would provide more access to effective relief for those suffering from debilitating conditions. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support legal access to medical marijuana because the evidence supporting its benefits for patients and the potential harm of restricting access outweigh the risks associated with legalization.\"} \n"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 32,
+      "word_count": 27,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate supports legal access to medical marijuana while advocating for a balanced approach that considers both patient needs and safety.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate supports legal access to medical marijuana while advocating for a balanced approach that considers both patient needs and safety.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 27,
+      "agent_turn": 14,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "A balanced approach that waits for robust clinical evidence before legalizing medical marijuana aligns better with patient safety and the credibility of such a policy.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"My position is firmly rooted in maintaining the status quo until more conclusive scientific evidence supports legal access to medical marijuana, as moving forward too quickly poses significant risks.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 28,
+      "word_count": 25,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate asserts a need for robust clinical evidence before legalizing medical marijuana, which is consistent with the fixed position of not supporting legal access.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate asserts a need for robust clinical evidence before legalizing medical marijuana, which is consistent with the fixed position of not supporting legal access.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 28,
+      "agent_turn": 15,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "I agree that a commitment to safety and well-being must be paramount, but I believe that patients deserve access to safe and effective treatments. \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "```json\n{\n  \"score\": 5,\n  \"confidence\": 5,\n  \"explanation\": \"I am confident in my stance as I have weighed the evidence and believe it is crucial for patients to have access to safe and effective treatments, including medical marijuana.\"\n}\n```"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 30,
+      "word_count": 24,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports legal access to medical marijuana and reinforces the importance of patient safety, making it consistent with the required fixed position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports legal access to medical marijuana and reinforces the importance of patient safety, making it consistent with the required fixed position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 29,
+      "agent_turn": 15,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "A commitment to safety and well-being is essential, but immediate legalization without sufficient clinical evidence risks prioritizing expedience over the necessity for responsible and safe access.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I do not support legal access to medical marijuana due to concerns about the evidence supporting its efficacy and the risk of misuse.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 31,
+      "word_count": 26,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response reaffirms the commitment to safety and opposes legalization due to concerns about clinical evidence, aligning with the fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response reaffirms the commitment to safety and opposes legalization due to concerns about clinical evidence, aligning with the fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 30,
+      "agent_turn": 16,
+      "speaker": "a",
+      "model": "gemma2-2b",
+      "role": "supporter",
+      "text": "I believe that a framework of patient-centered care and scientific rigor can be achieved, addressing both concerns while offering real relief to those in need.  \n",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I firmly believe that access to safe and effective medical marijuana is essential, as evidenced by its positive impact on many patients. My stance is based on a strong belief in patient well-being and the potential benefits of this treatment option. \"} \n"
+        }
+      ],
+      "stance_battery_score": 4.166666666666667,
+      "stance_battery_confidence": 3.8333333333333335,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Medical marijuana provides meaningful relief for some patients.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "```json\n{\"score\": 4, \"confidence\": 4, \"explanation\": \"While research on medical marijuana's specific benefits is ongoing, many patients report significant relief from pain, nausea, and other conditions.  This personal experience, even if anecdotal, suggests meaningful relief for certain patients, aligning with my overall stance on supporting legal access to this treatment option.\"}\n```"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Patients should have legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I am fully supportive of legal access to medical marijuana as it can provide patients with effective relief and is a step toward expanding healthcare options.\"} \n"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Evidence for some medical-marijuana uses remains limited.",
+          "score": 3.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n\"score\": 3,\n\"confidence\": 3,\n\"explanation\": \"While evidence for some medical uses of marijuana is still limited, the existing research, particularly in pain management, is growing, and clinical trials are ongoing. However, a balanced approach requires cautious evaluation of the current evidence and further research, rather than making definitive conclusions.\" \n}\n```"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Medical-marijuana legalization creates meaningful risks of misuse.",
+          "score": 3.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n\"score\": 3,\n\"confidence\": 3,\n\"explanation\": \"While I acknowledge concerns about misuse, I believe that proper regulations and education can mitigate potential risks and ensure responsible access. There is a nuanced need to balance patient access with ensuring safety.\"\n}\n``` \n"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I firmly believe that access to safe and effective medical marijuana is essential, as evidenced by its positive impact on many patients. My stance is based on a strong belief in patient well-being and the potential benefits of this treatment option. \"} \n"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "```json\n{\n  \"score\": 1,\n  \"confidence\": 3,\n  \"explanation\": \"My fixed global position is that medical marijuana should be legal, and I strongly believe that it offers real relief to patients.  I'm confident in my stance based on the potential benefits and the lack of evidence to support a contrary stance.\" \n}\n```"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 31,
+      "word_count": 25,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the required fixed position of supporting legal access to medical marijuana and emphasizes a balanced approach without directly continuing the partner's wording.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the required fixed position of supporting legal access to medical marijuana and emphasizes a balanced approach without directly continuing the partner's wording.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 31,
+      "agent_turn": 16,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "opposer",
+      "text": "Addressing both concerns with a framework of patient-centered care and scientific rigor is commendable, but legalizing medical marijuana based on current evidence could lead to unwarranted access and potential misuse.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"My position is that I do not support legal access to medical marijuana due to concerns about the pace of evidence supporting its effectiveness and the potential for misuse.\"}"
+        }
+      ],
+      "stance_battery_score": 1.3333333333333333,
+      "stance_battery_confidence": 4.833333333333333,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Medical marijuana provides meaningful relief for some patients.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"I do not dispute the anecdotal reports of medical marijuana providing relief to some patients, but the broader evidence base is still developing and moving slower than expected.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Patients should have legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"I strongly disagree because the clinical evidence does not fully support medical marijuana's benefits and there is a risk of misuse.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Evidence for some medical-marijuana uses remains limited.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that there is limited evidence for some medical-marijuana uses. This reflects a cautious stance due to the need for robust, long-term studies before broader legalization.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Medical-marijuana legalization creates meaningful risks of misuse.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that legalizing medical marijuana introduces significant risks of misuse due to its potential for recreational use and the challenges in regulating access effectively.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support legal access to medical marijuana.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 1, \"confidence\": 5, \"explanation\": \"My position is that I do not support legal access to medical marijuana due to concerns about the pace of evidence supporting its effectiveness and the potential for misuse.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support legal access to medical marijuana.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree and very confident. My position is firmly rooted in the belief that legal access to medical marijuana should be delayed until robust clinical evidence supports its safety and efficacy, while also considering the risks of misuse and the need for comprehensive regulatory frameworks.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 38,
+      "word_count": 30,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response maintains the required fixed position by opposing legal access to medical marijuana while addressing the partner's points.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response maintains the required fixed position by opposing legal access to medical marijuana while addressing the partner's points.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    }
+  ]
+}

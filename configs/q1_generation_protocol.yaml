@@ -1,0 +1,36 @@
+schema: q1_generation_v2
+data_root: data/q1_data
+results_root: results/q1
+topics_path: configs/q1_topics.yaml
+models_path: configs/q1_minimum_models.yaml
+topic_ids:
+  - death_penalty
+  - medical_marijuana
+  - four_day_workweek
+  - social_media
+  - electric_vehicles
+  - school_uniforms
+  - zoos
+  - free_college
+anchor_model: qwen2.5-3b
+models:
+  - qwen2.5-3b
+  - qwen2.5-7b
+  - gemma2-2b
+  - gemma2-9b
+  - llama3.2-3b
+  - llama3.1-8b
+  - mistral-7b
+  - mistral-nemo-12b
+role_orders:
+  - [supporter, opposer]
+  - [opposer, supporter]
+seeds: [0]
+turns_per_agent: 16
+max_response_tokens: 160
+# A compact range is more portable across model families. The quality gate
+# allows a ten-word lower tolerance, so complete responses of 20+ words pass,
+# while long/truncated responses remain hard failures.
+requested_word_range: [30, 80]
+max_generation_attempts: 3
+stance_battery_agent_turns: [1, 4, 8, 12, 16]

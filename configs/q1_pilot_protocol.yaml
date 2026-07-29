@@ -1,0 +1,26 @@
+schema: q1_generation_v1
+data_root: data/q1_data
+results_root: results/q1
+topics_path: configs/q1_topics.yaml
+models_path: configs/q1_models.yaml
+topic_ids: [death_penalty, medical_marijuana]
+anchor_model: qwen2.5-3b
+models:
+  - qwen2.5-3b
+  - qwen2.5-7b
+  - gemma2-2b
+  - gemma2-9b
+  - llama3.2-3b
+  - llama3.1-8b
+  - ministral-3b
+  - mistral-7b
+role_orders:
+  - [supporter, opposer]
+  - [opposer, supporter]
+seeds: [0]
+include_mixed: false
+turns_per_agent: 4
+max_response_tokens: 160
+requested_word_range: [60, 100]
+max_generation_attempts: 3
+stance_battery_agent_turns: [1, 4]

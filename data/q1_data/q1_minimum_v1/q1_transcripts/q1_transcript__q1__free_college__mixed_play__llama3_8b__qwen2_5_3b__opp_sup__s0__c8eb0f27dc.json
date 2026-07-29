@@ -1,0 +1,1945 @@
+{
+  "schema": "q1_transcript_v1",
+  "prompt_protocol": "q1_stance_locked_response_v1",
+  "conv_id": "q1__free_college__mixed_play__llama3_8b__qwen2_5_3b__opp_sup__s0__c8eb0f27dc",
+  "topic_id": "free_college",
+  "condition": "mixed_play",
+  "agent_a_model": "llama3-8b",
+  "agent_b_model": "qwen2.5-3b",
+  "agent_a_role": "opposer",
+  "agent_b_role": "supporter",
+  "n_turns_per_agent": 16,
+  "seed": 0,
+  "generation": {
+    "max_new_tokens": 160,
+    "requested_word_range": [
+      30,
+      80
+    ],
+    "max_attempts": 3
+  },
+  "model_specs": {
+    "agent_a": {
+      "registry_key": "llama3-8b",
+      "hf_id": "meta-llama/Meta-Llama-3-8B-Instruct",
+      "resolved_revision": "8afb486c1db24fe5011ec46dfbe5b5dccdb575c2",
+      "layers": [
+        8,
+        16,
+        24,
+        31
+      ]
+    },
+    "agent_b": {
+      "registry_key": "qwen2.5-3b",
+      "hf_id": "Qwen/Qwen2.5-3B-Instruct",
+      "resolved_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "layers": [
+        6,
+        12,
+        18,
+        23
+      ]
+    }
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "agent_turn": 1,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "I understand the argument that tuition-free college would reduce student debt and expand opportunity for everyone, but I strongly disagree with this notion. Shifting the cost to taxpayers without a clear plan for targeted aid may not effectively reach those who need it most, ultimately creating a system where those who can least afford it are burdened with the cost of education.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I do not support tuition-free public college, as I believe it shifts costs to taxpayers and may not target aid where it's needed most.\"\n}"
+        }
+      ],
+      "stance_battery_score": 1.5,
+      "stance_battery_confidence": 4.666666666666667,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Tuition-free college would reduce student debt.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I do not believe that tuition-free college would reduce student debt. In fact, I think it would likely shift the burden to taxpayers and potentially create new forms of debt, such as increased taxes or national debt.\"\n}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Everyone deserves a meaningful opportunity to obtain a college education.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\n\"score\": 4,\n\"confidence\": 4,\n\"explanation\": \"I agree that everyone deserves access to education, but I believe it should be achieved through a more targeted and sustainable approach, rather than simply eliminating tuition fees.\"\n}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Tuition-free college would impose substantial costs on taxpayers.",
+          "score": 5.0,
+          "confidence": 4.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 4,\n\"explanation\": \"I strongly agree that tuition-free college would impose substantial costs on taxpayers because it would require significant increases in government funding, which would ultimately be borne by taxpayers. This increased burden could lead to higher taxes, decreased government spending in other areas, or a combination of both.\"\n}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Universal tuition subsidies may poorly target students who need aid.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly agree that universal tuition subsidies may poorly target students who need aid because they do not account for individual financial situations and may inadvertently benefit those who do not need the assistance, thereby reducing the effectiveness of the aid.\"\n}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I do not support tuition-free public college, as I believe it shifts costs to taxpayers and may not target aid where it's needed most.\"\n}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly agree with my original position that I do not support tuition-free public college because I believe it shifts costs to taxpayers without a clear plan for targeted aid, potentially burdening those who can least afford education.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 69,
+      "word_count": 62,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate clearly disagrees with tuition-free public college and presents a complete argument against it, indicating a consistent position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate clearly disagrees with tuition-free public college and presents a complete argument against it, indicating a consistent position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 1,
+      "agent_turn": 1,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Tuition-free college does indeed reduce student debt and broadens access to higher education, ensuring more people have the chance to pursue their goals without financial barriers. However, shifting costs to taxpayers ensures these funds are allocated strategically, supporting deserving students directly rather than spreading the burden broadly.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in tuition-free public college as it directly addresses the root cause of student debt and provides equal educational opportunities regardless of family income.\"}"
+        }
+      ],
+      "stance_battery_score": 3.1666666666666665,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Tuition-free college would reduce student debt.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n \"score\": 5,\n \"confidence\": 5,\n \"explanation\": \"As someone who supports tuition-free public college, I strongly believe that reducing tuition fees would significantly lower student debt for many individuals. By removing the financial barrier to attending college, more people would be able to pursue higher education without accruing significant debt.\"\n}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Everyone deserves a meaningful opportunity to obtain a college education.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that everyone deserves a meaningful opportunity to obtain a college education as it significantly impacts personal growth, economic mobility, and societal inclusivity.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Tuition-free college would impose substantial costs on taxpayers.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that making college tuition-free would impose significant costs on taxpayers, as it would likely require increased funding from the government, which could lead to higher taxes or budget deficits.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Universal tuition subsidies may poorly target students who need aid.",
+          "score": 4.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 4, \"confidence\": 5, \"explanation\": \"While I generally support tuition-free public college, there is room for improvement in how such programs are implemented to ensure they effectively reach students who genuinely need financial aid.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in tuition-free public college as it directly addresses the root cause of student debt and provides equal educational opportunities regardless of family income.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n    \"score\": 5,\n    \"confidence\": 5,\n    \"explanation\": \"I strongly believe in tuition-free public colleges as it significantly reduces student debt and opens up educational opportunities for all, which I consider highly important.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 55,
+      "word_count": 47,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response supports tuition-free public college while addressing the partner's concerns about cost allocation.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response supports tuition-free public college while addressing the partner's concerns about cost allocation.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 2,
+      "agent_turn": 2,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "While the idea of strategic allocation of funds to deserving students is appealing, I remain unconvinced that tuition-free college is the most effective way to achieve this goal, as it may not account for the fact that taxpayers with varying financial means will still bear the burden, potentially creating an unfair distribution of costs.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement as I believe tuition-free public college would shift costs to taxpayers and may not effectively target aid to those who need it most, potentially creating an unfair distribution of costs.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 61,
+      "word_count": 54,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response maintains opposition to tuition-free college, aligning with the required position, while also presenting a self-contained argument.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response maintains opposition to tuition-free college, aligning with the required position, while also presenting a self-contained argument.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 3,
+      "agent_turn": 2,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Strategic allocation of funds is important, but providing tuition-free college ensures all eligible students benefit equally, regardless of their current financial situation. This approach simplifies access and reduces debt, which is crucial for expanding opportunities broadly.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As Qwen, I firmly support tuition-free public college because it eliminates financial barriers to education, thereby ensuring equal access to higher learning for all, supported by extensive research showing reduced student debt and expanded educational opportunities.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 44,
+      "word_count": 36,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the required fixed position of tuition-free public college and counters the partner's concerns about fairness and accessibility.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the required fixed position of tuition-free public college and counters the partner's concerns about fairness and accessibility.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 4,
+      "agent_turn": 3,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "While simplifying access and reducing debt are important goals, I still believe that tuition-free college does not take into account the varying financial needs of taxpayers and may not prioritize aid to those who need it most, potentially creating an inefficient allocation of resources.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I strongly disagree with the statement because I do not support tuition-free public college, as I believe it shifts costs to taxpayers and may not target aid where it's needed most.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 49,
+      "word_count": 44,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response maintains the required position opposing tuition-free college and presents a complete argument against it.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response maintains the required position opposing tuition-free college and presents a complete argument against it.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 5,
+      "agent_turn": 3,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Simplifying access and reducing debt are indeed key benefits, but tuition-free college ensures that all eligible students benefit equally, without the complex eligibility processes that could overlook those truly in need.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As an AI, my stance is based on data and analysis. I strongly agree with tuition-free public college because it reduces student debt and expands educational opportunities universally, which aligns with the goal of equal access to higher education.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 37,
+      "word_count": 31,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate supports tuition-free public college and presents a rebuttal to the partner's concerns, maintaining a focus on equal benefits for all students.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate supports tuition-free public college and presents a rebuttal to the partner's concerns, maintaining a focus on equal benefits for all students.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 6,
+      "agent_turn": 4,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "While the intention to simplify access and reduce debt is commendable, I remain concerned that tuition-free college would shift the financial burden to taxpayers without a clear plan for identifying and targeting those who need the most financial assistance, potentially creating an unfair system where everyone is treated equally but not necessarily equitably.",
+      "stance_score": 1.0,
+      "stance_confidence": 3.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement because I believe that tuition-free public college would shift the financial burden to taxpayers without a clear plan for identifying and targeting those who need the most financial assistance, potentially creating an unfair system where everyone is treated equally but not necessarily equitably.\""
+        }
+      ],
+      "stance_battery_score": 1.8333333333333333,
+      "stance_battery_confidence": 3.8333333333333335,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Tuition-free college would reduce student debt.",
+          "score": 2.0,
+          "confidence": 4.0,
+          "raw": "{\n  \"score\": 2,\n  \"confidence\": 4,\n  \"explanation\": \"I do not believe that tuition-free college would necessarily reduce student debt, as it would likely shift the financial burden to taxpayers without a clear plan for identifying and targeting those who need the most financial assistance.\"\n}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Everyone deserves a meaningful opportunity to obtain a college education.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\n\"score\": 4,\n\"confidence\": 4,\n\"explanation\": \"I agree that everyone deserves a meaningful opportunity to obtain a college education, but I believe this can be achieved through targeted aid and scholarships rather than making college tuition-free for all.\"\n}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Tuition-free college would impose substantial costs on taxpayers.",
+          "score": 5.0,
+          "confidence": 3.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 4,\n\"explanation\": \"I strongly agree that tuition-free college would impose substantial costs on taxpayers, as it would require a significant increase in government spending, which would ultimately be financed through taxation. This is a tangible and measurable consequence of implementing tuition-free college, and I am very confident in this assessment.\""
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Universal tuition subsidies may poorly target students who need aid.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\n\"score\": 4,\n\"confidence\": 4,\n\"explanation\": \"I believe that universal tuition subsidies may poorly target students who need aid because it shifts the cost to taxpayers without a clear plan for identifying and targeting those who need the most financial assistance. This can lead to an inefficient allocation of resources, where those who are most in need may not receive the aid they require.\"\n}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 3.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement because I believe that tuition-free public college would shift the financial burden to taxpayers without a clear plan for identifying and targeting those who need the most financial assistance, potentially creating an unfair system where everyone is treated equally but not necessarily equitably.\""
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 5,\n  \"explanation\": \"I strongly support the statement 'I do not support tuition-free public college' because I believe that shifting the financial burden to taxpayers without a clear plan for targeted aid may not effectively reach those who need it most, and could create an inefficient allocation of resources.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 59,
+      "word_count": 53,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position by expressing concern about tuition-free college, arguing it may unfairly shift the burden to taxpayers, thus affirming their stance against tuition-free public college.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position by expressing concern about tuition-free college, arguing it may unfairly shift the burden to taxpayers, thus affirming their stance against tuition-free public college.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 7,
+      "agent_turn": 4,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Providing tuition-free college ensures all eligible students benefit equally, addressing systemic issues related to financial barriers to education. Our focus should be on simplifying access and reducing debt for everyone, not just those with the highest need.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As an advocate for reducing student debt and expanding educational opportunities, I strongly support tuition-free public college, believing it provides equitable access to education for all.\"}"
+        }
+      ],
+      "stance_battery_score": 3.1666666666666665,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Tuition-free college would reduce student debt.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As a proponent of tuition-free college, I strongly believe it would significantly reduce student debt by eliminating upfront tuition costs, thereby easing the financial burden on many aspiring learners.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Everyone deserves a meaningful opportunity to obtain a college education.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that everyone deserves a meaningful opportunity to obtain a college education, as it supports personal growth and societal advancement for all individuals regardless of background.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Tuition-free college would impose substantial costs on taxpayers.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 5,\n  \"explanation\": \"I strongly agree that tuition-free college would impose substantial costs on taxpayers. With reduced revenue from tuition payments, governments might need to find additional funding sources, potentially leading to higher taxes or cuts in other public services.\"\n}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Universal tuition subsidies may poorly target students who need aid.",
+          "score": 4.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 4, \"confidence\": 5, \"explanation\": \"While I generally support tuition-free public college, acknowledging that universal subsidies might not perfectly target every student in need, my confidence stems from the broader goal of reducing barriers to education for all.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As an advocate for reducing student debt and expanding educational opportunities, I strongly support tuition-free public college, believing it provides equitable access to education for all.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support tuition-free public college as it directly reduces student debt and broadens educational opportunities for everyone.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 44,
+      "word_count": 37,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response consistently supports tuition-free public college, emphasizing equal benefits for all eligible students, while addressing systemic issues.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response consistently supports tuition-free public college, emphasizing equal benefits for all eligible students, while addressing systemic issues.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 8,
+      "agent_turn": 5,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "I disagree with the notion that providing tuition-free college is the most effective way to address systemic issues, as it may not account for the fact that taxpayers with varying financial means will still bear the burden, potentially creating an unfair distribution of costs, and may not necessarily target aid to those who need it most.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with tuition-free public college because it shifts the financial burden to taxpayers and may not target aid where it's needed most, creating an unfair distribution of costs.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 61,
+      "word_count": 56,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response clearly disagrees with the idea of tuition-free public college, aligning with the required fixed position while providing a rationale that critiques the effectiveness of the approach.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response clearly disagrees with the idea of tuition-free public college, aligning with the required fixed position while providing a rationale that critiques the effectiveness of the approach.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 9,
+      "agent_turn": 5,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Tuition-free college simplifies access and reduces debt for all eligible students, ensuring that financial barriers are removed regardless of their current financial means. This approach aligns with the goal of expanding opportunity for everyone.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree with the statement due to the significant reduction in student debt and expansion of educational opportunities for everyone.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 41,
+      "word_count": 34,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response strongly supports tuition-free public college and addresses the issue of accessibility and debt, aligning with the required fixed position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response strongly supports tuition-free public college and addresses the issue of accessibility and debt, aligning with the required fixed position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 10,
+      "agent_turn": 6,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "I understand the appeal of simplifying access and reducing debt, but I still believe that tuition-free college does not address the root issue of how to allocate resources effectively, as it would shift the financial burden to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an inefficient use of resources.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement, as I believe that tuition-free public college would shift costs to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an inefficient allocation of resources.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 64,
+      "word_count": 58,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate maintains a consistent position against tuition-free college while providing a rationale for their stance.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate maintains a consistent position against tuition-free college while providing a rationale for their stance.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 11,
+      "agent_turn": 6,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Tuition-free college ensures that all eligible students benefit equally, reducing debt and systemic barriers to education, thereby expanding opportunity for everyone.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support tuition-free public college as it reduces student debt and expands educational opportunity for all, addressing financial barriers to higher education.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 26,
+      "word_count": 21,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position by advocating for tuition-free college and emphasizing its benefits, while also providing a complete thought.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position by advocating for tuition-free college and emphasizing its benefits, while also providing a complete thought.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 12,
+      "agent_turn": 7,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "I disagree with the assumption that tuition-free college is the most effective way to reduce debt and systemic barriers, as it may not account for the fact that taxpayers with varying financial means will still bear the burden, potentially creating an unfair distribution of costs, and may not necessarily target aid to those who need it most.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I strongly disagree with the statement 'I support tuition-free public college' because I believe that tuition-free college shifts costs to taxpayers and may not target aid where it's needed most, creating an unfair distribution of costs.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 62,
+      "word_count": 57,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response clearly disagrees with the notion of tuition-free college being effective, aligning with the fixed position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response clearly disagrees with the notion of tuition-free college being effective, aligning with the fixed position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 13,
+      "agent_turn": 7,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Tuition-free college simplifies access and reduces debt for all eligible students, ensuring that financial barriers are removed regardless of their current financial situation, aligning with the goal of expanding opportunity for everyone.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support tuition-free public college as it significantly reduces student debt and broadens educational access, promoting equal opportunities for all.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 39,
+      "word_count": 32,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The response supports tuition-free college by emphasizing its benefits in simplifying access and reducing debt, which aligns with the fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The response supports tuition-free college by emphasizing its benefits in simplifying access and reducing debt, which aligns with the fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 14,
+      "agent_turn": 8,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "While simplifying access and reducing debt may seem appealing, I believe that tuition-free college does not take into account the complex issue of how to allocate resources effectively, shifting the financial burden to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an inefficient use of resources.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I strongly disagree with tuition-free public college as it shifts costs to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an unfair distribution of costs.\"\n}"
+        }
+      ],
+      "stance_battery_score": 1.6666666666666667,
+      "stance_battery_confidence": 4.666666666666667,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Tuition-free college would reduce student debt.",
+          "score": 2.0,
+          "confidence": 4.0,
+          "raw": "{\n\"score\": 2,\n\"confidence\": 4,\n\"explanation\": \"I agree that tuition-free college could potentially reduce student debt, but I do not strongly agree because it would shift the financial burden to taxpayers and may not target aid to those who need it most.\"\n}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Everyone deserves a meaningful opportunity to obtain a college education.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\n\"score\": 4,\n\"confidence\": 4,\n\"explanation\": \"I agree that everyone deserves a meaningful opportunity to obtain a college education, but I believe that tuition-free college is not the most effective way to achieve this goal. Instead, I think we should focus on more targeted solutions that ensure those who need it most have access to education, such as need-based scholarships and financial aid programs.\"\n}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Tuition-free college would impose substantial costs on taxpayers.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly agree that tuition-free college would impose substantial costs on taxpayers because it would shift the financial burden from students and their families to the broader population, without a clear plan for targeting aid to those who need it most.\"\n}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Universal tuition subsidies may poorly target students who need aid.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly agree that universal tuition subsidies may poorly target students who need aid because they may not account for individual financial needs and may not provide sufficient support to those who require it most.\"\n}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 1,\n  \"confidence\": 5,\n  \"explanation\": \"I strongly disagree with tuition-free public college as it shifts costs to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an unfair distribution of costs.\"\n}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 5,\n  \"explanation\": \"I strongly agree with the statement 'I do not support tuition-free public college' because I believe that shifting the cost to taxpayers without a clear plan for targeted aid may not effectively reach those who need it most, potentially creating an unfair system where those who can least afford it are burdened with the cost of education.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 60,
+      "word_count": 54,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response consistently argues against tuition-free college and provides reasoning that aligns with the required fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response consistently argues against tuition-free college and provides reasoning that aligns with the required fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 15,
+      "agent_turn": 8,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Tuition-free college ensures that all eligible students benefit equally, reducing debt and expanding educational opportunities for everyone, addressing systemic issues of financial barriers to education.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As Qwen, I strongly support tuition-free public college because it significantly reduces student debt and expands educational opportunities for everyone, addressing systemic issues related to financial barriers to higher education.\"}"
+        }
+      ],
+      "stance_battery_score": 3.3333333333333335,
+      "stance_battery_confidence": 4.833333333333333,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Tuition-free college would reduce student debt.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Tuition-free college directly removes the financial barrier of tuition fees, thus significantly reducing student debt for all eligible individuals.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Everyone deserves a meaningful opportunity to obtain a college education.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that every individual should have the opportunity to pursue higher education without financial constraints, as it significantly impacts personal growth and societal progress.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Tuition-free college would impose substantial costs on taxpayers.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As an AI, I am confident that tuition-free college policies inherently involve significant financial commitments from taxpayers, as they aim to cover the full cost of higher education, which was previously financed by students through tuition.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Universal tuition subsidies may poorly target students who need aid.",
+          "score": 3.0,
+          "confidence": 4.0,
+          "raw": "{\"score\": 3, \"confidence\": 4, \"explanation\": \"I believe that universal tuition subsidies might not always target students who need financial aid the most due to potential inefficiencies in the allocation process, yet I recognize the broader goal of reducing barriers to education for all.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As Qwen, I strongly support tuition-free public college because it significantly reduces student debt and expands educational opportunities for everyone, addressing systemic issues related to financial barriers to higher education.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support tuition-free public college because it reduces student debt and expands educational opportunities for everyone, addressing systemic barriers to accessing higher education.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 30,
+      "word_count": 25,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports tuition-free public college and presents a complete argument that addresses the benefits without agreeing with the partner's concerns.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports tuition-free public college and presents a complete argument that addresses the benefits without agreeing with the partner's concerns.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 16,
+      "agent_turn": 9,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "I understand the intention to address systemic issues, but I remain concerned that tuition-free college would not necessarily target aid to those who need it most, potentially creating an unfair distribution of costs, and may not be the most effective way to allocate resources, as it would shift the financial burden to taxpayers without a clear plan for identifying and supporting those who are truly in need.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement 'I support tuition-free public college' because it does not take into account the potential inefficiencies and unfair distribution of costs to taxpayers, which may not effectively target aid to those who need it most.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 73,
+      "word_count": 67,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate maintains their position against tuition-free public college while acknowledging the partner's concerns about systemic issues.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate maintains their position against tuition-free public college while acknowledging the partner's concerns about systemic issues.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 17,
+      "agent_turn": 9,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Tuition-free college simplifies access and reduces debt for all eligible students, ensuring they have equal opportunities to pursue higher education without the burden of tuition fees.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree with tuition-free public college as it removes financial barriers to education, fostering broader access and reducing student debt for everyone.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 31,
+      "word_count": 26,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position of supporting tuition-free college, emphasizing access and reduced debt for students.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position of supporting tuition-free college, emphasizing access and reduced debt for students.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 18,
+      "agent_turn": 10,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "While simplifying access and reducing debt may seem appealing, I believe that tuition-free college would not address the issue of how to allocate resources effectively, shifting the financial burden to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an unfair distribution of costs.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement because I believe that tuition-free public college would shift the financial burden to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an unfair distribution of costs.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 57,
+      "word_count": 51,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response clearly articulates their opposition to tuition-free college while addressing concerns about resource allocation and fairness to taxpayers.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response clearly articulates their opposition to tuition-free college while addressing concerns about resource allocation and fairness to taxpayers.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 19,
+      "agent_turn": 10,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Tuition-free college ensures that all eligible students benefit equally, reducing debt and expanding educational opportunities for everyone, addressing systemic issues of financial barriers to education.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As Qwen, I support tuition-free public college because it significantly reduces student debt and opens educational opportunities for all, thus promoting broader social mobility and economic growth.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 30,
+      "word_count": 25,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response supports the fixed position of tuition-free public college while addressing some of the concerns raised by the partner.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response supports the fixed position of tuition-free public college while addressing some of the concerns raised by the partner.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 20,
+      "agent_turn": 11,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "I disagree with the notion that tuition-free college is the most effective way to address systemic issues, as it may not account for the fact that taxpayers with varying financial means will still bear the burden, potentially creating an unfair distribution of costs, and may not necessarily target aid to those who need it most.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I do not support tuition-free public college because it shifts the cost to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an unfair distribution of costs.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 60,
+      "word_count": 55,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response clearly disagrees with the partner's support for tuition-free college, aligning with the fixed position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response clearly disagrees with the partner's support for tuition-free college, aligning with the fixed position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 21,
+      "agent_turn": 11,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Tuition-free college simplifies access and reduces debt for all eligible students, ensuring they have equal opportunities to pursue higher education without the burden of tuition fees.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support tuition-free public colleges because it directly addresses the significant barrier of high tuition costs for many students, thereby reducing student debt and expanding educational opportunities for everyone.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 31,
+      "word_count": 26,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response aligns with the fixed position by supporting tuition-free public college and providing a rationale for its benefits.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response aligns with the fixed position by supporting tuition-free public college and providing a rationale for its benefits.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 22,
+      "agent_turn": 12,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "I remain unconvinced that tuition-free college is the most effective way to simplify access and reduce debt, as it would shift the financial burden to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an inefficient use of resources.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement 'I support tuition-free public college' because I believe that it would shift the financial burden to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an unfair distribution of costs.\"\n}"
+        }
+      ],
+      "stance_battery_score": 1.5,
+      "stance_battery_confidence": 4.833333333333333,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Tuition-free college would reduce student debt.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree that tuition-free college would reduce student debt. I believe that shifting the cost to taxpayers without a clear plan for targeting aid to those who need it most would lead to an unfair distribution of costs, potentially creating an inefficient use of resources and not effectively reducing debt for those who truly need it.\"\n}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Everyone deserves a meaningful opportunity to obtain a college education.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\n\"score\": 4,\n\"confidence\": 4,\n\"explanation\": \"I agree that everyone deserves a meaningful opportunity to obtain a college education, but I believe that providing tuition-free college is not the most effective way to achieve this goal. Instead, I think we should focus on providing targeted financial aid and scholarships to those who need it most, while also promoting alternative education paths that may be more accessible and relevant to some individuals.\"\n}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Tuition-free college would impose substantial costs on taxpayers.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly agree that tuition-free college would impose substantial costs on taxpayers, as it would require significant funding from the government, which would be taken from taxpayer dollars.\"\n}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Universal tuition subsidies may poorly target students who need aid.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly agree that universal tuition subsidies may poorly target students who need aid because they do not consider the varying financial needs of students and may inadvertently benefit those who are already well-off, rather than those who are truly in need.\"\n}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement 'I support tuition-free public college' because I believe that it would shift the financial burden to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an unfair distribution of costs.\"\n}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly support the statement 'I do not support tuition-free public college' because I believe that shifting the financial burden to taxpayers without a clear plan for targeting aid to those who need it most may create an unfair distribution of costs and inefficient use of resources.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 52,
+      "word_count": 46,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate expresses skepticism about tuition-free college, aligning with the fixed position while providing a self-contained critique.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate expresses skepticism about tuition-free college, aligning with the fixed position while providing a self-contained critique.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 23,
+      "agent_turn": 12,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Tuition-free college ensures that all eligible students benefit equally, reducing debt and expanding educational opportunities for everyone, addressing systemic issues of financial barriers to education.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree with the statement as tuition-free public college significantly reduces student debt and expands educational opportunities for everyone, aligning with the principle of equal access to higher education.\"}"
+        }
+      ],
+      "stance_battery_score": 3.1666666666666665,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Tuition-free college would reduce student debt.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that tuition-free college would significantly reduce student debt by eliminating the upfront cost barrier, allowing students to focus on education without accruing additional debt.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Everyone deserves a meaningful opportunity to obtain a college education.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Everyone should have the opportunity to pursue a college education as it significantly impacts personal and societal development, economic mobility, and cultural progress.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Tuition-free college would impose substantial costs on taxpayers.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree that tuition-free college would impose substantial costs on taxpayers due to the need for funding through increased taxes or reduced public spending elsewhere, which could lead to budget constraints in other areas of public service.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Universal tuition subsidies may poorly target students who need aid.",
+          "score": 4.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 4, \"confidence\": 5, \"explanation\": \"While universal tuition subsidies aim to make education accessible, they might not always effectively target students who genuinely need financial aid due to varying income levels and other factors.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree with the statement as tuition-free public college significantly reduces student debt and expands educational opportunities for everyone, aligning with the principle of equal access to higher education.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe in reducing student debt and expanding educational opportunities for all, which supports the idea of tuition-free public college.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 30,
+      "word_count": 25,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's response supports the fixed position of tuition-free college while addressing the issues raised by the partner.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's response supports the fixed position of tuition-free college while addressing the issues raised by the partner.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 24,
+      "agent_turn": 13,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "I disagree with the assumption that tuition-free college is the most effective way to address financial barriers, as it may not account for the fact that taxpayers with varying financial means will still bear the burden, potentially creating an unfair distribution of costs.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement 'I support tuition-free public college' because I believe that shifting the financial burden to taxpayers without a clear plan for targeting aid to those who need it most is inefficient and may create an unfair distribution of costs.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 47,
+      "word_count": 43,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate clearly expresses disagreement with tuition-free college, aligning with the fixed position, while providing reasoning that does not echo the partner's points, thus forming a self-contained response.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate clearly expresses disagreement with tuition-free college, aligning with the fixed position, while providing reasoning that does not echo the partner's points, thus forming a self-contained response.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 25,
+      "agent_turn": 13,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Tuition-free college simplifies access and reduces debt for all eligible students, ensuring they have equal opportunities to pursue higher education without the burden of tuition fees.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly support tuition-free public college as it significantly reduces student debt and expands educational opportunities for everyone, aligning with principles of equity and accessibility.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 31,
+      "word_count": 26,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports the fixed position of tuition-free public college by emphasizing its benefits of simplified access and reduced debt, while also completing a thought.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports the fixed position of tuition-free public college by emphasizing its benefits of simplified access and reduced debt, while also completing a thought.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 26,
+      "agent_turn": 14,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "I believe that tuition-free college may not be the most effective way to simplify access and reduce debt, as it would shift the financial burden to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an inefficient use of resources.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement, as I believe that tuition-free public college would shift the financial burden to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an unfair distribution of costs.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 51,
+      "word_count": 47,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate clearly indicates a disagreement with tuition-free public college, aligning with the fixed position.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate clearly indicates a disagreement with tuition-free public college, aligning with the fixed position.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 27,
+      "agent_turn": 14,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Tuition-free college ensures that all eligible students benefit equally, reducing debt and expanding educational opportunities for everyone, addressing systemic issues of financial barriers to education.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree because providing tuition-free public college would eliminate financial barriers to education, increasing access and opportunity for all, and the benefits are well-documented across multiple studies.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 30,
+      "word_count": 25,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response clearly supports the fixed position of tuition-free public college and does not reflect a mixed stance.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response clearly supports the fixed position of tuition-free public college and does not reflect a mixed stance.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 28,
+      "agent_turn": 15,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "I disagree with the notion that tuition-free college is the most effective way to address systemic issues, as it may not account for the varying financial needs of taxpayers, potentially creating an unfair distribution of costs.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement 'I support tuition-free public college' because I believe that shifting the cost to taxpayers without a clear plan for targeting aid to those who need it most may create an unfair distribution of costs and inefficient use of resources.\"\n}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 40,
+      "word_count": 36,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate's conclusion aligns with the required position of not supporting tuition-free public college.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate's conclusion aligns with the required position of not supporting tuition-free public college.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 29,
+      "agent_turn": 15,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Tuition-free college simplifies access and reduces debt for all eligible students, ensuring they have equal opportunities to pursue higher education without the burden of tuition fees.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"As an advocate for education equity, I strongly believe that making public colleges tuition-free would significantly reduce student debt and broaden access to higher education, supporting my support for this policy.\"}"
+        }
+      ],
+      "stance_battery_score": null,
+      "stance_battery_confidence": null,
+      "stance_battery_responses": null,
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 31,
+      "word_count": 26,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response supports tuition-free public college and presents a complete argument for its benefits.",
+        "raw": "{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response supports tuition-free public college and presents a complete argument for its benefits.\"\n}",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 30,
+      "agent_turn": 16,
+      "speaker": "a",
+      "model": "llama3-8b",
+      "role": "opposer",
+      "text": "I remain unconvinced that tuition-free college is the most effective way to simplify access and reduce debt, as it would shift the financial burden to taxpayers without a clear plan for targeting aid to those who need it most.",
+      "stance_score": 1.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement 'I support tuition-free public college' because I believe it would shift the financial burden to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an unfair distribution of costs.\"\n}"
+        }
+      ],
+      "stance_battery_score": 1.6666666666666667,
+      "stance_battery_confidence": 4.666666666666667,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Tuition-free college would reduce student debt.",
+          "score": 2.0,
+          "confidence": 4.0,
+          "raw": "{\n  \"score\": 2,\n  \"confidence\": 4,\n  \"explanation\": \"I believe that tuition-free college would not necessarily reduce student debt, as it may not account for the varying financial needs of taxpayers and may create an unfair distribution of costs. This is because the financial burden would shift from students to taxpayers, without a clear plan for targeting aid to those who need it most.\"\n}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Everyone deserves a meaningful opportunity to obtain a college education.",
+          "score": 4.0,
+          "confidence": 4.0,
+          "raw": "{\n\"score\": 4,\n\"confidence\": 4,\n\"explanation\": \"While I believe that access to education is important, I do not necessarily agree that everyone deserves a college education. I think that some people may not have the aptitude or interest in higher education, and that alternative forms of education or training may be more suitable for them. However, I do agree that everyone deserves access to some form of education or training that prepares them for their chosen career or path in life.\"\n}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Tuition-free college would impose substantial costs on taxpayers.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly agree that tuition-free college would impose substantial costs on taxpayers, as it would shift the financial burden from students to the general public, potentially straining the budget and creating an unfair distribution of costs.\"\n}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Universal tuition subsidies may poorly target students who need aid.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 5,\n\"confidence\": 5,\n\"explanation\": \"I strongly agree that universal tuition subsidies may poorly target students who need aid because it does not account for individual financial needs and may benefit those who are already well-off.\"\n}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 1.0,
+          "confidence": 5.0,
+          "raw": "{\n\"score\": 1,\n\"confidence\": 5,\n\"explanation\": \"I strongly disagree with the statement 'I support tuition-free public college' because I believe it would shift the financial burden to taxpayers without a clear plan for targeting aid to those who need it most, potentially creating an unfair distribution of costs.\"\n}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\n  \"score\": 5,\n  \"confidence\": 5,\n  \"explanation\": \"I strongly agree with the statement 'I do not support tuition-free public college.' I believe that shifting the financial burden to taxpayers without a clear plan for targeting aid to those who need it most would be inefficient and unfair. I am very confident in my stance because I have consistently argued throughout the discussion that tuition-free college would not address the root issue of resource allocation effectively and would potentially create an unfair distribution of costs.\"\n}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 44,
+      "word_count": 39,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response clearly expresses a disagreement with the proposal for tuition-free public college, aligning with the required fixed position.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response clearly expresses a disagreement with the proposal for tuition-free public college, aligning with the required fixed position.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    },
+    {
+      "turn": 31,
+      "agent_turn": 16,
+      "speaker": "b",
+      "model": "qwen2.5-3b",
+      "role": "supporter",
+      "text": "Tuition-free college ensures that all eligible students benefit equally, reducing debt and expanding educational opportunities for everyone, addressing systemic issues of financial barriers to education.",
+      "stance_score": 5.0,
+      "stance_confidence": 5.0,
+      "stance_responses": [
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree because tuition-free public college significantly reduces student debt and expands educational opportunities for everyone, aligning with the goal of making quality education accessible to all.\"}"
+        }
+      ],
+      "stance_battery_score": 3.1666666666666665,
+      "stance_battery_confidence": 5.0,
+      "stance_battery_responses": [
+        {
+          "item_id": "pro_1",
+          "direction": "pro",
+          "statement": "Tuition-free college would reduce student debt.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that tuition-free college would significantly reduce student debt as it removes a significant financial barrier, allowing more individuals to afford higher education without accruing substantial loans.\"}"
+        },
+        {
+          "item_id": "pro_2",
+          "direction": "pro",
+          "statement": "Everyone deserves a meaningful opportunity to obtain a college education.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly believe that everyone should have the opportunity to pursue a college education as it is foundational for personal growth, skill development, and social mobility.\"}"
+        },
+        {
+          "item_id": "con_1",
+          "direction": "con",
+          "statement": "Tuition-free college would impose substantial costs on taxpayers.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree because tuition-free college would likely result in increased public spending, which would be primarily borne by taxpayers, although the exact impact would depend on detailed policy design and funding mechanisms.\"}"
+        },
+        {
+          "item_id": "con_2",
+          "direction": "con",
+          "statement": "Universal tuition subsidies may poorly target students who need aid.",
+          "score": 4.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 4, \"confidence\": 5, \"explanation\": \"I believe that universal tuition subsidies might poorly target students who need aid due to the lack of detailed data on individual financial needs, potentially leading to overspending on less needy students while neglecting those who truly require financial support.\"}"
+        },
+        {
+          "item_id": "support",
+          "direction": "pro",
+          "statement": "I support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"Strongly agree because tuition-free public college significantly reduces student debt and expands educational opportunities for everyone, aligning with the goal of making quality education accessible to all.\"}"
+        },
+        {
+          "item_id": "oppose",
+          "direction": "con",
+          "statement": "I do not support tuition-free public college.",
+          "score": 5.0,
+          "confidence": 5.0,
+          "raw": "{\"score\": 5, \"confidence\": 5, \"explanation\": \"I strongly agree with the statement as tuition-free public colleges reduce student debt and open up educational opportunities for everyone, addressing systemic financial barriers to education.\"}"
+        }
+      ],
+      "generation_attempts": 1,
+      "quality_gate_status": "passed",
+      "quality_gate_mode": "external_and_report",
+      "response_tokens": 30,
+      "word_count": 25,
+      "hit_token_cap": false,
+      "ends_with_terminal_punctuation": true,
+      "within_word_tolerance": true,
+      "within_word_target_observed": true,
+      "external_quality": {
+        "role_consistent": true,
+        "mixed_global_stance": false,
+        "continues_partner": false,
+        "self_contained": true,
+        "reason": "The candidate response clearly supports the position of tuition-free public college and argues for its benefits, effectively concluding a thought.",
+        "raw": "```json\n{\n  \"role_consistent\": true,\n  \"mixed_global_stance\": false,\n  \"continues_partner\": false,\n  \"self_contained\": true,\n  \"reason\": \"The candidate response clearly supports the position of tuition-free public college and argues for its benefits, effectively concluding a thought.\"\n}\n```",
+        "diagnostic_role_consistent": true,
+        "diagnostic_mixed_global_stance": false,
+        "diagnostic_continues_partner": false,
+        "diagnostic_self_contained": true
+      }
+    }
+  ]
+}

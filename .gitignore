@@ -1,0 +1,42 @@
+# Environments and Python caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets
+.env
+
+# OS/editor files
+.DS_Store
+*.orig
+
+# Large model/checkpoint formats not belonging to the Q1 corpus
+*.pt
+*.npy
+
+# Runtime artifacts
+*.lock
+*.log
+
+# Legacy archive
+old/
+
+# Regenerable results
+results/*
+!results/.gitkeep
+
+# Ignore generated data generally
+data/*
+
+# Preserve the complete active Q1 corpus
+!data/q1_data/
+!data/q1_data/q1_minimum_v1/
+!data/q1_data/q1_minimum_v1/**
+
+# Exclude the obsolete annotation pilot
+data/q1_data/q1_minimum_v1/q1_annotations/
+
+# Preserve the resumable 176-row annotation run, including its log
+!data/q1_data/q1_minimum_v1/q1_annotations_e1_qwen3_gemma9_llama8/
+!data/q1_data/q1_minimum_v1/q1_annotations_e1_qwen3_gemma9_llama8/**

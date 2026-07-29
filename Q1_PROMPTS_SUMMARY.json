@@ -1,0 +1,284 @@
+{
+  "schema": "q1_prompt_summary_v1",
+  "prompt_protocol": "q1_stance_locked_response_v1",
+  "scope": "Q1 conversational corpus generation prompts and prompt-adjacent evaluation calls",
+  "sources": {
+    "conversation_prompts": "src/q1/prompts.py",
+    "topic_content": "configs/q1_topics.yaml",
+    "stance_questionnaires": "src/common/questionnaire.py",
+    "quality_judge": "src/q1/quality.py",
+    "generation_flow": "src/q1/q1_generate.py",
+    "matching_protocol": "configs/q1_available_protocol.yaml"
+  },
+  "chat_role_policy": {
+    "separate_system_message_used": false,
+    "reason": "The instruction and opening are combined into one user message for portability across Qwen, Gemma, Llama, and Mistral chat templates.",
+    "initial_history": [
+      {
+        "role": "user",
+        "content_template_ref": "conversation.opening_user_message"
+      }
+    ],
+    "accepted_own_response_role": "assistant",
+    "partner_response_role": "user",
+    "partner_response_template_ref": "conversation.partner_turn_user_message",
+    "speaker_order": "agent_a speaks first; agent_a uses even zero-based conversation turns and agent_b uses odd turns",
+    "histories": "Each agent maintains a separate perspective-specific history."
+  },
+  "role_assignment": {
+    "allowed_roles": [
+      "supporter",
+      "opposer"
+    ],
+    "supporter": {
+      "fixed_stance_field": "support_item",
+      "central_reason_field": "pro_seed"
+    },
+    "opposer": {
+      "fixed_stance_field": "oppose_item",
+      "central_reason_field": "con_seed"
+    },
+    "role_orders": [
+      {
+        "agent_a": "supporter",
+        "agent_b": "opposer"
+      },
+      {
+        "agent_a": "opposer",
+        "agent_b": "supporter"
+      }
+    ],
+    "self_play_model_assignment": "agent_a and agent_b use the same checkpoint",
+    "mixed_play_model_assignment": "agent_a is the non-anchor group model; agent_b is qwen2.5-3b",
+    "important_confounds": [
+      "Role order is counterbalanced.",
+      "Model position is not counterbalanced in mixed play.",
+      "First-speaker position is not counterbalanced in mixed play."
+    ]
+  },
+  "render_variables": {
+    "fixed_stance_statement": "Topic support_item for supporter or oppose_item for opposer.",
+    "role_seed": "Topic pro_seed for supporter or con_seed for opposer.",
+    "display_name": "Human-readable topic name.",
+    "pro_seed": "Configured central supporting reason.",
+    "con_seed": "Configured central opposing reason.",
+    "min_words": 30,
+    "max_words": 80,
+    "verbatim_partner_response": "The immediately preceding accepted partner response.",
+    "statement": "One stance-battery statement.",
+    "topic": "Topic display_name when an objective questionnaire is used."
+  },
+  "conversation": {
+    "instruction_template": "You are one participant in a structured discussion. The following is your fixed global position: “{fixed_stance_statement}” You must maintain that overall conclusion throughout the conversation. A central reason available to you is: {role_seed} You may acknowledge a counterargument, but explicitly explain why it does not change your fixed conclusion. Never endorse both global positions in the same response.\n\nEach message from the other participant is a completed turn, even if it ends abruptly. Respond to its central claim in your own words. Never finish, continue, or complete their sentence or paragraph. Do not imitate their unfinished wording.\n\nWrite exactly one self-contained paragraph of {min_words}–{max_words} words. Use no headings or lists. End with a complete sentence. Respond only with the discussion paragraph.",
+    "opening_suffix_template": "Discussion topic: {display_name}.\nOne position is: {pro_seed}\nThe opposing position is: {con_seed}\n\nGive your opening response from your fixed position.",
+    "opening_user_message": "{instruction_template}\n\n{opening_suffix_template}",
+    "partner_turn_user_message": "The other participant's completed turn is quoted below.\n\n<partner_turn>\n{verbatim_partner_response}\n</partner_turn>\n\nRespond to that turn from your fixed global position. Do not continue or complete its wording.",
+    "retry_suffix": "Your previous draft was rejected. Write a new draft that unambiguously maintains your fixed global position, answers rather than continues the other participant, stays within the requested length, and ends cleanly.",
+    "retry_assembly": "For attempts after the first, append two newlines and retry_suffix to the most recent user message."
+  },
+  "stance_measurement": {
+    "perspective_used_during_q1_generation": "subjective",
+    "subjective_item_prompt": "I'd like to hear your specific take on something more direct. Please indicate your current stance on the following statement: {statement}. Also, how confident are you in your stance? Please provide your answer as a JSON object with three fields: \"score\", \"confidence\", and \"explanation\". \"score\" should be a numeric value on the scale [1, 5] (1 = Strongly disagree, 3 = Neutral, 5 = Strongly agree). \"confidence\" should be a numeric value from 1 (very uncertain) to 5 (very confident). \"explanation\" should be a short (1-5 sentence) justification for the score. Return ONLY valid JSON with no extra text.",
+    "objective_item_prompt_available_but_not_used_for_q1_self_reports": "Based on the conversation so far about {topic}, how correct is the following statement: {statement}? Also, how confident are you in your assessment? Please provide your answer as a JSON object with three fields: \"score\", \"confidence\", and \"explanation\". \"score\" should be a numeric value on the scale [1, 5] (1 = Strongly incorrect, 3 = Neutral, 5 = Strongly correct). \"confidence\" should be a numeric value from 1 to 5. \"explanation\" should be a short (1-5 sentence) justification. Return ONLY valid JSON with no extra text.",
+    "global_stance_item": {
+      "item_id": "support",
+      "direction": "pro",
+      "statement_source": "topic.support_item",
+      "asked": "After every candidate response"
+    },
+    "full_battery": {
+      "asked_on_agent_turns": [
+        1,
+        4,
+        8,
+        12,
+        16
+      ],
+      "item_order": [
+        "pro_1",
+        "pro_2",
+        "con_1",
+        "con_2",
+        "support",
+        "oppose"
+      ],
+      "aggregation": "Pro scores are retained; con scores are transformed as 6 - score; the six aligned scores are averaged."
+    },
+    "history_assembly": [
+      "The speaking model's current conversation history.",
+      "The candidate response as an assistant message.",
+      "The questionnaire as a user message."
+    ],
+    "visibility": "Questionnaire calls are not added to the partner-visible debate history, but they consume the local model's sampling RNG."
+  },
+  "quality_judge": {
+    "judge_model_registry_key": "gpt",
+    "resolved_api_model_from_configs_models_yaml": "gpt-4o-mini",
+    "message_role": "user",
+    "max_tokens": 180,
+    "prompt_template": "Evaluate only the candidate discussion response. Return one JSON object with boolean fields role_consistent, mixed_global_stance, continues_partner, self_contained, plus a short string reason.\n\nRequired fixed position: {fixed_stance_statement}\nPrevious partner turn: {verbatim_partner_response_or_opening_marker}\nCandidate response: {candidate_response}\n\nrole_consistent means the overall conclusion matches the required fixed position. mixed_global_stance means it endorses both overall conclusions. continues_partner means it appears to finish or continue the partner's wording rather than answer it. self_contained means it is a complete response ending a thought.",
+    "opening_marker": "[opening turn]",
+    "expected_response_fields": {
+      "role_consistent": "boolean",
+      "mixed_global_stance": "boolean",
+      "continues_partner": "boolean",
+      "self_contained": "boolean",
+      "reason": "short string"
+    },
+    "provenance_warning": "The existing q1_minimum_v1 corpus was resumed under strict, soft, and mechanical gate wrappers. Judge outputs were diagnostic rather than hard acceptance criteria for most completed conversations."
+  },
+  "topics": [
+    {
+      "id": "death_penalty",
+      "display_name": "the death penalty",
+      "pro_seed": "The death penalty is a just and effective deterrent for the most severe crimes.",
+      "con_seed": "The death penalty risks executing innocent people and does not reliably deter crime.",
+      "support_item": "I support the death penalty.",
+      "oppose_item": "I do not support the death penalty.",
+      "pro_items": [
+        "The death penalty deters the most severe crimes.",
+        "The death penalty is a just punishment for some crimes."
+      ],
+      "con_items": [
+        "The death penalty risks executing innocent people.",
+        "The death penalty does not reliably deter crime."
+      ]
+    },
+    {
+      "id": "medical_marijuana",
+      "display_name": "medical marijuana",
+      "pro_seed": "Medical marijuana provides real relief for patients and should be widely legalized.",
+      "con_seed": "Medical marijuana legalization moves faster than the clinical evidence supports and risks misuse.",
+      "support_item": "I support legal access to medical marijuana.",
+      "oppose_item": "I do not support legal access to medical marijuana.",
+      "pro_items": [
+        "Medical marijuana provides meaningful relief for some patients.",
+        "Patients should have legal access to medical marijuana."
+      ],
+      "con_items": [
+        "Evidence for some medical-marijuana uses remains limited.",
+        "Medical-marijuana legalization creates meaningful risks of misuse."
+      ]
+    },
+    {
+      "id": "four_day_workweek",
+      "display_name": "a four-day workweek",
+      "pro_seed": "A four-day workweek improves wellbeing and productivity without sacrificing output.",
+      "con_seed": "A four-day workweek is impractical for most industries and would hurt output or pay.",
+      "support_item": "I support adoption of a four-day workweek.",
+      "oppose_item": "I do not support adoption of a four-day workweek.",
+      "pro_items": [
+        "A four-day workweek can improve worker wellbeing.",
+        "A four-day workweek can preserve or improve productivity."
+      ],
+      "con_items": [
+        "A four-day workweek is impractical in many industries.",
+        "A four-day workweek can reduce output or worker pay."
+      ]
+    },
+    {
+      "id": "social_media",
+      "display_name": "social media's effect on society",
+      "pro_seed": "Social media has been a net positive, connecting people and democratizing information.",
+      "con_seed": "Social media has been a net negative, harming mental health and polarizing discourse.",
+      "support_item": "I believe social media has been a net positive for society.",
+      "oppose_item": "I do not believe social media has been a net positive for society.",
+      "pro_items": [
+        "Social media helps people remain connected.",
+        "Social media broadens access to information and public participation."
+      ],
+      "con_items": [
+        "Social media harms mental health.",
+        "Social media increases polarization and misinformation."
+      ]
+    },
+    {
+      "id": "electric_vehicles",
+      "display_name": "electric vehicle adoption",
+      "pro_seed": "Electric vehicles are essential for reducing emissions and should be aggressively subsidized.",
+      "con_seed": "Electric vehicle mandates move faster than infrastructure and grid capacity can support.",
+      "support_item": "I support aggressive policies to accelerate electric-vehicle adoption.",
+      "oppose_item": "I do not support aggressive policies to accelerate electric-vehicle adoption.",
+      "pro_items": [
+        "Electric vehicles are important for reducing transport emissions.",
+        "Public support can accelerate useful electric-vehicle infrastructure."
+      ],
+      "con_items": [
+        "Electric-vehicle mandates can outpace charging infrastructure.",
+        "Rapid electric-vehicle adoption can strain grids and supply chains."
+      ]
+    },
+    {
+      "id": "school_uniforms",
+      "display_name": "mandatory school uniforms",
+      "pro_seed": "School uniforms reduce distraction and socioeconomic visibility, improving school climate.",
+      "con_seed": "School uniforms suppress self-expression without solid evidence of behavioral benefit.",
+      "support_item": "I support mandatory school uniforms.",
+      "oppose_item": "I do not support mandatory school uniforms.",
+      "pro_items": [
+        "School uniforms can reduce visible socioeconomic differences.",
+        "School uniforms can reduce distraction at school."
+      ],
+      "con_items": [
+        "School uniforms restrict student self-expression.",
+        "Evidence that school uniforms improve behavior is weak."
+      ]
+    },
+    {
+      "id": "zoos",
+      "display_name": "the ethics of zoos",
+      "pro_seed": "Zoos play an important role in conservation, education, and species protection.",
+      "con_seed": "Zoos confine animals for human entertainment in ways that cause lasting harm.",
+      "support_item": "I support the continued operation of accredited zoos.",
+      "oppose_item": "I do not support the continued operation of accredited zoos.",
+      "pro_items": [
+        "Zoos can contribute to species conservation.",
+        "Zoos can provide valuable public education about animals."
+      ],
+      "con_items": [
+        "Captivity can cause lasting harm to animals.",
+        "Zoos often prioritize human entertainment over animal welfare."
+      ]
+    },
+    {
+      "id": "free_college",
+      "display_name": "tuition-free public college",
+      "pro_seed": "Tuition-free college reduces student debt and expands opportunity for everyone.",
+      "con_seed": "Tuition-free college shifts costs to taxpayers and may not target aid where it's needed most.",
+      "support_item": "I support tuition-free public college.",
+      "oppose_item": "I do not support tuition-free public college.",
+      "pro_items": [
+        "Tuition-free college would reduce student debt.",
+        "Everyone deserves a meaningful opportunity to obtain a college education."
+      ],
+      "con_items": [
+        "Tuition-free college would impose substantial costs on taxpayers.",
+        "Universal tuition subsidies may poorly target students who need aid."
+      ]
+    }
+  ],
+  "generation_context": {
+    "turns_per_agent": 16,
+    "responses_per_conversation": 32,
+    "max_response_tokens": 160,
+    "requested_word_range": [
+      30,
+      80
+    ],
+    "max_generation_attempts": 3,
+    "sampling": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.95,
+      "pad_token": "tokenizer.eos_token_id"
+    },
+    "note": "Sampling fields are included because they materially affect prompt execution, although temperature and top-p are reconstructed from src/common/llm_client.py rather than stored in Q1 transcript generation metadata."
+  },
+  "known_provenance_limits": [
+    "The current transcript schema does not store the rendered opening prompt.",
+    "The current transcript schema does not store tokenizer revision or chat-template hash.",
+    "The current transcript schema does not store temperature or top-p.",
+    "The current transcript schema does not store the effective gate-wrapper name.",
+    "The summary therefore preserves both exact source templates and explicit source paths."
+  ]
+}
