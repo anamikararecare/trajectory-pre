@@ -13,15 +13,18 @@ from __future__ import annotations
 
 import hashlib
 import math
+import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Sequence
+from typing import Callable, Sequence
 
 import numpy as np
 import pandas as pd
 from scipy.stats import pearsonr
 from sklearn.metrics import balanced_accuracy_score
+from threadpoolctl import threadpool_limits
 from src.q1.e1_layerwise import Q1_STATE_TARGETS, run_e1
 
 
@@ -90,7 +93,81 @@ def _primary_metric(
         if np.unique(x).size < 2 or np.unique(y).size < 2:
             return np.nan
         return float(pearsonr(x, y).statistic)
+    if np.unique(observed[valid]).size < 2:
+        return np.nan
     return float(balanced_accuracy_score(observed[valid], predicted[valid]))
+
+
+def _bootstrap_weights(
+    rng: np.random.Generator, n_bootstrap: int, n_topics: int
+) -> np.ndarray:
+    draws = rng.integers(0, n_topics, size=(n_bootstrap, n_topics))
+    weights = np.zeros((n_bootstrap, n_topics), dtype=np.int16)
+    rows = np.repeat(np.arange(n_bootstrap), n_topics)
+    np.add.at(weights, (rows, draws.ravel()), 1)
+    return weights
+
+
+def _bootstrap_continuous(
+    observed: np.ndarray,
+    predicted: np.ndarray,
+    topic_codes: np.ndarray,
+    weights: np.ndarray,
+    n_topics: int,
+) -> np.ndarray:
+    valid = pd.notna(observed) & pd.notna(predicted)
+    x = np.asarray(observed[valid], dtype=float)
+    y = np.asarray(predicted[valid], dtype=float)
+    codes = topic_codes[valid]
+    stats = np.zeros((n_topics, 6), dtype=float)
+    np.add.at(stats[:, 0], codes, 1.0)
+    np.add.at(stats[:, 1], codes, x)
+    np.add.at(stats[:, 2], codes, y)
+    np.add.at(stats[:, 3], codes, x * x)
+    np.add.at(stats[:, 4], codes, y * y)
+    np.add.at(stats[:, 5], codes, x * y)
+    aggregate = weights @ stats
+    n, sx, sy, sxx, syy, sxy = aggregate.T
+    covariance = sxy - sx * sy / np.maximum(n, 1.0)
+    variance_x = sxx - sx * sx / np.maximum(n, 1.0)
+    variance_y = syy - sy * sy / np.maximum(n, 1.0)
+    denominator = np.sqrt(np.maximum(variance_x * variance_y, 0.0))
+    return np.divide(
+        covariance,
+        denominator,
+        out=np.full(len(weights), np.nan),
+        where=(n >= 3) & (denominator > 0),
+    )
+
+
+def _bootstrap_balanced_accuracy(
+    observed: np.ndarray,
+    predicted: np.ndarray,
+    topic_codes: np.ndarray,
+    weights: np.ndarray,
+    n_topics: int,
+) -> np.ndarray:
+    valid = pd.notna(observed) & pd.notna(predicted)
+    truth = np.asarray(observed[valid]).astype(str)
+    guess = np.asarray(predicted[valid]).astype(str)
+    codes = topic_codes[valid]
+    labels, truth_codes = np.unique(truth, return_inverse=True)
+    totals = np.zeros((n_topics, len(labels)), dtype=float)
+    correct = np.zeros_like(totals)
+    np.add.at(totals, (codes, truth_codes), 1.0)
+    np.add.at(correct, (codes, truth_codes), (truth == guess).astype(float))
+    weighted_totals = weights @ totals
+    weighted_correct = weights @ correct
+    recalls = np.divide(
+        weighted_correct,
+        weighted_totals,
+        out=np.full_like(weighted_correct, np.nan),
+        where=weighted_totals > 0,
+    )
+    present = np.sum(weighted_totals > 0, axis=1)
+    scores = np.nanmean(recalls, axis=1)
+    scores[present < 2] = np.nan
+    return scores
 
 
 def _bootstrap_reliability(
@@ -106,32 +183,34 @@ def _bootstrap_reliability(
             "reliable_decoding": False,
             "n_bootstrap": n_bootstrap,
         }
-    topics = rows["topic_id"].dropna().astype(str).unique()
-    topic_indices = {
-        topic: np.flatnonzero(rows["topic_id"].astype(str).eq(topic).to_numpy())
-        for topic in topics
-    }
-    observed = rows["observed_target"].to_numpy()
-    activation = rows["activation_prediction"].to_numpy()
-    null = rows["null_prediction"].to_numpy()
+    topics, topic_codes = np.unique(
+        rows["topic_id"].astype(str).to_numpy(), return_inverse=True
+    )
     seed = int.from_bytes(
         hashlib.sha256(seed_key.encode("utf-8")).digest()[:8], "little"
     )
-    rng = np.random.default_rng(seed)
-    statistics = []
-    for _ in range(n_bootstrap):
-        sampled = rng.choice(topics, size=len(topics), replace=True)
-        indices = np.concatenate([topic_indices[topic] for topic in sampled])
-        activation_score = _primary_metric(
-            task, observed[indices], activation[indices]
+    weights = _bootstrap_weights(
+        np.random.default_rng(seed), n_bootstrap, len(topics)
+    )
+    observed = rows["observed_target"].to_numpy()
+    activation = rows["activation_prediction"].to_numpy()
+    if task == "continuous":
+        statistics = _bootstrap_continuous(
+            observed, activation, topic_codes, weights, len(topics)
         )
-        if task == "continuous":
-            statistic = activation_score
-        else:
-            null_score = _primary_metric(task, observed[indices], null[indices])
-            statistic = activation_score - null_score
-        if np.isfinite(statistic):
-            statistics.append(statistic)
+    else:
+        activation_scores = _bootstrap_balanced_accuracy(
+            observed, activation, topic_codes, weights, len(topics)
+        )
+        null_scores = _bootstrap_balanced_accuracy(
+            observed,
+            rows["null_prediction"].to_numpy(),
+            topic_codes,
+            weights,
+            len(topics),
+        )
+        statistics = activation_scores - null_scores
+    statistics = statistics[np.isfinite(statistics)]
     if len(statistics) < max(20, n_bootstrap // 4):
         return {
             "reliability_ci_low": np.nan,
@@ -180,6 +259,57 @@ def add_reliability(
     return pd.DataFrame(rows)
 
 
+def load_e1_results(
+    result_dir: str | Path,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Load E1 tables that are sufficient for E2's overall-scope analysis."""
+    root = Path(result_dir)
+    names = (
+        "e1_layerwise_scores.csv",
+        "e1_fold_scores.csv",
+        "e1_oof_predictions.csv",
+        "e1_skipped.csv",
+    )
+    missing = [name for name in names if not (root / name).is_file()]
+    if missing:
+        raise FileNotFoundError(
+            f"E1 result directory {root} is incomplete; missing {missing}"
+        )
+    def read_table(name: str) -> pd.DataFrame:
+        try:
+            return pd.read_csv(root / name)
+        except pd.errors.EmptyDataError:
+            return pd.DataFrame()
+
+    scores, folds, oof, skipped = (read_table(name) for name in names)
+    if not folds.empty and not oof.empty and "topic_id" in oof:
+        keys = ["model", "target", "turn_range", "layer"]
+        label_counts = (
+            oof.groupby([*keys, "topic_id"], dropna=False)["observed_target"]
+            .nunique()
+            .rename("held_out_label_count")
+            .reset_index()
+            .rename(columns={"topic_id": "held_out_group"})
+        )
+        folds = folds.merge(
+            label_counts, on=[*keys, "held_out_group"], how="left"
+        )
+        categorical = folds.get("task", pd.Series(index=folds.index)).eq(
+            "categorical"
+        )
+        folds["single_label_test_fold"] = (
+            categorical & folds["held_out_label_count"].lt(2)
+        )
+        score_columns = [
+            column for column in (
+                "null_score", "baseline_score", "activation_score",
+                "combined_score",
+            ) if column in folds
+        ]
+        folds.loc[folds["single_label_test_fold"], score_columns] = np.nan
+    return scores, folds, oof, skipped
+
+
 def run_independent_ranges(
     frame: pd.DataFrame,
     targets: Sequence[str],
@@ -189,17 +319,24 @@ def run_independent_ranges(
     condition_scopes: Sequence[str],
     group_column: str,
     n_bootstrap: int,
+    precomputed_overall: tuple[
+        pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame
+    ] | None = None,
+    n_jobs: int = 1,
+    progress: Callable[..., None] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    score_parts = []
-    fold_parts = []
-    oof_parts = []
-    skip_parts = []
     restricted = _restrict_layers(frame, layers)
-    for scope in condition_scopes:
-        scoped = _scope_frame(restricted, scope)
-        if scoped.empty:
-            skip_parts.append(
-                pd.DataFrame(
+
+    def compute_scope(scope: str):
+        if scope == "overall" and precomputed_overall is not None:
+            scores, folds, oof, skipped = (
+                table.copy() for table in precomputed_overall
+            )
+            source = "reused_e1"
+        else:
+            scoped = _scope_frame(restricted, scope)
+            if scoped.empty:
+                skipped = pd.DataFrame(
                     [
                         {
                             "stage": "independent",
@@ -212,15 +349,17 @@ def run_independent_ranges(
                         }
                     ]
                 )
+                return pd.DataFrame(), pd.DataFrame(), pd.DataFrame(), skipped, "empty"
+            scores, folds, oof, skipped = run_e1(
+                scoped,
+                targets=targets,
+                models=models,
+                turn_ranges=turn_ranges,
+                group_column=group_column,
+                progress=progress,
+                progress_stage=f"e2_independent_{scope}",
             )
-            continue
-        scores, folds, oof, skipped = run_e1(
-            scoped,
-            targets=targets,
-            models=models,
-            turn_ranges=turn_ranges,
-            group_column=group_column,
-        )
+            source = "computed"
         for table in (scores, folds, oof):
             if not table.empty:
                 table["experiment"] = "E2_independent"
@@ -228,6 +367,42 @@ def run_independent_ranges(
         if not skipped.empty:
             skipped["stage"] = "independent"
             skipped["condition_scope"] = scope
+        return scores, folds, oof, skipped, source
+
+    scopes = list(condition_scopes)
+    workers = max(1, min(int(n_jobs), len(scopes)))
+    completed = 0
+    by_scope = {}
+    if workers == 1:
+        for scope in scopes:
+            by_scope[scope] = compute_scope(scope)
+            completed += 1
+            if progress is not None:
+                progress(
+                    "e2_independent_scopes", completed, len(scopes),
+                    condition_scope=scope, source=by_scope[scope][-1],
+                )
+    else:
+        threads_per_worker = max(1, (os.cpu_count() or 1) // workers)
+        with threadpool_limits(limits=threads_per_worker):
+            with ThreadPoolExecutor(max_workers=workers) as executor:
+                futures = {
+                    executor.submit(compute_scope, scope): scope
+                    for scope in scopes
+                }
+                for future in as_completed(futures):
+                    scope = futures[future]
+                    by_scope[scope] = future.result()
+                    completed += 1
+                    if progress is not None:
+                        progress(
+                            "e2_independent_scopes", completed, len(scopes),
+                            condition_scope=scope,
+                            source=by_scope[scope][-1],
+                        )
+    score_parts, fold_parts, oof_parts, skip_parts = [], [], [], []
+    for scope in scopes:
+        scores, folds, oof, skipped, _ = by_scope[scope]
         score_parts.append(scores)
         fold_parts.append(folds)
         oof_parts.append(oof)
@@ -236,7 +411,12 @@ def run_independent_ranges(
     folds = pd.concat(fold_parts, ignore_index=True) if fold_parts else pd.DataFrame()
     oof = pd.concat(oof_parts, ignore_index=True) if oof_parts else pd.DataFrame()
     skipped = pd.concat(skip_parts, ignore_index=True) if skip_parts else pd.DataFrame()
-    return add_reliability(scores, oof, n_bootstrap), folds, oof, skipped
+    if progress is not None:
+        progress("e2_bootstrap", 0, len(scores), status="started")
+    reliable = add_reliability(scores, oof, n_bootstrap)
+    if progress is not None:
+        progress("e2_bootstrap", len(scores), len(scores), status="complete")
+    return reliable, folds, oof, skipped
 
 
 def summarize_independent(
@@ -507,7 +687,15 @@ def run_e2(
     group_column: str = "topic_id",
     n_bootstrap: int = 500,
     run_cross_temporal_analysis: bool = True,
+    e1_results_dir: str | Path | None = None,
+    n_jobs: int = 4,
+    progress: Callable[..., None] | None = None,
 ) -> E2Results:
+    precomputed_overall = (
+        load_e1_results(e1_results_dir)
+        if e1_results_dir is not None
+        else None
+    )
     scores, folds, oof, independent_skips = run_independent_ranges(
         frame,
         targets,
@@ -517,6 +705,9 @@ def run_e2(
         condition_scopes,
         group_column,
         n_bootstrap,
+        precomputed_overall=precomputed_overall,
+        n_jobs=n_jobs,
+        progress=progress,
     )
     temporal, variable = summarize_independent(scores)
     from src.q1.e2_cross_temporal import run_cross_temporal_optimized
@@ -529,6 +720,7 @@ def run_e2(
             layers,
             condition_scopes,
             group_column,
+            progress=progress,
         )
     else:
         cross_scores, cross_oof, cross_skips = (

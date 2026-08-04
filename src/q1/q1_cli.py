@@ -106,9 +106,11 @@ def e1_command(args: argparse.Namespace) -> None:
     from src.q1.e1_layerwise import (
         Q1_STATE_TARGETS,
         add_response_text_embeddings,
+        default_embedding_cache_path,
         run_e1,
         summarize_peak_layers,
     )
+    from src.q1.progress import ProgressReporter
     from src.track1_probing.variables import registry_frame
     from src.q1.text_vad import (
         DEFAULT_VAD_MODEL, VAD_COLUMNS, add_text_vad_scores,
@@ -162,6 +164,16 @@ def e1_command(args: argparse.Namespace) -> None:
         frame = frame[frame["model"].isin(selected_models)].copy()
     if selected_ranges:
         frame = frame[frame["turn_range"].isin(selected_ranges)].copy()
+    output = Path(args.out_dir)
+    output.mkdir(parents=True, exist_ok=True)
+    reporter = ProgressReporter(
+        args.progress_log or output / "e1_progress.jsonl"
+    )
+    reporter.event(
+        "e1_setup", 1, 1, rows=len(frame),
+        conversations=frame["conv_id"].nunique(), targets=len(targets),
+        n_jobs=args.n_jobs,
+    )
     if not args.no_vad and set(targets).intersection(VAD_COLUMNS):
         vad_cache = args.vad_cache or default_vad_cache_path(
             args.run_dir, args.vad_model
@@ -171,16 +183,52 @@ def e1_command(args: argparse.Namespace) -> None:
             batch_size=args.vad_batch_size, device=args.vad_device,
         )
     if not args.no_text_embeddings:
-        frame = add_response_text_embeddings(frame, args.embedding_model)
+        embedding_cache = args.embedding_cache or default_embedding_cache_path(
+            args.run_dir, args.embedding_model
+        )
+        frame = add_response_text_embeddings(
+            frame, args.embedding_model, cache_path=embedding_cache
+        )
+    annotation_stamp = None
+    if args.annotations:
+        annotation_path = Path(args.annotations)
+        annotation_stat = annotation_path.stat()
+        annotation_stamp = {
+            "path": str(annotation_path.resolve()),
+            "size": annotation_stat.st_size,
+            "mtime_ns": annotation_stat.st_mtime_ns,
+        }
+    checkpoint_key = json.dumps(
+        {
+            "run_dir": str(Path(args.run_dir).resolve()),
+            "annotations": annotation_stamp,
+            "pairs": selected_pairs,
+            "topics": selected_topics,
+            "role_orders": selected_role_orders,
+            "conditions": selected_conditions,
+            "models": selected_models,
+            "ranges": selected_ranges,
+            "targets": targets,
+            "cv_group": args.cv_group,
+            "embedding_model": None if args.no_text_embeddings else args.embedding_model,
+            "vad_model": None if args.no_vad else args.vad_model,
+        },
+        sort_keys=True,
+    )
     scores, folds, predictions, skipped = run_e1(
         frame,
         targets=targets,
         models=_parse_csv(args.models),
         turn_ranges=_parse_csv(args.turn_ranges),
         group_column=args.cv_group,
+        progress=reporter.event,
+        n_jobs=args.n_jobs,
+        blas_threads_per_job=args.blas_threads_per_job,
+        checkpoint_dir=args.checkpoint_dir or output / "e1_checkpoints",
+        checkpoint_key=checkpoint_key,
+        resume=not args.no_resume,
     )
-    output = Path(args.out_dir)
-    output.mkdir(parents=True, exist_ok=True)
+    reporter.event("e1_write_results", 0, 1)
     scores.to_csv(output / "e1_layerwise_scores.csv", index=False)
     summarize_peak_layers(scores).to_csv(
         output / "e1_peak_layer_scores.csv", index=False
@@ -216,6 +264,7 @@ def e1_command(args: argparse.Namespace) -> None:
         from src.q1.e1_figures import export_e1_figures
 
         export_e1_figures(output)
+    reporter.event("e1_write_results", 1, 1, output=str(output))
     print(
         f"Q1 E1 complete: {len(scores)} layerwise estimates across "
         f"{scores['model'].nunique() if not scores.empty else 0} model(s). "
@@ -326,6 +375,27 @@ def build_parser() -> argparse.ArgumentParser:
     )
     e1.add_argument(
         "--embedding-model", default="all-MiniLM-L6-v2"
+    )
+    e1.add_argument("--embedding-cache")
+    e1.add_argument(
+        "--checkpoint-dir",
+        help="Per-cell checkpoint directory; defaults inside --out-dir",
+    )
+    e1.add_argument(
+        "--no-resume", action="store_true",
+        help="Ignore matching cell checkpoints but still replace them as cells finish",
+    )
+    e1.add_argument(
+        "--progress-log",
+        help="Append-only JSONL progress log; defaults inside --out-dir",
+    )
+    e1.add_argument(
+        "--n-jobs", type=int, default=8,
+        help="Independent E1 cells evaluated concurrently (default: 8)",
+    )
+    e1.add_argument(
+        "--blas-threads-per-job", type=int, default=2,
+        help="BLAS threads allowed per E1 worker (default: 2)",
     )
     e1.add_argument(
         "--no-text-embeddings",

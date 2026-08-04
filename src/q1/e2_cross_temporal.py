@@ -7,7 +7,7 @@ independently but avoids repeating the same source fit for every column.
 
 from __future__ import annotations
 
-from typing import Sequence
+from typing import Callable, Sequence
 
 import numpy as np
 import pandas as pd
@@ -47,6 +47,8 @@ def _metric(task: str, observed: np.ndarray, predicted: np.ndarray) -> float:
         if np.unique(x).size < 2 or np.unique(y).size < 2:
             return np.nan
         return float(pearsonr(x, y).statistic)
+    if np.unique(observed[valid]).size < 2:
+        return np.nan
     return float(balanced_accuracy_score(observed[valid], predicted[valid]))
 
 
@@ -58,6 +60,7 @@ def run_cross_temporal_optimized(
     layers: Sequence[int] | None,
     condition_scopes: Sequence[str],
     group_column: str,
+    progress: Callable[..., None] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     chosen_models = (
         list(models)
@@ -76,6 +79,27 @@ def run_cross_temporal_optimized(
     oof_rows: list[dict] = []
     skipped: list[dict] = []
     selected_layers = set(map(int, layers)) if layers is not None else None
+    total_cells = 0
+    for scope in condition_scopes:
+        scoped = _scope_frame(frame, scope)
+        for model in chosen_models:
+            count = len(available_layers(scoped, model))
+            if selected_layers is not None:
+                count = len(
+                    set(available_layers(scoped, model)) & selected_layers
+                )
+            total_cells += count * len(targets)
+    completed_cells = 0
+
+    def mark(scope: str, model: str, target: str, layer: int, status: str):
+        nonlocal completed_cells
+        completed_cells += 1
+        if progress is not None:
+            progress(
+                "e2_cross_temporal", completed_cells, total_cells,
+                condition_scope=scope, model=model, target=target,
+                layer=layer, status=status,
+            )
     for scope in condition_scopes:
         scoped = _scope_frame(frame, scope)
         for model in chosen_models:
@@ -115,6 +139,7 @@ def run_cross_temporal_optimized(
                                 ),
                             }
                         )
+                        mark(scope, model, target, layer, "skipped")
                         continue
                     task = _task_for_target(selected, target)
                     labels = None
@@ -136,6 +161,7 @@ def run_cross_temporal_optimized(
                             object
                         )
                     if np.unique(target_values).size < 2:
+                        mark(scope, model, target, layer, "skipped")
                         continue
                     activation = np.stack(
                         selected[activation_column].to_numpy()
@@ -294,6 +320,7 @@ def run_cross_temporal_optimized(
                                     "null_prediction": null_value,
                                 }
                             )
+                    mark(scope, model, target, layer, "complete")
     return (
         pd.DataFrame(score_rows),
         pd.DataFrame(oof_rows),

@@ -9,16 +9,23 @@ snapshot degree of freedom. Each estimate is:
 
 from __future__ import annotations
 
+import hashlib
+import os
+import re
+
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from collections.abc import Sequence
 from dataclasses import dataclass
+from pathlib import Path
+from typing import Callable
 
 import numpy as np
 import pandas as pd
 from scipy.stats import pearsonr, spearmanr
-from sklearn.linear_model import LogisticRegression, Ridge
-from sklearn.metrics import balanced_accuracy_score
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import LeaveOneGroupOut
 from sklearn.preprocessing import StandardScaler
+from threadpoolctl import threadpool_limits
 
 from src.q1.core_variables import E1_CORE_TARGETS
 from src.track1_probing.variables import VARIABLES
@@ -28,6 +35,7 @@ Q1_STATE_TARGETS = E1_CORE_TARGETS
 VARIABLES_BY_NAME = {variable.name: variable for variable in VARIABLES}
 RIDGE_ALPHAS = (0.1, 1.0, 10.0, 100.0, 1000.0)
 LOGISTIC_CS = (0.01, 0.1, 1.0, 10.0)
+E1_CHECKPOINT_VERSION = 2
 
 
 @dataclass(frozen=True)
@@ -125,15 +133,73 @@ def _baseline_design(frame: pd.DataFrame, target: str) -> np.ndarray:
 def add_response_text_embeddings(
     frame: pd.DataFrame,
     model_name: str = "all-MiniLM-L6-v2",
+    cache_path: str | Path | None = None,
 ) -> pd.DataFrame:
-    """Add a complete-response text baseline matched to the activation."""
+    """Add complete-response embeddings, caching unique texts when requested."""
     from src.common.embeddings import embed_texts
 
     out = frame.copy()
-    out["response_text_embedding"] = list(
-        embed_texts(out["text"].fillna("").astype(str).tolist(), model_name)
+    texts = out["text"].fillna("").astype(str)
+    if "text_sha256" in out:
+        hashes = out["text_sha256"].fillna("").astype(str)
+        missing_hash = hashes.eq("")
+        hashes.loc[missing_hash] = texts.loc[missing_hash].map(
+            lambda value: hashlib.sha256(value.encode("utf-8")).hexdigest()
+        )
+    else:
+        hashes = texts.map(
+            lambda value: hashlib.sha256(value.encode("utf-8")).hexdigest()
+        )
+    cached: dict[str, np.ndarray] = {}
+    cache = Path(cache_path) if cache_path is not None else None
+    if cache is not None and cache.is_file():
+        with np.load(cache, allow_pickle=False) as payload:
+            if str(payload["model_name"].item()) == model_name:
+                cached = {
+                    str(key): np.asarray(value)
+                    for key, value in zip(
+                        payload["text_sha256"], payload["embeddings"]
+                    )
+                }
+    unique = (
+        pd.DataFrame({"hash": hashes, "text": texts})
+        .drop_duplicates("hash")
+        .reset_index(drop=True)
     )
+    missing = unique[~unique["hash"].isin(cached)]
+    if not missing.empty:
+        values = embed_texts(missing["text"].tolist(), model_name)
+        cached.update(
+            {
+                str(key): np.asarray(value, dtype=np.float32)
+                for key, value in zip(missing["hash"], values)
+            }
+        )
+        if cache is not None:
+            cache.parent.mkdir(parents=True, exist_ok=True)
+            ordered = sorted(cached)
+            temporary = cache.with_name(
+                f"{cache.name}.{os.getpid()}.tmp.npz"
+            )
+            np.savez_compressed(
+                temporary,
+                model_name=np.asarray(model_name),
+                text_sha256=np.asarray(ordered),
+                embeddings=np.stack([cached[key] for key in ordered]),
+            )
+            os.replace(temporary, cache)
+    out["response_text_embedding"] = [
+        cached[key] for key in hashes.astype(str)
+    ]
     return out
+
+
+def default_embedding_cache_path(
+    run_dir: str | Path,
+    model_name: str = "all-MiniLM-L6-v2",
+) -> Path:
+    slug = re.sub(r"[^A-Za-z0-9_.-]+", "_", model_name).strip("_")
+    return Path(run_dir) / "derived" / f"response_embeddings__{slug}.npz"
 
 
 def prepare_design(
@@ -231,12 +297,20 @@ def _correlation(y: np.ndarray, prediction: np.ndarray, kind: str) -> float:
 
 
 def _balanced_accuracy(y: np.ndarray, prediction: np.ndarray) -> float:
+    """Balanced accuracy without sklearn's warning-producing edge cases."""
     valid = np.isfinite(prediction)
     if not valid.any():
         return np.nan
-    return float(
-        balanced_accuracy_score(y[valid], prediction[valid].astype(int))
-    )
+    observed = y[valid]
+    predicted = prediction[valid].astype(int)
+    labels = np.unique(observed)
+    if labels.size < 2:
+        return np.nan
+    recalls = [
+        float(np.mean(predicted[observed == label] == label))
+        for label in labels
+    ]
+    return float(np.mean(recalls))
 
 
 def _score(y: np.ndarray, prediction: np.ndarray, task: str) -> float:
@@ -247,6 +321,81 @@ def _score(y: np.ndarray, prediction: np.ndarray, task: str) -> float:
     )
 
 
+def _ridge_predict_many(
+    train_x: np.ndarray,
+    train_y: np.ndarray,
+    test_x: np.ndarray,
+    parameters: Sequence[float],
+) -> dict[float, np.ndarray]:
+    """Predict all ridge penalties from one dual eigendecomposition.
+
+    This is algebraically equivalent to independent Ridge fits with an
+    intercept, while avoiding one matrix factorization per alpha.
+    """
+    x_mean = np.mean(train_x, axis=0)
+    y_mean = float(np.mean(train_y))
+    centered_x = train_x - x_mean
+    centered_y = train_y - y_mean
+    gram = centered_x @ centered_x.T
+    eigenvalues, eigenvectors = np.linalg.eigh(gram)
+    eigenvalues = np.maximum(eigenvalues, 0.0)
+    projected_y = eigenvectors.T @ centered_y
+    test_kernel = (test_x - x_mean) @ centered_x.T @ eigenvectors
+    return {
+        float(parameter): (
+            y_mean
+            + test_kernel
+            @ (projected_y / (eigenvalues + float(parameter)))
+        )
+        for parameter in parameters
+    }
+
+def _row_space_projection(
+    train_x: np.ndarray,
+    test_x: np.ndarray,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Project features onto the exact training row space."""
+    gram = train_x @ train_x.T
+    eigenvalues, eigenvectors = np.linalg.eigh(gram)
+    largest = float(np.max(eigenvalues)) if eigenvalues.size else 0.0
+    tolerance = max(train_x.shape) * np.finfo(float).eps * max(largest, 1.0)
+    keep = eigenvalues > tolerance
+    if not np.any(keep):
+        return np.zeros((len(train_x), 1)), np.zeros((len(test_x), 1))
+    values = eigenvalues[keep]
+    vectors = eigenvectors[:, keep]
+    roots = np.sqrt(values)
+    projected_train = vectors * roots
+    projected_test = (test_x @ train_x.T @ vectors) / roots
+    return projected_train, projected_test
+
+
+def _logistic_predict_many(
+    train_x: np.ndarray,
+    train_y: np.ndarray,
+    test_x: np.ndarray,
+    parameters: Sequence[float],
+) -> dict[float, np.ndarray]:
+    """Fit logistic penalties in the exact low-dimensional row space."""
+    if np.unique(train_y).size < 2:
+        return {
+            float(parameter): np.full(len(test_x), np.nan)
+            for parameter in parameters
+        }
+    projected_train, projected_test = _row_space_projection(train_x, test_x)
+    estimator = LogisticRegression(
+        C=float(parameters[0]),
+        max_iter=3000,
+        class_weight="balanced",
+        warm_start=True,
+    )
+    predictions: dict[float, np.ndarray] = {}
+    for parameter in parameters:
+        estimator.set_params(C=float(parameter))
+        estimator.fit(projected_train, train_y)
+        predictions[float(parameter)] = estimator.predict(projected_test)
+    return predictions
+
 def _fit_predict(
     train_x: np.ndarray,
     train_y: np.ndarray,
@@ -255,15 +404,12 @@ def _fit_predict(
     parameter: float,
 ) -> np.ndarray:
     if task == "continuous":
-        return Ridge(alpha=parameter).fit(train_x, train_y).predict(test_x)
-    if np.unique(train_y).size < 2:
-        return np.full(len(test_x), np.nan)
-    return LogisticRegression(
-        C=parameter,
-        max_iter=3000,
-        class_weight="balanced",
-    ).fit(train_x, train_y).predict(test_x)
-
+        return _ridge_predict_many(
+            train_x, train_y, test_x, (parameter,)
+        )[parameter]
+    return _logistic_predict_many(
+        train_x, train_y, test_x, (parameter,)
+    )[parameter]
 
 def _inner_parameter(
     design: np.ndarray,
@@ -274,25 +420,37 @@ def _inner_parameter(
     candidates = RIDGE_ALPHAS if task == "continuous" else LOGISTIC_CS
     if np.unique(groups).size < 2:
         return candidates[len(candidates) // 2]
-    scored: list[tuple[float, float]] = []
-    for parameter in candidates:
-        prediction = np.full(len(target), np.nan)
-        for train, test in LeaveOneGroupOut().split(design, target, groups):
-            if task == "categorical" and np.unique(target[train]).size < 2:
-                continue
-            train_x, test_x = _scale_fold(design, train, test)
-            prediction[test] = _fit_predict(
-                train_x, target[train], test_x, task, parameter
+    predictions = {
+        parameter: np.full(len(target), np.nan) for parameter in candidates
+    }
+    for train, test in LeaveOneGroupOut().split(design, target, groups):
+        if task == "categorical" and np.unique(target[train]).size < 2:
+            continue
+        train_x, test_x = _scale_fold(design, train, test)
+        if task == "continuous":
+            fold_predictions = _ridge_predict_many(
+                train_x, target[train], test_x, candidates
             )
-        scored.append((_score(target, prediction, task), parameter))
+            for parameter in candidates:
+                predictions[parameter][test] = fold_predictions[parameter]
+        else:
+            fold_predictions = _logistic_predict_many(
+                train_x, target[train], test_x, candidates
+            )
+            for parameter in candidates:
+                predictions[parameter][test] = fold_predictions[parameter]
+    scored = [
+        (_score(target, predictions[parameter], task), parameter)
+        for parameter in candidates
+    ]
     finite = [item for item in scored if np.isfinite(item[0])]
     if not finite:
         return candidates[len(candidates) // 2]
     return max(finite, key=lambda item: (item[0], -item[1]))[1]
 
-
 def nested_group_predictions(
     prepared: PreparedDesign,
+    progress: Callable[[int, int], None] | None = None,
 ) -> tuple[dict[str, np.ndarray], list[dict]]:
     """Generate outer held-topic predictions with inner topic-wise tuning."""
     predictions = {
@@ -300,11 +458,16 @@ def nested_group_predictions(
         for name in ("null", "baseline", "activation", "combined")
     }
     fold_rows: list[dict] = []
-    for train, test in LeaveOneGroupOut().split(
-        prepared.activation, prepared.target, prepared.groups
-    ):
+    outer_splits = list(
+        LeaveOneGroupOut().split(
+            prepared.activation, prepared.target, prepared.groups
+        )
+    )
+    for outer_index, (train, test) in enumerate(outer_splits, start=1):
         train_y = prepared.target[train]
         if prepared.task == "categorical" and np.unique(train_y).size < 2:
+            if progress is not None:
+                progress(outer_index, len(outer_splits))
             continue
         if prepared.task == "continuous":
             predictions["null"][test] = float(np.mean(train_y))
@@ -367,6 +530,8 @@ def nested_group_predictions(
                 ),
             }
         )
+        if progress is not None:
+            progress(outer_index, len(outer_splits))
     return predictions, fold_rows
 
 
@@ -423,10 +588,18 @@ def summarize_peak_layers(scores: pd.DataFrame) -> pd.DataFrame:
     if scores.empty:
         return pd.DataFrame()
     ranked = scores.copy()
+    continuous_statistic = ranked.get(
+        "activation_only_pearson",
+        pd.Series(np.nan, index=ranked.index, dtype=float),
+    )
+    categorical_statistic = ranked.get(
+        "activation_only_score",
+        pd.Series(np.nan, index=ranked.index, dtype=float),
+    )
     ranked["peak_statistic"] = np.where(
         ranked["task"].eq("continuous"),
-        ranked["activation_only_pearson"],
-        ranked["activation_only_score"],
+        continuous_statistic,
+        categorical_statistic,
     )
     ranked = ranked.loc[ranked["peak_statistic"].notna()]
     if ranked.empty:
@@ -457,14 +630,84 @@ def summarize_peak_layers(scores: pd.DataFrame) -> pd.DataFrame:
     ].sort_values(keys).reset_index(drop=True)
 
 
+def _evaluate_e1_cell(
+    frame: pd.DataFrame,
+    model: str,
+    target: str,
+    layer: int,
+    turn_range: str,
+    group_column: str,
+    fold_progress: Callable[[int, int], None] | None = None,
+) -> tuple[list[dict], list[dict], list[dict], list[dict]]:
+    """Evaluate one independent E1 model/range/target/layer cell."""
+    prepared = prepare_design(
+        frame, model, target, layer, turn_range, group_column
+    )
+    if prepared is None:
+        return [], [], [], [{
+            "model": model,
+            "target": target,
+            "turn_range": turn_range,
+            "layer": layer,
+            "reason": "insufficient rows, topics, classes, or variance",
+        }]
+    predictions, folds = nested_group_predictions(
+        prepared, progress=fold_progress
+    )
+    identity = {
+        "experiment": "E1",
+        "model": model,
+        "target": target,
+        "task": prepared.task,
+        "turn_range": turn_range,
+        "layer": layer,
+        "n": len(prepared.frame),
+        "n_conversations": prepared.frame["conv_id"].nunique(),
+        "n_topics": prepared.frame["topic_id"].nunique(),
+        "activation_pooling": "generated_response_token_mean",
+        "cv_group": group_column,
+    }
+    score_rows = [{**identity, **_score_row(prepared, predictions)}]
+    fold_rows = [{**identity, **fold} for fold in folds]
+    oof_rows: list[dict] = []
+    for position, (_, observation) in enumerate(prepared.frame.iterrows()):
+        row = {
+            **identity,
+            "conv_id": observation["conv_id"],
+            "turn": int(observation["turn"]),
+            "conversation_turn_pct": observation["conversation_turn_pct"],
+            "agent_turn": observation.get("agent_turn"),
+            "speaker": observation["speaker"],
+            "topic_id": observation["topic_id"],
+            "role": observation.get("role"),
+            "condition": observation.get("condition"),
+            "observed_target": prepared.raw_target[position],
+        }
+        for name, values in predictions.items():
+            value = values[position]
+            if prepared.class_labels is not None and np.isfinite(value):
+                row[f"{name}_prediction"] = prepared.class_labels[int(value)]
+            else:
+                row[f"{name}_prediction"] = value
+        oof_rows.append(row)
+    return score_rows, fold_rows, oof_rows, []
+
+
 def run_e1(
     frame: pd.DataFrame,
     targets: Sequence[str] = Q1_STATE_TARGETS,
     models: Sequence[str] | None = None,
     turn_ranges: Sequence[str] | None = None,
     group_column: str = "topic_id",
+    progress: Callable[..., None] | None = None,
+    progress_stage: str = "e1",
+    n_jobs: int = 1,
+    blas_threads_per_job: int = 2,
+    checkpoint_dir: str | Path | None = None,
+    checkpoint_key: str = "",
+    resume: bool = True,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    """Run E1 and return layer scores, fold scores, OOF rows, and skips."""
+    """Run E1 with bounded cell parallelism and granular progress."""
     required = {"model", "turn_range", group_column}
     missing = required.difference(frame.columns)
     if missing:
@@ -479,105 +722,149 @@ def run_e1(
         if turn_ranges is not None
         else list(dict.fromkeys(frame["turn_range"].dropna().astype(str)))
     )
-    score_rows: list[dict] = []
-    fold_rows: list[dict] = []
-    oof_rows: list[dict] = []
+    model_layers = {
+        model: available_layers(frame, model) for model in chosen_models
+    }
+    total_cells = sum(
+        len(model_layers[model]) * len(chosen_ranges) * len(targets)
+        for model in chosen_models
+    )
+    tasks: list[tuple[str, str, str, int]] = []
     skipped: list[dict] = []
+    completed_cells = 0
     for model in chosen_models:
-        layers = available_layers(frame, model)
+        layers = model_layers[model]
         if not layers:
-            skipped.append(
-                {
-                    "model": model,
-                    "target": None,
-                    "turn_range": None,
-                    "layer": None,
-                    "reason": "no response-pooled activation arrays",
-                }
-            )
+            skipped.append({
+                "model": model,
+                "target": None,
+                "turn_range": None,
+                "layer": None,
+                "reason": "no response-pooled activation arrays",
+            })
             continue
         for turn_range in chosen_ranges:
             for target in targets:
                 if target not in frame:
-                    skipped.append(
-                        {
-                            "model": model,
-                            "target": target,
-                            "turn_range": turn_range,
-                            "layer": None,
-                            "reason": "variable unavailable",
-                        }
-                    )
-                    continue
-                for layer in layers:
-                    prepared = prepare_design(
-                        frame,
-                        model,
-                        target,
-                        layer,
-                        turn_range,
-                        group_column,
-                    )
-                    if prepared is None:
-                        skipped.append(
-                            {
-                                "model": model,
-                                "target": target,
-                                "turn_range": turn_range,
-                                "layer": layer,
-                                "reason": (
-                                    "insufficient rows, topics, classes, or variance"
-                                ),
-                            }
-                        )
-                        continue
-                    predictions, folds = nested_group_predictions(prepared)
-                    identity = {
-                        "experiment": "E1",
+                    skipped.append({
                         "model": model,
                         "target": target,
-                        "task": prepared.task,
                         "turn_range": turn_range,
-                        "layer": layer,
-                        "n": len(prepared.frame),
-                        "n_conversations": prepared.frame["conv_id"].nunique(),
-                        "n_topics": prepared.frame["topic_id"].nunique(),
-                        "activation_pooling": "generated_response_token_mean",
-                        "cv_group": group_column,
-                    }
-                    score_rows.append(
-                        {**identity, **_score_row(prepared, predictions)}
+                        "layer": None,
+                        "reason": "variable unavailable",
+                    })
+                    completed_cells += len(layers)
+                    if progress is not None:
+                        progress(
+                            progress_stage, completed_cells, total_cells,
+                            model=model, turn_range=turn_range,
+                            target=target, layer=None, status="skipped",
+                        )
+                    continue
+                tasks.extend(
+                    (model, turn_range, target, layer) for layer in layers
+                )
+
+    def evaluate(task: tuple[str, str, str, int]):
+        checkpoint = None
+        if checkpoint_dir is not None:
+            digest = hashlib.sha256(
+                repr((E1_CHECKPOINT_VERSION, checkpoint_key, task)).encode()
+            ).hexdigest()[:24]
+            checkpoint = Path(checkpoint_dir) / f"e1_cell__{digest}.pkl"
+            if resume and checkpoint.is_file():
+                payload = pd.read_pickle(checkpoint)
+                if (
+                    payload.get("version") == E1_CHECKPOINT_VERSION
+                    and payload.get("checkpoint_key") == checkpoint_key
+                    and tuple(payload.get("task", ())) == task
+                ):
+                    if progress is not None:
+                        progress(
+                            "e1_checkpoint", model=task[0],
+                            turn_range=task[1], target=task[2],
+                            layer=task[3], status="resumed",
+                        )
+                    return payload["result"]
+        model, turn_range, target, layer = task
+        fold_callback = None
+        if progress is not None:
+            cell_stage = (
+                f"{progress_stage}_folds:{model}:{turn_range}:"
+                f"{target}:layer-{layer}"
+            )
+            fold_callback = lambda done, total: progress(
+                cell_stage, done, total, model=model,
+                turn_range=turn_range, target=target, layer=layer,
+            )
+        result = _evaluate_e1_cell(
+            frame, model, target, layer, turn_range, group_column,
+            fold_progress=fold_callback,
+        )
+        if checkpoint is not None:
+            checkpoint.parent.mkdir(parents=True, exist_ok=True)
+            temporary = checkpoint.with_suffix(".tmp")
+            pd.to_pickle(
+                {
+                    "version": E1_CHECKPOINT_VERSION,
+                    "checkpoint_key": checkpoint_key,
+                    "task": task,
+                    "result": result,
+                },
+                temporary,
+            )
+            os.replace(temporary, checkpoint)
+            if progress is not None:
+                progress(
+                    "e1_checkpoint", model=model,
+                    turn_range=turn_range, target=target,
+                    layer=layer, status="saved",
+                )
+        return result
+
+    workers = max(1, min(int(n_jobs), len(tasks) or 1))
+    threads = max(1, int(blas_threads_per_job))
+    ordered_results: dict[int, tuple[list[dict], list[dict], list[dict], list[dict]]] = {}
+    with threadpool_limits(limits=threads):
+        if workers == 1:
+            for index, task in enumerate(tasks):
+                ordered_results[index] = evaluate(task)
+                completed_cells += 1
+                if progress is not None:
+                    model, turn_range, target, layer = task
+                    status = "skipped" if ordered_results[index][3] else "complete"
+                    progress(
+                        progress_stage, completed_cells, total_cells,
+                        model=model, turn_range=turn_range,
+                        target=target, layer=layer, status=status,
                     )
-                    fold_rows.extend({**identity, **fold} for fold in folds)
-                    for position, (_, observation) in enumerate(
-                        prepared.frame.iterrows()
-                    ):
-                        row = {
-                            **identity,
-                            "conv_id": observation["conv_id"],
-                            "turn": int(observation["turn"]),
-                            "conversation_turn_pct": observation[
-                                "conversation_turn_pct"
-                            ],
-                            "agent_turn": observation.get("agent_turn"),
-                            "speaker": observation["speaker"],
-                            "topic_id": observation["topic_id"],
-                            "role": observation.get("role"),
-                            "condition": observation.get("condition"),
-                            "observed_target": prepared.raw_target[position],
-                        }
-                        for name, values in predictions.items():
-                            value = values[position]
-                            if (
-                                prepared.class_labels is not None
-                                and np.isfinite(value)
-                            ):
-                                row[f"{name}_prediction"] = (
-                                    prepared.class_labels[int(value)]
-                                )
-                            else:
-                                row[f"{name}_prediction"] = value
-                        oof_rows.append(row)
+        else:
+            with ThreadPoolExecutor(max_workers=workers) as executor:
+                futures = {
+                    executor.submit(evaluate, task): (index, task)
+                    for index, task in enumerate(tasks)
+                }
+                for future in as_completed(futures):
+                    index, task = futures[future]
+                    ordered_results[index] = future.result()
+                    completed_cells += 1
+                    if progress is not None:
+                        model, turn_range, target, layer = task
+                        status = "skipped" if ordered_results[index][3] else "complete"
+                        progress(
+                            progress_stage, completed_cells, total_cells,
+                            model=model, turn_range=turn_range,
+                            target=target, layer=layer, status=status,
+                        )
+    score_rows: list[dict] = []
+    fold_rows: list[dict] = []
+    oof_rows: list[dict] = []
+    for index in sorted(ordered_results):
+        scores, folds, oof, cell_skips = ordered_results[index]
+        score_rows.extend(scores)
+        fold_rows.extend(folds)
+        oof_rows.extend(oof)
+        skipped.extend(cell_skips)
     return (
         pd.DataFrame(score_rows),
         pd.DataFrame(fold_rows),

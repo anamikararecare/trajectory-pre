@@ -16,11 +16,16 @@
 #   Q1_REQUIRE_BALANCED=1
 #   Q1_TURN_RANGES=00-25%,25-50%
 #   Q1_TARGETS=stance_score,stance_gap
+#   Q1_E1_N_JOBS=16
+#   Q1_E1_BLAS_THREADS_PER_JOB=2
 #   Q1_E3_FAMILIES=stance,expressed_vad
 #   Q1_NO_VAD=1
 #   Q1_NO_TEXT_EMBEDDINGS=1
 #   Q1_SKIP_CROSS_TEMPORAL=1
 #   Q1_CONDITION_SCOPES=overall,self_play,mixed_play
+#   Q1_WAIT_FOR_ANNOTATIONS=1
+#   Q1_WAIT_PID=12345
+#   Q1_EXPECTED_ANNOTATION_ROWS=2560
 set -Eeuo pipefail
 
 q1_repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -80,11 +85,16 @@ q1_condition_scopes="${Q1_CONDITION_SCOPES:-$q1_default_scopes}"
 q1_no_vad="${Q1_NO_VAD:-$q1_default_no_vad}"
 q1_no_text="${Q1_NO_TEXT_EMBEDDINGS:-$q1_default_no_text}"
 q1_skip_cross="${Q1_SKIP_CROSS_TEMPORAL:-0}"
+q1_e1_n_jobs="${Q1_E1_N_JOBS:-16}"
+q1_e1_blas_threads="${Q1_E1_BLAS_THREADS_PER_JOB:-2}"
+q1_wait_for_annotations="${Q1_WAIT_FOR_ANNOTATIONS:-0}"
+q1_wait_pid="${Q1_WAIT_PID:-}"
+q1_expected_annotation_rows="${Q1_EXPECTED_ANNOTATION_ROWS:-}"
 
 if [[ -n "${Q1_PYTHON_BIN:-}" ]]; then
   q1_python="$Q1_PYTHON_BIN"
-elif [[ "${CONDA_DEFAULT_ENV:-}" == "traj" ]] && command -v python >/dev/null 2>&1; then
-  q1_python="$(command -v python)"
+elif [[ "${CONDA_PREFIX##*/}" == "traj" && -x "${CONDA_PREFIX:-}/bin/python" ]]; then
+  q1_python="$CONDA_PREFIX/bin/python"
 elif [[ -x /mnt/kaliberai/aragu/miniconda3/envs/traj/bin/python ]]; then
   q1_python=/mnt/kaliberai/aragu/miniconda3/envs/traj/bin/python
 else
@@ -92,11 +102,50 @@ else
   echo "Activate it or set Q1_PYTHON_BIN=/absolute/path/to/python." >&2
   exit 2
 fi
+"$q1_python" -c 'import matplotlib, numpy, pandas, scipy, sklearn, threadpoolctl' || {
+  echo "The selected Python lacks required Q1 analysis packages: $q1_python" >&2
+  exit 2
+}
 
 [[ -d "$q1_run_dir" ]] || {
   echo "Q1 run directory does not exist: $q1_run_dir" >&2
   exit 2
 }
+if [[ "$q1_wait_for_annotations" == "1" ]]; then
+  [[ -n "$q1_annotations" ]] || {
+    echo "Q1_WAIT_FOR_ANNOTATIONS=1 requires Q1_ANNOTATIONS." >&2
+    exit 2
+  }
+  if [[ -n "$q1_expected_annotation_rows" ]] &&
+     ! [[ "$q1_expected_annotation_rows" =~ ^[0-9]+$ ]]; then
+    echo "Q1_EXPECTED_ANNOTATION_ROWS must be a non-negative integer." >&2
+    exit 2
+  fi
+  echo "Waiting for Q1 annotations: $q1_annotations"
+  while true; do
+    if [[ -n "$q1_wait_pid" ]] && kill -0 "$q1_wait_pid" 2>/dev/null; then
+      echo "Annotation PID $q1_wait_pid is still running ($(date -u +%Y-%m-%dT%H:%M:%SZ))."
+      sleep 30
+      continue
+    fi
+    if [[ -s "$q1_annotations" ]]; then
+      q1_annotation_rows=$(( $(wc -l < "$q1_annotations") - 1 ))
+      if [[ -z "$q1_expected_annotation_rows" ||
+            "$q1_annotation_rows" -eq "$q1_expected_annotation_rows" ]]; then
+        echo "Annotations ready: $q1_annotation_rows data rows."
+        break
+      fi
+      echo "Annotation output has $q1_annotation_rows rows; expected ${q1_expected_annotation_rows:-any positive count}." >&2
+    else
+      echo "Annotation output was not created or is empty." >&2
+    fi
+    if [[ -n "$q1_wait_pid" ]]; then
+      echo "Annotation PID $q1_wait_pid exited without producing the expected output; experiments will not run." >&2
+      exit 1
+    fi
+    sleep 30
+  done
+fi
 if [[ -n "$q1_annotations" && ! -s "$q1_annotations" ]]; then
   echo "Annotation file does not exist or is empty: $q1_annotations" >&2
   exit 2
@@ -152,6 +201,11 @@ if [[ "$q1_require_balanced" == "1" ]]; then
   q1_selection+=(--require-balanced)
 fi
 q1_status+=("${q1_selection[@]}")
+if ! [[ "$q1_e1_n_jobs" =~ ^[1-9][0-9]*$ ]] ||
+   ! [[ "$q1_e1_blas_threads" =~ ^[1-9][0-9]*$ ]]; then
+  echo "Q1_E1_N_JOBS and Q1_E1_BLAS_THREADS_PER_JOB must be positive integers." >&2
+  exit 2
+fi
 q1_speed=()
 if [[ "$q1_no_vad" == "1" ]]; then
   q1_speed+=(--no-vad)
@@ -184,6 +238,8 @@ if [[ ",$q1_experiments," == *,e1,* ]]; then
   echo "[E1] Layerwise encoding"
   q1_e1=(
     "${q1_common[@]}" "${q1_selection[@]}" "${q1_speed[@]}"
+    --n-jobs "$q1_e1_n_jobs"
+    --blas-threads-per-job "$q1_e1_blas_threads"
     --out-dir "$q1_out_root/e1"
   )
   if [[ -n "$q1_targets" ]]; then
@@ -196,7 +252,7 @@ if [[ ",$q1_experiments," == *,e2,* ]]; then
   echo
   echo "[E2] Temporal manifestation"
   q1_e2=(
-    "${q1_common[@]}"
+    "${q1_common[@]}" "${q1_selection[@]}"
     "${q1_speed[@]}"
     --condition-scopes "$q1_condition_scopes"
     --bootstrap-samples "$q1_bootstrap"
@@ -214,7 +270,7 @@ fi
 if [[ ",$q1_experiments," == *,e3,* ]]; then
   echo
   echo "[E3] Variable-family activation subspaces"
-  q1_e3=("${q1_common[@]}" "${q1_speed[@]}" --out-dir "$q1_out_root/e3")
+  q1_e3=("${q1_common[@]}" "${q1_selection[@]}" "${q1_speed[@]}" --out-dir "$q1_out_root/e3")
   if [[ -n "$q1_e3_families" ]]; then
     q1_e3+=(--families "$q1_e3_families")
   fi

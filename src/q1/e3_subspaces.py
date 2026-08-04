@@ -18,10 +18,12 @@ Raw activation spaces are never combined across models.
 from __future__ import annotations
 
 import re
+import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from itertools import combinations
 from pathlib import Path
-from typing import Mapping, Sequence
+from typing import Callable, Mapping, Sequence
 
 import numpy as np
 import pandas as pd
@@ -30,6 +32,7 @@ from scipy.stats import pearsonr
 from sklearn.linear_model import Ridge
 from sklearn.model_selection import LeaveOneGroupOut
 from sklearn.preprocessing import StandardScaler
+from threadpoolctl import threadpool_limits
 
 from src.q1.e1_layerwise import _baseline_design, _fold_impute, _is_vector
 
@@ -51,6 +54,10 @@ E3_VARIABLE_FAMILIES: dict[str, tuple[str, ...]] = {
     "personality": (
         "perceived_persona_warmth_trailing3",
         "perceived_persona_dominance_trailing3",
+        "perceived_persona_curiosity_trailing3",
+        "perceived_persona_structure_trailing3",
+        "perceived_persona_stability_trailing3",
+        "perceived_persona_deference_trailing3",
         "perceived_persona_humility_trailing3",
     ),
     "expressed_vad": (
@@ -199,14 +206,26 @@ def _standardize_targets(
     return (values[train] - mean) / scale, (values[test] - mean) / scale
 
 
-def _fit_fold(
-    prepared: PreparedFamily,
-    train: np.ndarray,
-    test: np.ndarray,
-    rank: int,
-    activation_alpha: float,
-    baseline_alpha: float = E3_BASELINE_ALPHA,
-) -> FoldPrediction:
+@dataclass(frozen=True)
+class FoldData:
+    observed_residual: np.ndarray
+    activation_train: np.ndarray
+    activation_test: np.ndarray
+    train_residual: np.ndarray
+
+
+@dataclass(frozen=True)
+class FoldCore:
+    observed_residual: np.ndarray
+    raw_prediction: np.ndarray
+    prediction_center: np.ndarray
+    right_vectors: np.ndarray
+    coefficient: np.ndarray
+
+
+def _prepare_fold_data(
+    prepared: PreparedFamily, train: np.ndarray, test: np.ndarray
+) -> FoldData:
     baseline_train, baseline_test = _scale_matrix(
         prepared.baseline, train, test
     )
@@ -216,73 +235,91 @@ def _fit_fold(
     target_train, target_test = _standardize_targets(
         prepared.target, train, test
     )
-    baseline_model = Ridge(alpha=baseline_alpha).fit(
+    baseline_model = Ridge(alpha=E3_BASELINE_ALPHA).fit(
         baseline_train, target_train
     )
     train_residual = target_train - baseline_model.predict(baseline_train)
-    test_residual = target_test - baseline_model.predict(baseline_test)
+    return FoldData(
+        observed_residual=target_test - baseline_model.predict(baseline_test),
+        activation_train=activation_train,
+        activation_test=activation_test,
+        train_residual=train_residual,
+    )
 
+
+def _fit_fold_core(data: FoldData, activation_alpha: float) -> FoldCore:
     activation_model = Ridge(alpha=activation_alpha).fit(
-        activation_train, train_residual
+        data.activation_train, data.train_residual
     )
-    train_prediction = activation_model.predict(activation_train)
-    test_prediction = activation_model.predict(activation_test)
-    prediction_center = train_prediction.mean(axis=0, keepdims=True)
-    centered_train_prediction = train_prediction - prediction_center
+    train_prediction = activation_model.predict(data.activation_train)
+    raw_prediction = activation_model.predict(data.activation_test)
+    center = train_prediction.mean(axis=0, keepdims=True)
     _, _, right = np.linalg.svd(
-        centered_train_prediction, full_matrices=False
+        train_prediction - center, full_matrices=False
     )
+    return FoldCore(
+        observed_residual=data.observed_residual,
+        raw_prediction=raw_prediction,
+        prediction_center=center,
+        right_vectors=right,
+        coefficient=activation_model.coef_.T,
+    )
+
+
+def _project_fold(core: FoldCore, rank: int) -> FoldPrediction:
     effective_rank = min(
-        int(rank),
-        right.shape[0],
-        prepared.target.shape[1],
+        int(rank), core.right_vectors.shape[0], core.raw_prediction.shape[1]
     )
-    target_basis = right[:effective_rank].T
-    reduced_prediction = prediction_center + (
-        (test_prediction - prediction_center)
+    target_basis = core.right_vectors[:effective_rank].T
+    reduced = core.prediction_center + (
+        (core.raw_prediction - core.prediction_center)
         @ target_basis
         @ target_basis.T
     )
-    coefficient = activation_model.coef_.T
-    raw_activation_basis = coefficient @ target_basis
-    if raw_activation_basis.size:
-        activation_basis, _ = np.linalg.qr(raw_activation_basis)
+    raw_basis = core.coefficient @ target_basis
+    if raw_basis.size:
+        activation_basis, _ = np.linalg.qr(raw_basis)
         activation_basis = activation_basis[:, :effective_rank]
     else:
-        activation_basis = np.empty(
-            (prepared.activation.shape[1], 0), dtype=float
-        )
+        activation_basis = np.empty((core.coefficient.shape[0], 0))
     return FoldPrediction(
-        observed_residual=test_residual,
-        predicted_residual=reduced_prediction,
+        observed_residual=core.observed_residual,
+        predicted_residual=reduced,
         activation_basis=activation_basis,
         effective_rank=effective_rank,
     )
 
 
-def _target_pearsons(
-    observed: np.ndarray,
-    predicted: np.ndarray,
-) -> np.ndarray:
+def _fit_fold(
+    prepared: PreparedFamily,
+    train: np.ndarray,
+    test: np.ndarray,
+    rank: int,
+    activation_alpha: float,
+    baseline_alpha: float = E3_BASELINE_ALPHA,
+) -> FoldPrediction:
+    if baseline_alpha != E3_BASELINE_ALPHA:
+        raise ValueError("E3 baseline alpha must match E3_BASELINE_ALPHA")
+    return _project_fold(
+        _fit_fold_core(_prepare_fold_data(prepared, train, test), activation_alpha),
+        rank,
+    )
+
+
+def _target_pearsons(observed: np.ndarray, predicted: np.ndarray) -> np.ndarray:
     correlations = np.full(observed.shape[1], np.nan)
     for target in range(observed.shape[1]):
-        x = observed[:, target]
-        y = predicted[:, target]
+        x, y = observed[:, target], predicted[:, target]
         valid = np.isfinite(x) & np.isfinite(y)
-        if valid.sum() < 3 or np.unique(x[valid]).size < 2:
-            continue
-        correlations[target] = float(pearsonr(x[valid], y[valid]).statistic)
+        if valid.sum() >= 3 and np.unique(x[valid]).size >= 2:
+            correlations[target] = float(pearsonr(x[valid], y[valid]).statistic)
     return correlations
 
 
-def _target_r2(
-    observed: np.ndarray,
-    predicted: np.ndarray,
-) -> np.ndarray:
+def _target_r2(observed: np.ndarray, predicted: np.ndarray) -> np.ndarray:
     values = np.full(observed.shape[1], np.nan)
     for target in range(observed.shape[1]):
-        x = observed[:, target]
-        y = predicted[:, target]
+        x, y = observed[:, target], predicted[:, target]
         valid = np.isfinite(x) & np.isfinite(y)
         if valid.sum() < 2:
             continue
@@ -302,41 +339,116 @@ def _median_finite(values: np.ndarray) -> float:
     return float(np.median(finite)) if finite.size else np.nan
 
 
-def _inner_alpha(
+def _inner_alphas(
     prepared: PreparedFamily,
     outer_train: np.ndarray,
-    rank: int,
+    ranks: Sequence[int],
     alphas: Sequence[float],
-) -> float:
+) -> dict[int, float]:
     local_groups = prepared.groups[outer_train]
     if np.unique(local_groups).size < 3:
-        return float(alphas[len(alphas) // 2])
-    scored = []
-    for alpha in alphas:
-        observed = np.full(
-            (len(outer_train), prepared.target.shape[1]), np.nan
-        )
-        predicted = np.full_like(observed, np.nan)
-        for inner_train_local, inner_test_local in LeaveOneGroupOut().split(
-            outer_train, groups=local_groups
-        ):
-            inner_train = outer_train[inner_train_local]
-            inner_test = outer_train[inner_test_local]
-            result = _fit_fold(
-                prepared,
-                inner_train,
-                inner_test,
-                rank=rank,
-                activation_alpha=float(alpha),
+        middle = float(alphas[len(alphas) // 2])
+        return {rank: middle for rank in ranks}
+    observed = np.full(
+        (len(outer_train), prepared.target.shape[1]), np.nan
+    )
+    predicted = {
+        (rank, float(alpha)): np.full_like(observed, np.nan)
+        for rank in ranks for alpha in alphas
+    }
+    for inner_train_local, inner_test_local in LeaveOneGroupOut().split(
+        outer_train, groups=local_groups
+    ):
+        inner_train = outer_train[inner_train_local]
+        inner_test = outer_train[inner_test_local]
+        data = _prepare_fold_data(prepared, inner_train, inner_test)
+        observed[inner_test_local] = data.observed_residual
+        for alpha in alphas:
+            core = _fit_fold_core(data, float(alpha))
+            for rank in ranks:
+                predicted[(rank, float(alpha))][inner_test_local] = (
+                    _project_fold(core, rank).predicted_residual
+                )
+    selected = {}
+    for rank in ranks:
+        scored = [
+            (
+                _mean_finite(
+                    _target_pearsons(observed, predicted[(rank, float(alpha))])
+                ),
+                float(alpha),
             )
-            observed[inner_test_local] = result.observed_residual
-            predicted[inner_test_local] = result.predicted_residual
-        score = _mean_finite(_target_pearsons(observed, predicted))
-        scored.append((score, float(alpha)))
-    finite = [item for item in scored if np.isfinite(item[0])]
-    if not finite:
-        return float(alphas[len(alphas) // 2])
-    return max(finite, key=lambda item: (item[0], -item[1]))[1]
+            for alpha in alphas
+        ]
+        finite = [item for item in scored if np.isfinite(item[0])]
+        selected[rank] = (
+            max(finite, key=lambda item: (item[0], -item[1]))[1]
+            if finite else float(alphas[len(alphas) // 2])
+        )
+    return selected
+
+
+def evaluate_ranks(
+    prepared: PreparedFamily,
+    ranks: Sequence[int],
+    alphas: Sequence[float] = E3_RIDGE_ALPHAS,
+) -> dict[int, tuple[dict, list[dict], list[dict], np.ndarray, np.ndarray]]:
+    chosen = tuple(dict.fromkeys(int(rank) for rank in ranks))
+    observed = {
+        rank: np.full_like(prepared.target, np.nan, dtype=float)
+        for rank in chosen
+    }
+    predicted = {rank: np.full_like(value, np.nan) for rank, value in observed.items()}
+    fold_rows = {rank: [] for rank in chosen}
+    for train, test in LeaveOneGroupOut().split(
+        prepared.activation, groups=prepared.groups
+    ):
+        selected = _inner_alphas(prepared, train, chosen, alphas)
+        data = _prepare_fold_data(prepared, train, test)
+        cores = {
+            alpha: _fit_fold_core(data, alpha)
+            for alpha in set(selected.values())
+        }
+        for rank in chosen:
+            result = _project_fold(cores[selected[rank]], rank)
+            observed[rank][test] = result.observed_residual
+            predicted[rank][test] = result.predicted_residual
+            correlations = _target_pearsons(
+                result.observed_residual, result.predicted_residual
+            )
+            fold_rows[rank].append(
+                {
+                    "held_out_group": str(prepared.groups[test][0]),
+                    "n_train": int(len(train)),
+                    "n_test": int(len(test)),
+                    "selected_alpha": selected[rank],
+                    "effective_rank": result.effective_rank,
+                    "mean_target_pearson": _mean_finite(correlations),
+                    "mean_target_r2": _mean_finite(
+                        _target_r2(result.observed_residual, result.predicted_residual)
+                    ),
+                }
+            )
+    results = {}
+    for rank in chosen:
+        correlations = _target_pearsons(observed[rank], predicted[rank])
+        r2_values = _target_r2(observed[rank], predicted[rank])
+        target_rows = [
+            {"target": target, "pearson": correlations[index], "r2": r2_values[index]}
+            for index, target in enumerate(prepared.target_names)
+        ]
+        summary = {
+            "mean_target_pearson": _mean_finite(correlations),
+            "median_target_pearson": _median_finite(correlations),
+            "mean_target_r2": _mean_finite(r2_values),
+            "n_targets": len(prepared.target_names),
+            "targets": "|".join(prepared.target_names),
+        }
+        results[rank] = (
+            summary, fold_rows[rank], target_rows,
+            observed[rank], predicted[rank],
+        )
+    return results
 
 
 def evaluate_rank(
@@ -344,60 +456,7 @@ def evaluate_rank(
     rank: int,
     alphas: Sequence[float] = E3_RIDGE_ALPHAS,
 ) -> tuple[dict, list[dict], list[dict], np.ndarray, np.ndarray]:
-    observed = np.full_like(prepared.target, np.nan, dtype=float)
-    predicted = np.full_like(prepared.target, np.nan, dtype=float)
-    fold_rows = []
-    for train, test in LeaveOneGroupOut().split(
-        prepared.activation,
-        groups=prepared.groups,
-    ):
-        alpha = _inner_alpha(prepared, train, rank, alphas)
-        result = _fit_fold(
-            prepared,
-            train,
-            test,
-            rank=rank,
-            activation_alpha=alpha,
-        )
-        observed[test] = result.observed_residual
-        predicted[test] = result.predicted_residual
-        fold_correlations = _target_pearsons(
-            result.observed_residual, result.predicted_residual
-        )
-        fold_rows.append(
-            {
-                "held_out_group": str(prepared.groups[test][0]),
-                "n_train": int(len(train)),
-                "n_test": int(len(test)),
-                "selected_alpha": alpha,
-                "effective_rank": result.effective_rank,
-                "mean_target_pearson": _mean_finite(fold_correlations),
-                "mean_target_r2": _mean_finite(
-                    _target_r2(
-                        result.observed_residual,
-                        result.predicted_residual,
-                    )
-                ),
-            }
-        )
-    correlations = _target_pearsons(observed, predicted)
-    r2_values = _target_r2(observed, predicted)
-    target_rows = [
-        {
-            "target": target,
-            "pearson": correlations[index],
-            "r2": r2_values[index],
-        }
-        for index, target in enumerate(prepared.target_names)
-    ]
-    summary = {
-        "mean_target_pearson": _mean_finite(correlations),
-        "median_target_pearson": _median_finite(correlations),
-        "mean_target_r2": _mean_finite(r2_values),
-        "n_targets": len(prepared.target_names),
-        "targets": "|".join(prepared.target_names),
-    }
-    return summary, fold_rows, target_rows, observed, predicted
+    return evaluate_ranks(prepared, [rank], alphas)[int(rank)]
 
 
 def select_ranks(rank_scores: pd.DataFrame) -> pd.DataFrame:
@@ -632,6 +691,111 @@ def _prepare_cross_turn(
     return prepared, source, destination
 
 
+def _cross_turn_cell(
+    frame: pd.DataFrame,
+    model: str,
+    layer: int,
+    family: str,
+    requested_targets: Sequence[str],
+    turn_ranges: Sequence[str],
+    group_column: str,
+    transfer_rank: int,
+    activation_alpha: float,
+) -> list[dict]:
+    activation_column = f"layer_{layer}"
+    targets = _available_family_targets(frame, requested_targets)
+    if len(targets) < 2 or activation_column not in frame:
+        return []
+    mask = (
+        frame["model"].eq(model)
+        & frame["turn_range"].isin(turn_ranges)
+        & frame[activation_column].map(_is_vector)
+    )
+    numeric = frame.loc[mask, list(targets)].apply(
+        pd.to_numeric, errors="coerce"
+    )
+    complete = numeric.notna().all(axis=1)
+    selected = frame.loc[numeric.index[complete]].copy()
+    if len(selected) < 12 or selected[group_column].nunique() < 3:
+        return []
+    target = selected[list(targets)].apply(
+        pd.to_numeric, errors="raise"
+    ).to_numpy(float)
+    varying = np.std(target, axis=0) > 0
+    targets = tuple(np.asarray(targets)[varying])
+    target = target[:, varying]
+    if len(targets) < 2:
+        return []
+    prepared = PreparedFamily(
+        baseline=_baseline_design(selected, "__e3_family__"),
+        activation=np.stack(selected[activation_column].to_numpy()),
+        target=target,
+        groups=selected[group_column].to_numpy(),
+        frame=selected,
+        target_names=targets,
+    )
+    rank = min(transfer_rank, len(targets))
+    pairs = {
+        (source, destination): {
+            "observed": np.full_like(target, np.nan),
+            "predicted": np.full_like(target, np.nan),
+            "topics": 0,
+        }
+        for source in turn_ranges for destination in turn_ranges
+    }
+    groups = prepared.groups
+    for source in turn_ranges:
+        source_mask = selected["turn_range"].eq(source).to_numpy()
+        for held_out in np.unique(groups):
+            train = np.flatnonzero(source_mask & (groups != held_out))
+            test_all = np.flatnonzero(groups == held_out)
+            if (
+                len(train) < 8 or len(test_all) < 2
+                or np.unique(groups[train]).size < 2
+            ):
+                continue
+            data = _prepare_fold_data(prepared, train, test_all)
+            result = _project_fold(
+                _fit_fold_core(data, activation_alpha), rank
+            )
+            held_ranges = selected.iloc[test_all]["turn_range"].to_numpy()
+            for destination in turn_ranges:
+                local = held_ranges == destination
+                if local.sum() < 2:
+                    continue
+                test = test_all[local]
+                pair = pairs[(source, destination)]
+                pair["observed"][test] = result.observed_residual[local]
+                pair["predicted"][test] = result.predicted_residual[local]
+                pair["topics"] += 1
+    rows = []
+    for (source, destination), pair in pairs.items():
+        valid = np.isfinite(pair["predicted"]).all(axis=1)
+        if valid.sum() < 3:
+            continue
+        correlations = _target_pearsons(
+            pair["observed"][valid], pair["predicted"][valid]
+        )
+        rows.append(
+            {
+                "model": model,
+                "family": family,
+                "layer": int(layer),
+                "source_turn_range": source,
+                "destination_turn_range": destination,
+                "rank": rank,
+                "activation_alpha": activation_alpha,
+                "mean_target_pearson": _mean_finite(correlations),
+                "median_target_pearson": _median_finite(correlations),
+                "n_targets": len(targets),
+                "targets": "|".join(targets),
+                "n_test": int(valid.sum()),
+                "n_topics": int(pair["topics"]),
+            }
+        )
+    return rows
+
+
 def cross_turn_transfer(
     frame: pd.DataFrame,
     families: Mapping[str, Sequence[str]],
@@ -641,78 +805,49 @@ def cross_turn_transfer(
     group_column: str = "topic_id",
     transfer_rank: int = 2,
     activation_alpha: float = E3_TRANSFER_ALPHA,
+    n_jobs: int = 4,
+    progress: Callable[..., None] | None = None,
 ) -> pd.DataFrame:
-    rows = []
-    for model in models:
-        for layer in layers_by_model.get(model, ()):
-            for family, targets in families.items():
-                for source_range in turn_ranges:
-                    for destination_range in turn_ranges:
-                        prepared_cross = _prepare_cross_turn(
-                            frame,
-                            model,
-                            targets,
-                            int(layer),
-                            source_range,
-                            destination_range,
-                            group_column,
-                        )
-                        if prepared_cross is None:
-                            continue
-                        prepared, source, destination = prepared_cross
-                        rank = min(transfer_rank, len(prepared.target_names))
-                        observed = np.full_like(prepared.target, np.nan)
-                        predicted = np.full_like(prepared.target, np.nan)
-                        evaluated_topics = 0
-                        for held_out in np.unique(prepared.groups):
-                            train = np.flatnonzero(
-                                source & (prepared.groups != held_out)
-                            )
-                            test = np.flatnonzero(
-                                destination & (prepared.groups == held_out)
-                            )
-                            if (
-                                len(train) < 8
-                                or len(test) < 2
-                                or np.unique(prepared.groups[train]).size < 2
-                            ):
-                                continue
-                            result = _fit_fold(
-                                prepared,
-                                train,
-                                test,
-                                rank=rank,
-                                activation_alpha=activation_alpha,
-                            )
-                            observed[test] = result.observed_residual
-                            predicted[test] = result.predicted_residual
-                            evaluated_topics += 1
-                        valid_rows = np.isfinite(predicted).all(axis=1)
-                        if valid_rows.sum() < 3:
-                            continue
-                        correlations = _target_pearsons(
-                            observed[valid_rows], predicted[valid_rows]
-                        )
-                        rows.append(
-                            {
-                                "model": model,
-                                "family": family,
-                                "layer": int(layer),
-                                "source_turn_range": source_range,
-                                "destination_turn_range": destination_range,
-                                "rank": rank,
-                                "activation_alpha": activation_alpha,
-                                "mean_target_pearson": _mean_finite(
-                                    correlations
-                                ),
-                                "median_target_pearson": _median_finite(
-                                    correlations
-                                ),
-                                "n_targets": len(prepared.target_names),
-                                "targets": "|".join(prepared.target_names),
-                                "n_test": int(valid_rows.sum()),
-                                "n_topics": evaluated_topics,
-                            }
+    tasks = [
+        (model, int(layer), family, targets)
+        for model in models
+        for layer in layers_by_model.get(model, ())
+        for family, targets in families.items()
+    ]
+    workers = max(1, min(int(n_jobs), len(tasks) or 1))
+    rows: list[dict] = []
+    completed = 0
+
+    def compute(task):
+        model, layer, family, targets = task
+        return _cross_turn_cell(
+            frame, model, layer, family, targets, turn_ranges,
+            group_column, transfer_rank, activation_alpha,
+        )
+
+    if workers == 1:
+        results = ((task, compute(task)) for task in tasks)
+        for task, cell_rows in results:
+            rows.extend(cell_rows)
+            completed += 1
+            if progress is not None:
+                progress(
+                    "e3_cross_turn", completed, len(tasks),
+                    model=task[0], layer=task[1], family=task[2],
+                )
+    else:
+        threads_per_worker = max(1, (os.cpu_count() or 1) // workers)
+        with threadpool_limits(limits=threads_per_worker):
+            with ThreadPoolExecutor(max_workers=workers) as executor:
+                futures = {executor.submit(compute, task): task for task in tasks}
+                for future in as_completed(futures):
+                    task = futures[future]
+                    rows.extend(future.result())
+                    completed += 1
+                    if progress is not None:
+                        progress(
+                            "e3_cross_turn", completed, len(tasks),
+                            model=task[0], layer=task[1], family=task[2],
                         )
     return pd.DataFrame(rows)
 
@@ -728,6 +863,8 @@ def run_e3(
     alphas: Sequence[float] = E3_RIDGE_ALPHAS,
     transfer_rank: int = 2,
     run_cross_turn: bool = True,
+    n_jobs: int = 4,
+    progress: Callable[..., None] | None = None,
 ) -> E3Results:
     chosen_models = (
         list(models)
@@ -747,106 +884,122 @@ def run_e3(
         ]
         for model in chosen_models
     }
-    rank_rows = []
-    fold_rows = []
-    target_rows = []
-    skipped = []
+    rank_rows, fold_rows, target_rows, skipped = [], [], [], []
+    tasks = []
     for model in chosen_models:
         if not layers_by_model[model]:
             skipped.append(
                 {
-                    "stage": "rank_curve",
-                    "model": model,
-                    "family": None,
-                    "turn_range": None,
-                    "layer": None,
+                    "stage": "rank_curve", "model": model,
+                    "family": None, "turn_range": None, "layer": None,
                     "reason": "no selected activation layers",
                 }
             )
             continue
         for family, family_targets in families.items():
-            available = _available_family_targets(frame, family_targets)
-            if len(available) < 2:
+            if len(_available_family_targets(frame, family_targets)) < 2:
                 skipped.append(
                     {
-                        "stage": "rank_curve",
-                        "model": model,
-                        "family": family,
-                        "turn_range": None,
-                        "layer": None,
+                        "stage": "rank_curve", "model": model,
+                        "family": family, "turn_range": None, "layer": None,
                         "reason": "fewer than two family variables available",
                     }
                 )
                 continue
-            for turn_range in chosen_ranges:
-                for layer in layers_by_model[model]:
-                    prepared = prepare_family(
-                        frame,
-                        model,
-                        family_targets,
-                        layer,
-                        turn_range,
-                        group_column,
+            tasks.extend(
+                (model, family, family_targets, turn_range, int(layer))
+                for turn_range in chosen_ranges
+                for layer in layers_by_model[model]
+            )
+
+    def compute_rank_cell(task):
+        model, family, family_targets, turn_range, layer = task
+        prepared = prepare_family(
+            frame, model, family_targets, layer, turn_range, group_column
+        )
+        if prepared is None:
+            return [], [], [], {
+                "stage": "rank_curve", "model": model, "family": family,
+                "turn_range": turn_range, "layer": layer,
+                "reason": (
+                    "insufficient complete rows, topics, or varying targets"
+                ),
+            }
+        identity = {
+            "experiment": "E3", "model": model, "family": family,
+            "turn_range": turn_range, "layer": layer,
+            "n": len(prepared.frame),
+            "n_conversations": prepared.frame["conv_id"].nunique(),
+            "n_topics": prepared.frame[group_column].nunique(),
+            "cv_group": group_column,
+            "target_space": "baseline_residual_standardized",
+            "activation_pooling": "generated_response_token_mean",
+        }
+        chosen_ranks = candidate_ranks(ranks, len(prepared.target_names))
+        evaluated = evaluate_ranks(prepared, chosen_ranks, alphas)
+        cell_ranks, cell_folds, cell_targets = [], [], []
+        for rank in chosen_ranks:
+            summary, folds_for_rank, targets_for_rank, _, _ = evaluated[rank]
+            cell_ranks.append({**identity, "rank": rank, **summary})
+            cell_folds.extend(
+                {**identity, "rank": rank, **fold}
+                for fold in folds_for_rank
+            )
+            cell_targets.extend(
+                {**identity, "rank": rank, **target}
+                for target in targets_for_rank
+            )
+        return cell_ranks, cell_folds, cell_targets, None
+
+    workers = max(1, min(int(n_jobs), len(tasks) or 1))
+    completed = 0
+    if workers == 1:
+        result_stream = ((task, compute_rank_cell(task)) for task in tasks)
+        for task, result in result_stream:
+            cell_ranks, cell_folds, cell_targets, cell_skip = result
+            rank_rows.extend(cell_ranks)
+            fold_rows.extend(cell_folds)
+            target_rows.extend(cell_targets)
+            if cell_skip is not None:
+                skipped.append(cell_skip)
+            completed += 1
+            if progress is not None:
+                progress(
+                    "e3_rank_cells", completed, len(tasks),
+                    model=task[0], family=task[1],
+                    turn_range=task[3], layer=task[4],
+                )
+    else:
+        threads_per_worker = max(1, (os.cpu_count() or 1) // workers)
+        with threadpool_limits(limits=threads_per_worker):
+            with ThreadPoolExecutor(max_workers=workers) as executor:
+                futures = {
+                    executor.submit(compute_rank_cell, task): task
+                    for task in tasks
+                }
+                for future in as_completed(futures):
+                    task = futures[future]
+                    cell_ranks, cell_folds, cell_targets, cell_skip = (
+                        future.result()
                     )
-                    if prepared is None:
-                        skipped.append(
-                            {
-                                "stage": "rank_curve",
-                                "model": model,
-                                "family": family,
-                                "turn_range": turn_range,
-                                "layer": layer,
-                                "reason": (
-                                    "insufficient complete rows, topics, or "
-                                    "varying targets"
-                                ),
-                            }
-                        )
-                        continue
-                    identity = {
-                        "experiment": "E3",
-                        "model": model,
-                        "family": family,
-                        "turn_range": turn_range,
-                        "layer": layer,
-                        "n": len(prepared.frame),
-                        "n_conversations": prepared.frame[
-                            "conv_id"
-                        ].nunique(),
-                        "n_topics": prepared.frame[
-                            group_column
-                        ].nunique(),
-                        "cv_group": group_column,
-                        "target_space": "baseline_residual_standardized",
-                        "activation_pooling": (
-                            "generated_response_token_mean"
-                        ),
-                    }
-                    for rank in candidate_ranks(
-                        ranks, len(prepared.target_names)
-                    ):
-                        (
-                            summary,
-                            folds,
-                            targets,
-                            _,
-                            _,
-                        ) = evaluate_rank(prepared, rank, alphas)
-                        rank_rows.append(
-                            {**identity, "rank": rank, **summary}
-                        )
-                        fold_rows.extend(
-                            {**identity, "rank": rank, **fold}
-                            for fold in folds
-                        )
-                        target_rows.extend(
-                            {**identity, "rank": rank, **target}
-                            for target in targets
+                    rank_rows.extend(cell_ranks)
+                    fold_rows.extend(cell_folds)
+                    target_rows.extend(cell_targets)
+                    if cell_skip is not None:
+                        skipped.append(cell_skip)
+                    completed += 1
+                    if progress is not None:
+                        progress(
+                            "e3_rank_cells", completed, len(tasks),
+                            model=task[0], family=task[1],
+                            turn_range=task[3], layer=task[4],
                         )
     rank_scores = pd.DataFrame(rank_rows)
     folds = pd.DataFrame(fold_rows)
     target_scores = pd.DataFrame(target_rows)
     selections = select_ranks(rank_scores)
+    if progress is not None:
+        progress("e3_bases", 0, len(selections), status="started")
     bases, manifest, basis_skips = estimate_selected_bases(
         frame,
         selections,
@@ -855,6 +1008,10 @@ def run_e3(
         group_column,
     )
     skipped.extend(basis_skips)
+    if progress is not None:
+        progress(
+            "e3_bases", len(selections), len(selections), status="complete"
+        )
     overlap = subspace_overlap(bases, manifest)
     cross_turn = (
         cross_turn_transfer(
@@ -865,6 +1022,8 @@ def run_e3(
             chosen_ranges,
             group_column=group_column,
             transfer_rank=transfer_rank,
+            n_jobs=n_jobs,
+            progress=progress,
         )
         if run_cross_turn
         else pd.DataFrame()

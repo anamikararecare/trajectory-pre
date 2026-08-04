@@ -28,10 +28,15 @@ def e3_command(args: argparse.Namespace) -> None:
 
     from src.q1.corpus import (
         corpus_inventory,
+        filter_q1_dataset,
         load_q1_dataset,
         parse_turn_range_edges,
+        validate_factorial_balance,
     )
-    from src.q1.e1_layerwise import add_response_text_embeddings
+    from src.q1.e1_layerwise import (
+        add_response_text_embeddings,
+        default_embedding_cache_path,
+    )
     from src.q1.e3_subspaces import (
         E3_DEFAULT_RANKS,
         E3_RIDGE_ALPHAS,
@@ -39,12 +44,17 @@ def e3_command(args: argparse.Namespace) -> None:
         run_e3,
         save_e3_results,
     )
+    from src.q1.progress import ProgressReporter
     from src.q1.text_vad import (
         VAD_COLUMNS,
         add_text_vad_scores,
         default_vad_cache_path,
     )
 
+    output = Path(args.out_dir)
+    output.mkdir(parents=True, exist_ok=True)
+    reporter = ProgressReporter(args.progress_log or output / "e3_progress.jsonl")
+    reporter.event("e3_load", status="started")
     requested_families = _csv(args.families)
     if requested_families:
         unknown = sorted(set(requested_families) - E3_VARIABLE_FAMILIES.keys())
@@ -63,6 +73,33 @@ def e3_command(args: argparse.Namespace) -> None:
         turn_range_edges=parse_turn_range_edges(args.turn_range_edges),
         require_complete=args.require_complete,
     )
+    selected_pairs = _csv(args.conversation_pairs)
+    selected_topics = _csv(args.topics)
+    selected_role_orders = _csv(args.role_orders)
+    selected_conditions = _csv(args.conditions)
+    frame = filter_q1_dataset(
+        frame,
+        conversation_pairs=selected_pairs,
+        topics=selected_topics,
+        role_orders=selected_role_orders,
+        conditions=selected_conditions,
+    )
+    if frame.empty:
+        raise ValueError("No Q1 rows match the requested E3 selection.")
+    if args.require_balanced:
+        validate_factorial_balance(
+            frame,
+            expected_levels={
+                key: values
+                for key, values in {
+                    "conversation_pair": selected_pairs,
+                    "topic_id": selected_topics,
+                    "role_order": selected_role_orders,
+                }.items()
+                if values
+            },
+        )
+    selected_conversations = set(frame["conv_id"].astype(str))
     models = _csv(args.models)
     turn_ranges = _csv(args.turn_ranges)
     if models:
@@ -84,7 +121,13 @@ def e3_command(args: argparse.Namespace) -> None:
             device=args.vad_device,
         )
     if not args.no_text_embeddings:
-        frame = add_response_text_embeddings(frame, args.embedding_model)
+        embedding_cache = args.embedding_cache or default_embedding_cache_path(
+            args.run_dir, args.embedding_model
+        )
+        frame = add_response_text_embeddings(
+            frame, args.embedding_model, cache_path=embedding_cache
+        )
+    reporter.event("e3_load", status="complete", rows=len(frame))
 
     results = run_e3(
         frame,
@@ -97,8 +140,9 @@ def e3_command(args: argparse.Namespace) -> None:
         alphas=_floats(args.alphas) or E3_RIDGE_ALPHAS,
         transfer_rank=args.transfer_rank,
         run_cross_turn=not args.skip_cross_turn,
+        n_jobs=args.n_jobs,
+        progress=reporter.event,
     )
-    output = Path(args.out_dir)
     save_e3_results(results, output)
     pd.DataFrame(
         [
@@ -107,12 +151,18 @@ def e3_command(args: argparse.Namespace) -> None:
             for variable in variables
         ]
     ).to_csv(output / "e3_variable_families.csv", index=False)
-    corpus_inventory(args.run_dir).to_csv(
-        output / "e3_corpus_inventory.csv", index=False
+    inventory = corpus_inventory(args.run_dir)
+    inventory["selected"] = inventory["conv_id"].astype(str).isin(
+        selected_conversations
     )
+    inventory.to_csv(output / "e3_corpus_inventory.csv", index=False)
     (
         frame.groupby(
-            ["model", "turn_range", "topic_id", "condition"], dropna=False
+            [
+                "model", "turn_range", "topic_id", "condition",
+                "conversation_pair", "role_order",
+            ],
+            dropna=False,
         )
         .size()
         .rename("n_turns")
@@ -154,7 +204,21 @@ def add_e3_parser(subparsers: argparse._SubParsersAction) -> None:
     e3.add_argument("--annotations")
     e3.add_argument("--geometry-turns")
     e3.add_argument("--out-dir", default="results/q1/e3")
+    e3.add_argument("--n-jobs", type=int, default=4)
+    e3.add_argument("--progress-log")
     e3.add_argument("--models", help="Comma-separated model registry keys")
+    e3.add_argument("--conversation-pairs")
+    e3.add_argument("--topics")
+    e3.add_argument("--role-orders")
+    e3.add_argument("--conditions")
+    e3.add_argument(
+        "--require-balanced",
+        action="store_true",
+        help=(
+            "Require equal conversation counts across every selected "
+            "pair × topic × role-order cell"
+        ),
+    )
     e3.add_argument(
         "--families",
         help="Comma-separated families: stance, agreement_conflict, personality, expressed_vad",
@@ -191,6 +255,7 @@ def add_e3_parser(subparsers: argparse._SubParsersAction) -> None:
     e3.add_argument("--vad-device")
     e3.add_argument("--no-vad", action="store_true")
     e3.add_argument("--embedding-model", default="all-MiniLM-L6-v2")
+    e3.add_argument("--embedding-cache")
     e3.add_argument("--no-text-embeddings", action="store_true")
     e3.add_argument("--require-complete", action="store_true")
     e3.set_defaults(function=e3_command)
